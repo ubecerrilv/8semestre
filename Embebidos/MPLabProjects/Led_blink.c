@@ -6,16 +6,16 @@
  */
 
 // CONFIG1H
-#pragma config FOSC = HS        // Oscillator Selection bits (HS oscillator (HS))
+#pragma config FOSC = HSHP        // Oscillator Selection bits (HS oscillator (HS))
 
 // CONFIG2L
-#pragma config PWRT = ON        // Power-up Timer Enable bit (PWRT enabled)
+#pragma config PWRTEN = ON        // Power-up Timer Enable bit (PWRT enabled)
 
 // CONFIG2H
-#pragma config WDT = OFF        // Watchdog Timer Enable bit (WDT disabled (control is placed on the SWDTEN bit))
+#pragma config WDTEN = OFF        // Watchdog Timer Enable bit (WDT disabled (control is placed on the SWDTEN bit))
 
 // CONFIG3H
-#pragma config MCLRE = ON       // MCLR Pin Enable bit (MCLR pin enabled; RE3 input pin disabled)
+#pragma config MCLRE = INTMCLR  // MCLR Pin Enable bit (RE3 input pin enabled; MCLR disabled)
 
 #include <xc.h>
 #define _XTAL_FREQ 8000000
