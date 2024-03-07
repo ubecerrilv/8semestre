@@ -22,61 +22,68 @@
 
 void main(void) 
 {
-    TRISA=0x01; //Puerto A en modo entrada
-    TRISD = 0x00; //Puerto D en modo salida
+    TRISA = 0xFF; //Puerto A en modo entrada
+    TRISB = 0x00; //Puerto B en modo salida
+    ANSELA = 0x00;
     while(1)
     {
-        if (PORTA==0x00)//00000000
+        if (PORTA==0b00000000)//00000000
         {
-            LATA=0xFF;
+            LATB=0x00;
             __delay_ms(500);
-            LATA=0x00;
+            LATB=0xFF;
             __delay_ms(500);
-        }else if (PORTA==0x01)//00000001
+        }
+        
+        if (PORTA==0b00000001)//00000001
         {
-            LATA=0x80;
+            LATB=0x80;
             __delay_ms(300);
-            LATA=0x40;
+            LATB=0x40;
             __delay_ms(300);
-            LATA=0x20;
+            LATB=0x20;
             __delay_ms(300);
-            LATA=0x10;
+            LATB=0x10;
             __delay_ms(300);
-            LATA=0x08;
+            LATB=0x08;
             __delay_ms(300);
-            LATA=0x04;
+            LATB=0x04;
             __delay_ms(300);
-            LATA=0x02;
+            LATB=0x02;
             __delay_ms(300);
-            LATA=0x01;
+            LATB=0x01;
             __delay_ms(300);
-        }else if (PORTA==0x02)//00000010
+        }
+        
+        if (PORTA==0b00000010)//00000010
         {
-            LATA=0x01;
+            LATB=0x01;
             __delay_ms(300);
-            LATA=0x02;
+            LATB=0x02;
             __delay_ms(300);
-            LATA=0x04;
+            LATB=0x04;
             __delay_ms(300);
-            LATA=0x08;
+            LATB=0x08;
             __delay_ms(300);
-            LATA=0x10;
+            LATB=0x10;
             __delay_ms(300);
-            LATA=0x20;
+            LATB=0x20;
             __delay_ms(300);
-            LATA=0x40;
+            LATB=0x40;
             __delay_ms(300);
-            LATA=0x80;
+            LATB=0x80;
             __delay_ms(300);
-        }else if (PORTA==0x03)//00000011
+        }
+        if (PORTA==0b00000011)//00000011
         {
-            LATA=0xF0;
+            LATB=0xF0;
             __delay_ms(500);
-            LATA = 0x0F;
+            LATB = 0x0F;
             __delay_ms(500);
         }//FIN IFS
     }//FIN WHILE
     
     return;
 }//FIN MAIN
+
 
