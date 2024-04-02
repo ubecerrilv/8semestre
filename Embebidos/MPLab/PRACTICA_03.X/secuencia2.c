@@ -208,11 +208,6 @@ void secuencia1_4()
     }
 }
 
-
-
-
-
-
 void secuencia2_1()
 {
     unsigned char i =0x01;
@@ -253,13 +248,6 @@ void secuencia2_4()
         i*=0x02;
     }
 }
-
-
-
-
-
-
-
 
 void secuencia3_1()
 {
