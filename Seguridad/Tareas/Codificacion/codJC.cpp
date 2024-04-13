@@ -36,21 +36,32 @@ int main(){
 
 string codifica (string& cad, int desplazamiento){
     string nueva = cad;
-    int base = int('A');
-    int limite = int('z');
+    int limiteU = int('Z');
+    int limiteL = int('z');
     int actual=0;
+    
+    desplazamiento %= 25;
+
+    //Verificar desplazamiento para decodificar
+    if (desplazamiento<0){
+        desplazamiento += 26;
+    } 
 
     for(int i = 0; i<cad.length();i++){
         //Variable auxiliar para realizar desplazamiento
         actual = int(cad[i]);
 
-        if(cad[i]!=' ' && !ispunct(cad[i])){
-            if((actual+desplazamiento)>limite){
-                nueva[i] = char(actual-26+desplazamiento);
-            }else{
-                nueva[i] = char(actual+desplazamiento);
+        if(cad[i]!=' ' && !ispunct(cad[i]) && cad[i]!='\n' && cad[i]!='\t'){
+            //Dividir en mayúsculas y minúsculas
+            if(islower(cad[i])){
+                if(actual+desplazamiento > limiteL) nueva[i]= char(actual-26+desplazamiento);
+                else nueva[i] = char(actual+desplazamiento);
+            }else if (isupper(cad[i])){
+                if(actual+desplazamiento > limiteU) nueva[i]= char(actual-26+desplazamiento);
+                else nueva[i] = char(actual+desplazamiento);
             }
         }
     }
+
     return nueva;
 }//Fin codifica
