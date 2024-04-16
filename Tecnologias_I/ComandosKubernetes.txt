@@ -1,0 +1,31 @@
+instalación de kubernetes (Linux)
+sudo dnf install -y kubernetes-client
+
+//Verificar la instalación
+kubectl version
+
+//Verificar configuraciión del cluster
+kubectl cluster-info
+
+//Instalar minikube (kubernetes local y simplificado)
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
+
+//Iniciar cluster
+minikube start
+
+//Ver la consola
+minikube dashboard
+
+/"HOLA MUNDO" SIMPLE
+kubectl create deployment hello-minikube --image=kicbase/echo-server:1.0
+kubectl expose deployment hello-minikube --type=NodePort --port=8080
+kubectl port-forward service/hello-minikube 7080:8080
+
+**NOTA: Abrir puerto 7080 y 8080 para poder visualizar (firewall y menú de oracle)
+
+//APP DE KUBERNETES
+kubectl create deployment kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1
+kubectl proxy
+
+
