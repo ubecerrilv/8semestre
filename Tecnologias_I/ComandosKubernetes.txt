@@ -1,5 +1,14 @@
-instalación de kubernetes (Linux)
-sudo dnf install -y kubernetes-client
+//Instalación de kubernetes (Linux)
+cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
+[kubernetes]
+name=Kubernetes
+baseurl=https://pkgs.k8s.io/core:/stable:/v1.29/rpm/
+enabled=1
+gpgcheck=1
+gpgkey=https://pkgs.k8s.io/core:/stable:/v1.29/rpm/repodata/repomd.xml.key
+EOF
+
+sudo yum install -y kubernetes-client
 
 //Verificar la instalación
 kubectl version
@@ -10,6 +19,13 @@ kubectl cluster-info
 //Instalar minikube (kubernetes local y simplificado)
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
+
+//Settear contraseña del root
+UlisesBecerril03_07_02
+
+//Configurar Minikube
+minikube config view
+minikube config set driver podman
 
 //Iniciar cluster
 minikube start
@@ -25,7 +41,14 @@ kubectl port-forward service/hello-minikube 7080:8080
 **NOTA: Abrir puerto 7080 y 8080 para poder visualizar (firewall y menú de oracle)
 
 //APP DE KUBERNETES
-kubectl create deployment kubernetes-bootcamp --image=gcr.io/google-samples/kubernetes-bootcamp:v1
-kubectl proxy
+//Instalar git
+sud dnf install git
+//Clonar repo
+git clone https://github.com/ubecerrilv/DockerPrueba.git
+
+docker build -t pagina_prueba .
+kubectl apply -f deployment.yaml
+kubectl apply -f service.yaml
+
 
 

@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi_pagina_deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pagina_prueba
+  template:
+    metadata:
+      labels:
+        app: pagina_prueba
+    spec:
+      containers:
+      - name: mi-pagina-uaem-container
+        image: pagina_prueba
+        ports:
+        - containerPort: 80
