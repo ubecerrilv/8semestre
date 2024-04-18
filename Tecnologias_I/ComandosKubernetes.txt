@@ -20,6 +20,10 @@ kubectl cluster-info
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
 
+//TUNEL
+ssh -i tc01key -L 5901:localhost:5901 opc@129.146.122.160 -N
+
+
 //Settear contraseña del root
 UlisesBecerril03_07_02
 
@@ -44,11 +48,21 @@ kubectl port-forward service/hello-minikube 7080:8080
 //Instalar git
 sud dnf install git
 //Clonar repo
-git clone https://github.com/ubecerrilv/DockerPrueba.git
+git clone https://github.com/ubecerrilv/kubernetes-try.git
 
-docker build -t pagina_prueba .
-kubectl apply -f deployment.yaml
-kubectl apply -f service.yaml
+//iniciar servicio de podman
+sudo systemctl start podman
 
+//Cambiar al directorio 
+./gradlew bootBuildImage
+**INTALAR JAVA SI ES NECESARIO
 
+//Quitar seguridad
+sudo setenforce 0
 
+//Correr CONTENEDOR
+sudo docker run --rm --name kubernetes-service -p 8080:8080 kubernetes-try:0.0.1-SNAPSHOT
+
+/*KUBERNETES*/
+//Cargar la imagen a minikube
+minikube image load kubernetes-try:0.0.1-SNAPSHOT
