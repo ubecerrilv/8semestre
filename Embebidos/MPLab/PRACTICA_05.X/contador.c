@@ -56,7 +56,7 @@ void main(void) {
     INTCONbits.INT0E=1;     //Habilita la interrupción0
     INTCONbits.INT0F=0;    //No ha ocurrido la interrupción
     
-    INTCON2bits.INTEDG0=0; //Flanco de bajada
+    INTCON2bits.INTEDG0=1; //Flanco de bajada
     INTCONbits.GIE=1;       //Habilitador global
     
     while(1){
@@ -126,7 +126,7 @@ void display0 ()
             LATD=NUEVE;
         break;
     }
-    __delay_ms(5);
+    __delay_ms(20);
 }
 
 void display1 (void)
@@ -175,5 +175,5 @@ void display1 (void)
         break;
         
     }
-    __delay_ms(5);
+    __delay_ms(20);
 }
