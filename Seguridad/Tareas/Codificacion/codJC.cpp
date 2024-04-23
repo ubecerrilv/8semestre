@@ -31,6 +31,7 @@ int main(){
 
     //Codificar y desplegar en la salida
     salida<<codifica(cadena, des);
+    salida.close();
 
 }
 

@@ -1,3 +1,8 @@
+sudo dnf groupinstall "Server with GUI"
+sudo dnf install -y tigervnc-server tigervnc-server-module
+ssh -i tc01key -L 5901:localhost:5901 opc@<IP> -N
+
+
 //Instalación de kubernetes (Linux)
 cat <<EOF | sudo tee /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
@@ -8,7 +13,7 @@ gpgcheck=1
 gpgkey=https://pkgs.k8s.io/core:/stable:/v1.29/rpm/repodata/repomd.xml.key
 EOF
 
-sudo yum install -y kubernetes-client
+sudo yum install -y kubectl
 
 //Verificar la instalación
 kubectl version
