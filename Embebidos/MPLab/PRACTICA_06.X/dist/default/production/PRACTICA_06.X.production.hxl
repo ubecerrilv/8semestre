@@ -1,0 +1,47 @@
+### HEXMate logfile and output summary ###
+
+### Command-line arguments ###
+ /tmp/xcXaNaNOk/driver_tmp_3.o
+ -Odist/default/production/PRACTICA_06.X.production.hex
+ -logfile=dist/default/production/PRACTICA_06.X.production.hxl
+ -addressing=1
+ -break=300000
+
+### Memory Usage ###
+ Input file ranges:
+  0h - 3h		(/tmp/xcXaNaNOk/driver_tmp_3.o)
+  8h - 31h		(/tmp/xcXaNaNOk/driver_tmp_3.o)
+  1000h - 107Bh		(/tmp/xcXaNaNOk/driver_tmp_3.o)
+  200000h - 200007h		(/tmp/xcXaNaNOk/driver_tmp_3.o)
+  300000h - 30000Dh		(/tmp/xcXaNaNOk/driver_tmp_3.o)
+ Unused ranges:
+  4h - 7h
+  32h - FFFh
+  107Ch - 1FFFFFh
+  200008h - 2FFFFFh
+
+### Hex Memory Map ###
+ Legend:
+  -- = Unused memory
+  H1 = Input file             (/tmp/xcXaNaNOk/driver_tmp_3.o)
+----------------------------------------------------------
+         | 00 01 02 03 04 05 06 07 08 09 0A 0B 0C 0D 0E 0F
+----------------------------------------------------------
+00000000 | H1 H1 H1 H1 -- -- -- -- H1 H1 H1 H1 H1 H1 H1 H1
+00000010 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000020 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00000030 | H1 H1 -- -- -- -- -- -- -- -- -- -- -- -- -- --
+----------------------------------------------------------
+00001000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001010 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001020 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001030 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001040 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001050 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001060 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1
+00001070 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- --
+----------------------------------------------------------
+00200000 | H1 H1 H1 H1 H1 H1 H1 H1 -- -- -- -- -- -- -- --
+----------------------------------------------------------
+00300000 | H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 H1 -- --
+00300010 | --
