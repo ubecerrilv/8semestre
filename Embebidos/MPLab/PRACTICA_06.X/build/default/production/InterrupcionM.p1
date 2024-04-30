@@ -1,6 +1,9 @@
 Version 4.0 HI-TECH Software Intermediate Code
 [p mainexit ]
-"8726 /opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/proc/pic18f46k22.h
+"8504 /opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/proc/pic18f46k22.h
+[; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/proc/pic18f46k22.h: 8504: extern volatile unsigned char TRISC __attribute__((address(0xF94)));
+[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
+"8726
 [; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/proc/pic18f46k22.h: 8726: extern volatile unsigned char TRISD __attribute__((address(0xF95)));
 [v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
 "8282
@@ -9,10 +12,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 "97
 [; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/proc/pic18f46k22.h: 97: extern volatile unsigned char ANSELB __attribute__((address(0xF39)));
 [v _ANSELB `Vuc ~T0 @X0 0 e@3897 ]
+"16926
+[; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/proc/pic18f46k22.h: 16926: extern volatile unsigned char INTCON __attribute__((address(0xFF2)));
+[v _INTCON `Vuc ~T0 @X0 0 e@4082 ]
 "2781
 [; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/proc/pic18f46k22.h: 2781: extern volatile unsigned char IOCB __attribute__((address(0xF62)));
 [v _IOCB `Vuc ~T0 @X0 0 e@3938 ]
-"16932
+"38 InterrupcionM.c
+[; ;InterrupcionM.c: 38: void display0(void);
+[v _display0 `(v ~T0 @X0 0 ef ]
+"39
+[; ;InterrupcionM.c: 39: void display1(void);
+[v _display1 `(v ~T0 @X0 0 ef ]
+"40
+[; ;InterrupcionM.c: 40: void display2(void);
+[v _display2 `(v ~T0 @X0 0 ef ]
+"41
+[; ;InterrupcionM.c: 41: void display3(void);
+[v _display3 `(v ~T0 @X0 0 ef ]
+[t ~ __interrupt . k ]
+[t T1 __interrupt ]
+"16932 /opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/proc/pic18f46k22.h
 [; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/proc/pic18f46k22.h: 16932:     struct {
 [s S826 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S826 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
@@ -31,20 +51,58 @@ Version 4.0 HI-TECH Software Intermediate Code
 "16958
 [; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/proc/pic18f46k22.h: 16958: extern volatile INTCONbits_t INTCONbits __attribute__((address(0xFF2)));
 [v _INTCONbits `VS825 ~T0 @X0 0 e@4082 ]
-[t ~ __interrupt . k ]
-[t T1 __interrupt ]
-"6565
+[v F199 `(v ~T0 @X0 1 tf1`ul ]
+"12 /opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/builtins.h
+[v __delay `JF199 ~T0 @X0 0 e ]
+[p i __delay ]
+"6565 /opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/proc/pic18f46k22.h
 [; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/proc/pic18f46k22.h: 6565: extern volatile unsigned char PORTB __attribute__((address(0xF81)));
 [v _PORTB `Vuc ~T0 @X0 0 e@3969 ]
-"20 InterrupcionM.c
-[; ;InterrupcionM.c: 20: void cambia(int);
-[v _cambia `(v ~T0 @X0 0 ef1`i ]
+"7784
+[; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/proc/pic18f46k22.h: 7784: extern volatile unsigned char LATC __attribute__((address(0xF8B)));
+[v _LATC `Vuc ~T0 @X0 0 e@3979 ]
+"7896
+[; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/proc/pic18f46k22.h: 7896: extern volatile unsigned char LATD __attribute__((address(0xF8C)));
+[v _LATD `Vuc ~T0 @X0 0 e@3980 ]
 "9 InterrupcionM.c
-[p x FOSC  =  XT         ]
+[p x FOSC  =  HSHP        ]
 "10
 [p x PWRTEN  =  ON       ]
 "11
 [p x WDTEN  =  OFF       ]
+"12
+[p x MCLRE  =  INTMCLR   ]
+"15
+[v _dato `i ~T0 @X0 1 e ]
+[i _dato
+-> 0 `i
+]
+[v _n0 `i ~T0 @X0 1 e ]
+[i _n0
+-> 0 `i
+]
+[v _n1 `i ~T0 @X0 1 e ]
+[i _n1
+-> 0 `i
+]
+[v _n2 `i ~T0 @X0 1 e ]
+[i _n2
+-> 0 `i
+]
+[v _n3 `i ~T0 @X0 1 e ]
+[i _n3
+-> 0 `i
+]
+"16
+[v _anterior `Vuc ~T0 @X0 1 e ]
+[i _anterior
+-> -> 0 `i `uc
+]
+"17
+[v _cambios `Vuc ~T0 @X0 1 e ]
+[i _cambios
+-> -> 0 `i `uc
+]
 "54 /opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/proc/pic18f46k22.h
 [; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/proc/pic18f46k22.h: 54: __asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
@@ -804,145 +862,747 @@ Version 4.0 HI-TECH Software Intermediate Code
 "17406
 [; ;/opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/proc/pic18f46k22.h: 17406: __asm("TOSU equ 0FFFh");
 [; <" TOSU equ 0FFFh ;# ">
-"15 InterrupcionM.c
-[; ;InterrupcionM.c: 15: int contador;
-[v _contador `i ~T0 @X0 1 e ]
-"16
-[; ;InterrupcionM.c: 16: int dato;
-[v _dato `i ~T0 @X0 1 e ]
-[v $root$_main `(v ~T0 @X0 0 e ]
+"20 InterrupcionM.c
+[; ;InterrupcionM.c: 20: unsigned char CERO = 0x3F;
+[v _CERO `uc ~T0 @X0 1 e ]
+[i _CERO
+-> -> 63 `i `uc
+]
+"21
+[; ;InterrupcionM.c: 21: unsigned char UNO = 0x06;
+[v _UNO `uc ~T0 @X0 1 e ]
+[i _UNO
+-> -> 6 `i `uc
+]
 "22
-[; ;InterrupcionM.c: 22: void main(void)
-[v _main `(v ~T0 @X0 1 ef ]
+[; ;InterrupcionM.c: 22: unsigned char DOS = 0x5B;
+[v _DOS `uc ~T0 @X0 1 e ]
+[i _DOS
+-> -> 91 `i `uc
+]
 "23
-[; ;InterrupcionM.c: 23: {
+[; ;InterrupcionM.c: 23: unsigned char TRES= 0x4F;
+[v _TRES `uc ~T0 @X0 1 e ]
+[i _TRES
+-> -> 79 `i `uc
+]
+"24
+[; ;InterrupcionM.c: 24: unsigned char CUATRO = 0x66;
+[v _CUATRO `uc ~T0 @X0 1 e ]
+[i _CUATRO
+-> -> 102 `i `uc
+]
+"25
+[; ;InterrupcionM.c: 25: unsigned char CINCO = 0x6D;
+[v _CINCO `uc ~T0 @X0 1 e ]
+[i _CINCO
+-> -> 109 `i `uc
+]
+"26
+[; ;InterrupcionM.c: 26: unsigned char SEIS = 0x7D;
+[v _SEIS `uc ~T0 @X0 1 e ]
+[i _SEIS
+-> -> 125 `i `uc
+]
+"27
+[; ;InterrupcionM.c: 27: unsigned char SIETE = 0x07;
+[v _SIETE `uc ~T0 @X0 1 e ]
+[i _SIETE
+-> -> 7 `i `uc
+]
+"28
+[; ;InterrupcionM.c: 28: unsigned char OCHO = 0x7F;
+[v _OCHO `uc ~T0 @X0 1 e ]
+[i _OCHO
+-> -> 127 `i `uc
+]
+"29
+[; ;InterrupcionM.c: 29: unsigned char NUEVE = 0x6F;
+[v _NUEVE `uc ~T0 @X0 1 e ]
+[i _NUEVE
+-> -> 111 `i `uc
+]
+"31
+[; ;InterrupcionM.c: 31: unsigned char D3 = 0xF7;
+[v _D3 `uc ~T0 @X0 1 e ]
+[i _D3
+-> -> 247 `i `uc
+]
+"32
+[; ;InterrupcionM.c: 32: unsigned char D2 = 0xFB;
+[v _D2 `uc ~T0 @X0 1 e ]
+[i _D2
+-> -> 251 `i `uc
+]
+"33
+[; ;InterrupcionM.c: 33: unsigned char D1 = 0xFD;
+[v _D1 `uc ~T0 @X0 1 e ]
+[i _D1
+-> -> 253 `i `uc
+]
+"34
+[; ;InterrupcionM.c: 34: unsigned char D0 = 0xFE;
+[v _D0 `uc ~T0 @X0 1 e ]
+[i _D0
+-> -> 254 `i `uc
+]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"43
+[; ;InterrupcionM.c: 43: void main(void)
+[v _main `(v ~T0 @X0 1 ef ]
+"44
+[; ;InterrupcionM.c: 44: {
 {
 [e :U _main ]
 [f ]
-"25
-[; ;InterrupcionM.c: 25:     TRISD=0X00;
+"46
+[; ;InterrupcionM.c: 46:     TRISC = 0xF0;
+[e = _TRISC -> -> 240 `i `uc ]
+"47
+[; ;InterrupcionM.c: 47:     TRISD=0x00;
 [e = _TRISD -> -> 0 `i `uc ]
-"26
-[; ;InterrupcionM.c: 26:     TRISB=0XFF;
-[e = _TRISB -> -> 255 `i `uc ]
-"27
-[; ;InterrupcionM.c: 27:     ANSELB=0X00;
-[e = _ANSELB -> -> 0 `i `uc ]
-"30
-[; ;InterrupcionM.c: 30:     IOCB=0XF0;
+"48
+[; ;InterrupcionM.c: 48:     TRISB=0xF0;
+[e = _TRISB -> -> 240 `i `uc ]
+"49
+[; ;InterrupcionM.c: 49:     ANSELB=0x0F;
+[e = _ANSELB -> -> 15 `i `uc ]
+"52
+[; ;InterrupcionM.c: 52:     INTCON=0x88;
+[e = _INTCON -> -> 136 `i `uc ]
+"54
+[; ;InterrupcionM.c: 54:     IOCB=0xF0;
 [e = _IOCB -> -> 240 `i `uc ]
-"32
-[; ;InterrupcionM.c: 32:     INTCONbits.RBIE=1;
-[e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-"33
-[; ;InterrupcionM.c: 33:     INTCONbits.RBIF=0;
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-"34
-[; ;InterrupcionM.c: 34:     INTCONbits.GIE=1;
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-"36
-[; ;InterrupcionM.c: 36:     contador=0;
-[e = _contador -> 0 `i ]
-"38
-[; ;InterrupcionM.c: 38:     while(1)
+"60
+[; ;InterrupcionM.c: 60:     while(1)
 [e :U 856 ]
-"39
-[; ;InterrupcionM.c: 39:     {
+"61
+[; ;InterrupcionM.c: 61:     {
 {
-"41
-[; ;InterrupcionM.c: 41:     }
+"62
+[; ;InterrupcionM.c: 62:         display0();
+[e ( _display0 ..  ]
+"63
+[; ;InterrupcionM.c: 63:         display1();
+[e ( _display1 ..  ]
+"64
+[; ;InterrupcionM.c: 64:         display2();
+[e ( _display2 ..  ]
+"65
+[; ;InterrupcionM.c: 65:         display3();
+[e ( _display3 ..  ]
+"66
+[; ;InterrupcionM.c: 66:     }
 }
 [e :U 855 ]
 [e $U 856  ]
 [e :U 857 ]
-"43
-[; ;InterrupcionM.c: 43:     return;
+"68
+[; ;InterrupcionM.c: 68:     return;
 [e $UE 854  ]
-"44
-[; ;InterrupcionM.c: 44: }
+"69
+[; ;InterrupcionM.c: 69: }
 [e :UE 854 ]
 }
 [v $root$_isr_general `(v ~T0 @X0 0 e ]
-"46
-[; ;InterrupcionM.c: 46: void __attribute__((picinterrupt(("")))) isr_general ()
+"71
+[; ;InterrupcionM.c: 71: void __attribute__((picinterrupt(("")))) isr_general ()
 [v _isr_general `(v ~T1 @X0 1 ef ]
-"47
-[; ;InterrupcionM.c: 47: {
+"72
+[; ;InterrupcionM.c: 72: {
 {
 [e :U _isr_general ]
 [f ]
-"48
-[; ;InterrupcionM.c: 48:     IOCB=0X00;
-[e = _IOCB -> -> 0 `i `uc ]
-"49
-[; ;InterrupcionM.c: 49:     dato=PORTB;
-[e = _dato -> _PORTB `i ]
-"50
-[; ;InterrupcionM.c: 50:     INTCONbits.RBIF=0;
-[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
-"51
-[; ;InterrupcionM.c: 51:     INTCONbits.RBIE=0;
+"73
+[; ;InterrupcionM.c: 73:     INTCONbits.RBIE=0;
 [e = . . _INTCONbits 0 3 -> -> 0 `i `uc ]
-"55
-[; ;InterrupcionM.c: 55:     cambia(dato);
-[e ( _cambia (1 _dato ]
-"59
-[; ;InterrupcionM.c: 59:     INTCONbits.RBIE=1;
+"75
+[; ;InterrupcionM.c: 75:     _delay((unsigned long)((200)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"76
+[; ;InterrupcionM.c: 76:         unsigned char actual = PORTB;
+[v _actual `uc ~T0 @X0 1 a ]
+[e = _actual _PORTB ]
+"77
+[; ;InterrupcionM.c: 77:         switch (actual){
+[e $U 860  ]
+{
+"78
+[; ;InterrupcionM.c: 78:             case 0x80:
+[e :U 861 ]
+"79
+[; ;InterrupcionM.c: 79:                 n0=0;
+[e = _n0 -> 0 `i ]
+"80
+[; ;InterrupcionM.c: 80:                 n1=0;
+[e = _n1 -> 0 `i ]
+"81
+[; ;InterrupcionM.c: 81:                 n2=0;
+[e = _n2 -> 0 `i ]
+"82
+[; ;InterrupcionM.c: 82:                 n3=1;
+[e = _n3 -> 1 `i ]
+"83
+[; ;InterrupcionM.c: 83:                 break;
+[e $U 859  ]
+"85
+[; ;InterrupcionM.c: 85:             case 0x40:
+[e :U 862 ]
+"86
+[; ;InterrupcionM.c: 86:                 n0=0;
+[e = _n0 -> 0 `i ]
+"87
+[; ;InterrupcionM.c: 87:                 n1=0;
+[e = _n1 -> 0 `i ]
+"88
+[; ;InterrupcionM.c: 88:                 n2=1;
+[e = _n2 -> 1 `i ]
+"89
+[; ;InterrupcionM.c: 89:                 n3=0;
+[e = _n3 -> 0 `i ]
+"90
+[; ;InterrupcionM.c: 90:                 break;
+[e $U 859  ]
+"92
+[; ;InterrupcionM.c: 92:             case 0x20:
+[e :U 863 ]
+"93
+[; ;InterrupcionM.c: 93:                 n0=0;
+[e = _n0 -> 0 `i ]
+"94
+[; ;InterrupcionM.c: 94:                 n1=1;
+[e = _n1 -> 1 `i ]
+"95
+[; ;InterrupcionM.c: 95:                 n2=0;
+[e = _n2 -> 0 `i ]
+"96
+[; ;InterrupcionM.c: 96:                 n3=0;
+[e = _n3 -> 0 `i ]
+"97
+[; ;InterrupcionM.c: 97:                 break;
+[e $U 859  ]
+"99
+[; ;InterrupcionM.c: 99:             case 0x10:
+[e :U 864 ]
+"100
+[; ;InterrupcionM.c: 100:                 n0=1;
+[e = _n0 -> 1 `i ]
+"101
+[; ;InterrupcionM.c: 101:                 n1=0;
+[e = _n1 -> 0 `i ]
+"102
+[; ;InterrupcionM.c: 102:                 n2=0;
+[e = _n2 -> 0 `i ]
+"103
+[; ;InterrupcionM.c: 103:                 n3=0;
+[e = _n3 -> 0 `i ]
+"104
+[; ;InterrupcionM.c: 104:                 break;
+[e $U 859  ]
+"106
+[; ;InterrupcionM.c: 106:             case 0x00:
+[e :U 865 ]
+"107
+[; ;InterrupcionM.c: 107:                 n0=0;
+[e = _n0 -> 0 `i ]
+"108
+[; ;InterrupcionM.c: 108:                 n1=0;
+[e = _n1 -> 0 `i ]
+"109
+[; ;InterrupcionM.c: 109:                 n2=0;
+[e = _n2 -> 0 `i ]
+"110
+[; ;InterrupcionM.c: 110:                 n3=0;
+[e = _n3 -> 0 `i ]
+"111
+[; ;InterrupcionM.c: 111:                 break;
+[e $U 859  ]
+"112
+[; ;InterrupcionM.c: 112:         }
+}
+[e $U 859  ]
+[e :U 860 ]
+[e [\ -> _actual `i , $ -> 128 `i 861
+ , $ -> 64 `i 862
+ , $ -> 32 `i 863
+ , $ -> 16 `i 864
+ , $ -> 0 `i 865
+ 859 ]
+[e :U 859 ]
+"114
+[; ;InterrupcionM.c: 114:     _delay((unsigned long)((100)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"115
+[; ;InterrupcionM.c: 115:     INTCONbits.RBIF=0;
+[e = . . _INTCONbits 0 0 -> -> 0 `i `uc ]
+"116
+[; ;InterrupcionM.c: 116:     INTCONbits.RBIE=1;
 [e = . . _INTCONbits 0 3 -> -> 1 `i `uc ]
-"60
-[; ;InterrupcionM.c: 60:     IOCB=0XF0;
-[e = _IOCB -> -> 240 `i `uc ]
-"61
-[; ;InterrupcionM.c: 61:    }
+"117
+[; ;InterrupcionM.c: 117:    }
 [e :UE 858 ]
 }
-"63
-[; ;InterrupcionM.c: 63: void cambia (int dato){
-[v _cambia `(v ~T0 @X0 1 ef1`i ]
+"119
+[; ;InterrupcionM.c: 119: void display0 ()
+[v _display0 `(v ~T0 @X0 1 ef ]
+"120
+[; ;InterrupcionM.c: 120: {
 {
-[e :U _cambia ]
-[v _dato `i ~T0 @X0 1 r1 ]
+[e :U _display0 ]
 [f ]
-"64
-[; ;InterrupcionM.c: 64:     switch (dato){
-[e $U 861  ]
+"122
+[; ;InterrupcionM.c: 122:     LATC = D0;
+[e = _LATC _D0 ]
+"123
+[; ;InterrupcionM.c: 123:     switch (n0)
+[e $U 868  ]
+"124
+[; ;InterrupcionM.c: 124:     {
 {
-"65
-[; ;InterrupcionM.c: 65:         case 1:
-[e :U 862 ]
-"66
-[; ;InterrupcionM.c: 66:             break;
-[e $U 860  ]
-"68
-[; ;InterrupcionM.c: 68:         case 2:
-[e :U 863 ]
-"69
-[; ;InterrupcionM.c: 69:             break;
-[e $U 860  ]
-"71
-[; ;InterrupcionM.c: 71:         case 3:
-[e :U 864 ]
-"72
-[; ;InterrupcionM.c: 72:             break;
-[e $U 860  ]
-"74
-[; ;InterrupcionM.c: 74:         case 4:
-[e :U 865 ]
-"75
-[; ;InterrupcionM.c: 75:             break;
-[e $U 860  ]
-"76
-[; ;InterrupcionM.c: 76:     }
+"125
+[; ;InterrupcionM.c: 125:         case 0:
+[e :U 869 ]
+"126
+[; ;InterrupcionM.c: 126:             LATD=CERO;
+[e = _LATD _CERO ]
+"127
+[; ;InterrupcionM.c: 127:         break;
+[e $U 867  ]
+"129
+[; ;InterrupcionM.c: 129:         case 1:
+[e :U 870 ]
+"130
+[; ;InterrupcionM.c: 130:             LATD=UNO;
+[e = _LATD _UNO ]
+"131
+[; ;InterrupcionM.c: 131:         break;
+[e $U 867  ]
+"133
+[; ;InterrupcionM.c: 133:         case 2:
+[e :U 871 ]
+"134
+[; ;InterrupcionM.c: 134:             LATD=DOS;
+[e = _LATD _DOS ]
+"135
+[; ;InterrupcionM.c: 135:         break;
+[e $U 867  ]
+"137
+[; ;InterrupcionM.c: 137:         case 3:
+[e :U 872 ]
+"138
+[; ;InterrupcionM.c: 138:             LATD=TRES;
+[e = _LATD _TRES ]
+"139
+[; ;InterrupcionM.c: 139:         break;
+[e $U 867  ]
+"141
+[; ;InterrupcionM.c: 141:         case 4:
+[e :U 873 ]
+"142
+[; ;InterrupcionM.c: 142:             LATD=CUATRO;
+[e = _LATD _CUATRO ]
+"143
+[; ;InterrupcionM.c: 143:         break;
+[e $U 867  ]
+"145
+[; ;InterrupcionM.c: 145:         case 5:
+[e :U 874 ]
+"146
+[; ;InterrupcionM.c: 146:             LATD=CINCO;
+[e = _LATD _CINCO ]
+"147
+[; ;InterrupcionM.c: 147:         break;
+[e $U 867  ]
+"149
+[; ;InterrupcionM.c: 149:         case 6:
+[e :U 875 ]
+"150
+[; ;InterrupcionM.c: 150:             LATD=SEIS;
+[e = _LATD _SEIS ]
+"151
+[; ;InterrupcionM.c: 151:         break;
+[e $U 867  ]
+"153
+[; ;InterrupcionM.c: 153:         case 7:
+[e :U 876 ]
+"154
+[; ;InterrupcionM.c: 154:             LATD=SIETE;
+[e = _LATD _SIETE ]
+"155
+[; ;InterrupcionM.c: 155:         break;
+[e $U 867  ]
+"157
+[; ;InterrupcionM.c: 157:         case 8:
+[e :U 877 ]
+"158
+[; ;InterrupcionM.c: 158:             LATD=OCHO;
+[e = _LATD _OCHO ]
+"159
+[; ;InterrupcionM.c: 159:         break;
+[e $U 867  ]
+"161
+[; ;InterrupcionM.c: 161:         case 9:
+[e :U 878 ]
+"162
+[; ;InterrupcionM.c: 162:             LATD=NUEVE;
+[e = _LATD _NUEVE ]
+"163
+[; ;InterrupcionM.c: 163:         break;
+[e $U 867  ]
+"164
+[; ;InterrupcionM.c: 164:     }
 }
-[e $U 860  ]
-[e :U 861 ]
-[e [\ _dato , $ -> 1 `i 862
- , $ -> 2 `i 863
- , $ -> 3 `i 864
- , $ -> 4 `i 865
- 860 ]
-[e :U 860 ]
-"77
-[; ;InterrupcionM.c: 77: }
-[e :UE 859 ]
+[e $U 867  ]
+[e :U 868 ]
+[e [\ _n0 , $ -> 0 `i 869
+ , $ -> 1 `i 870
+ , $ -> 2 `i 871
+ , $ -> 3 `i 872
+ , $ -> 4 `i 873
+ , $ -> 5 `i 874
+ , $ -> 6 `i 875
+ , $ -> 7 `i 876
+ , $ -> 8 `i 877
+ , $ -> 9 `i 878
+ 867 ]
+[e :U 867 ]
+"165
+[; ;InterrupcionM.c: 165:     _delay((unsigned long)((35)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 35 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"166
+[; ;InterrupcionM.c: 166: }
+[e :UE 866 ]
+}
+"168
+[; ;InterrupcionM.c: 168: void display1 ()
+[v _display1 `(v ~T0 @X0 1 ef ]
+"169
+[; ;InterrupcionM.c: 169: {
+{
+[e :U _display1 ]
+[f ]
+"170
+[; ;InterrupcionM.c: 170:     LATC = D1;
+[e = _LATC _D1 ]
+"171
+[; ;InterrupcionM.c: 171:     switch (n1)
+[e $U 881  ]
+"172
+[; ;InterrupcionM.c: 172:     {
+{
+"173
+[; ;InterrupcionM.c: 173:         case 0:
+[e :U 882 ]
+"174
+[; ;InterrupcionM.c: 174:             LATD=CERO;
+[e = _LATD _CERO ]
+"175
+[; ;InterrupcionM.c: 175:         break;
+[e $U 880  ]
+"177
+[; ;InterrupcionM.c: 177:         case 1:
+[e :U 883 ]
+"178
+[; ;InterrupcionM.c: 178:             LATD=UNO;
+[e = _LATD _UNO ]
+"179
+[; ;InterrupcionM.c: 179:         break;
+[e $U 880  ]
+"181
+[; ;InterrupcionM.c: 181:         case 2:
+[e :U 884 ]
+"182
+[; ;InterrupcionM.c: 182:             LATD=DOS;
+[e = _LATD _DOS ]
+"183
+[; ;InterrupcionM.c: 183:         break;
+[e $U 880  ]
+"185
+[; ;InterrupcionM.c: 185:         case 3:
+[e :U 885 ]
+"186
+[; ;InterrupcionM.c: 186:             LATD=TRES;
+[e = _LATD _TRES ]
+"187
+[; ;InterrupcionM.c: 187:         break;
+[e $U 880  ]
+"189
+[; ;InterrupcionM.c: 189:         case 4:
+[e :U 886 ]
+"190
+[; ;InterrupcionM.c: 190:             LATD=CUATRO;
+[e = _LATD _CUATRO ]
+"191
+[; ;InterrupcionM.c: 191:         break;
+[e $U 880  ]
+"193
+[; ;InterrupcionM.c: 193:         case 5:
+[e :U 887 ]
+"194
+[; ;InterrupcionM.c: 194:             LATD=CINCO;
+[e = _LATD _CINCO ]
+"195
+[; ;InterrupcionM.c: 195:         break;
+[e $U 880  ]
+"197
+[; ;InterrupcionM.c: 197:         case 6:
+[e :U 888 ]
+"198
+[; ;InterrupcionM.c: 198:             LATD=SEIS;
+[e = _LATD _SEIS ]
+"199
+[; ;InterrupcionM.c: 199:         break;
+[e $U 880  ]
+"200
+[; ;InterrupcionM.c: 200:     }
+}
+[e $U 880  ]
+[e :U 881 ]
+[e [\ _n1 , $ -> 0 `i 882
+ , $ -> 1 `i 883
+ , $ -> 2 `i 884
+ , $ -> 3 `i 885
+ , $ -> 4 `i 886
+ , $ -> 5 `i 887
+ , $ -> 6 `i 888
+ 880 ]
+[e :U 880 ]
+"201
+[; ;InterrupcionM.c: 201:     _delay((unsigned long)((35)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 35 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"202
+[; ;InterrupcionM.c: 202: }
+[e :UE 879 ]
+}
+"203
+[; ;InterrupcionM.c: 203: void display2 ()
+[v _display2 `(v ~T0 @X0 1 ef ]
+"204
+[; ;InterrupcionM.c: 204: {
+{
+[e :U _display2 ]
+[f ]
+"205
+[; ;InterrupcionM.c: 205:     LATC = D2;
+[e = _LATC _D2 ]
+"206
+[; ;InterrupcionM.c: 206:     switch (n2)
+[e $U 891  ]
+"207
+[; ;InterrupcionM.c: 207:     {
+{
+"208
+[; ;InterrupcionM.c: 208:         case 0:
+[e :U 892 ]
+"209
+[; ;InterrupcionM.c: 209:             LATD=CERO;
+[e = _LATD _CERO ]
+"210
+[; ;InterrupcionM.c: 210:         break;
+[e $U 890  ]
+"212
+[; ;InterrupcionM.c: 212:         case 1:
+[e :U 893 ]
+"213
+[; ;InterrupcionM.c: 213:             LATD=UNO;
+[e = _LATD _UNO ]
+"214
+[; ;InterrupcionM.c: 214:         break;
+[e $U 890  ]
+"216
+[; ;InterrupcionM.c: 216:         case 2:
+[e :U 894 ]
+"217
+[; ;InterrupcionM.c: 217:             LATD=DOS;
+[e = _LATD _DOS ]
+"218
+[; ;InterrupcionM.c: 218:         break;
+[e $U 890  ]
+"220
+[; ;InterrupcionM.c: 220:         case 3:
+[e :U 895 ]
+"221
+[; ;InterrupcionM.c: 221:             LATD=TRES;
+[e = _LATD _TRES ]
+"222
+[; ;InterrupcionM.c: 222:         break;
+[e $U 890  ]
+"224
+[; ;InterrupcionM.c: 224:         case 4:
+[e :U 896 ]
+"225
+[; ;InterrupcionM.c: 225:             LATD=CUATRO;
+[e = _LATD _CUATRO ]
+"226
+[; ;InterrupcionM.c: 226:         break;
+[e $U 890  ]
+"228
+[; ;InterrupcionM.c: 228:         case 5:
+[e :U 897 ]
+"229
+[; ;InterrupcionM.c: 229:             LATD=CINCO;
+[e = _LATD _CINCO ]
+"230
+[; ;InterrupcionM.c: 230:         break;
+[e $U 890  ]
+"232
+[; ;InterrupcionM.c: 232:         case 6:
+[e :U 898 ]
+"233
+[; ;InterrupcionM.c: 233:             LATD=SEIS;
+[e = _LATD _SEIS ]
+"234
+[; ;InterrupcionM.c: 234:         break;
+[e $U 890  ]
+"236
+[; ;InterrupcionM.c: 236:         case 7:
+[e :U 899 ]
+"237
+[; ;InterrupcionM.c: 237:             LATD=SIETE;
+[e = _LATD _SIETE ]
+"238
+[; ;InterrupcionM.c: 238:         break;
+[e $U 890  ]
+"240
+[; ;InterrupcionM.c: 240:         case 8:
+[e :U 900 ]
+"241
+[; ;InterrupcionM.c: 241:             LATD=OCHO;
+[e = _LATD _OCHO ]
+"242
+[; ;InterrupcionM.c: 242:         break;
+[e $U 890  ]
+"244
+[; ;InterrupcionM.c: 244:         case 9:
+[e :U 901 ]
+"245
+[; ;InterrupcionM.c: 245:             LATD=NUEVE;
+[e = _LATD _NUEVE ]
+"246
+[; ;InterrupcionM.c: 246:         break;
+[e $U 890  ]
+"247
+[; ;InterrupcionM.c: 247:     }
+}
+[e $U 890  ]
+[e :U 891 ]
+[e [\ _n2 , $ -> 0 `i 892
+ , $ -> 1 `i 893
+ , $ -> 2 `i 894
+ , $ -> 3 `i 895
+ , $ -> 4 `i 896
+ , $ -> 5 `i 897
+ , $ -> 6 `i 898
+ , $ -> 7 `i 899
+ , $ -> 8 `i 900
+ , $ -> 9 `i 901
+ 890 ]
+[e :U 890 ]
+"248
+[; ;InterrupcionM.c: 248:     _delay((unsigned long)((35)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 35 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"249
+[; ;InterrupcionM.c: 249: }
+[e :UE 889 ]
+}
+"251
+[; ;InterrupcionM.c: 251: void display3 ()
+[v _display3 `(v ~T0 @X0 1 ef ]
+"252
+[; ;InterrupcionM.c: 252: {
+{
+[e :U _display3 ]
+[f ]
+"253
+[; ;InterrupcionM.c: 253:     LATC = D3;
+[e = _LATC _D3 ]
+"254
+[; ;InterrupcionM.c: 254:     switch (n3)
+[e $U 904  ]
+"255
+[; ;InterrupcionM.c: 255:     {
+{
+"256
+[; ;InterrupcionM.c: 256:         case 0:
+[e :U 905 ]
+"257
+[; ;InterrupcionM.c: 257:             LATD=CERO;
+[e = _LATD _CERO ]
+"258
+[; ;InterrupcionM.c: 258:         break;
+[e $U 903  ]
+"260
+[; ;InterrupcionM.c: 260:         case 1:
+[e :U 906 ]
+"261
+[; ;InterrupcionM.c: 261:             LATD=UNO;
+[e = _LATD _UNO ]
+"262
+[; ;InterrupcionM.c: 262:         break;
+[e $U 903  ]
+"264
+[; ;InterrupcionM.c: 264:         case 2:
+[e :U 907 ]
+"265
+[; ;InterrupcionM.c: 265:             LATD=DOS;
+[e = _LATD _DOS ]
+"266
+[; ;InterrupcionM.c: 266:         break;
+[e $U 903  ]
+"268
+[; ;InterrupcionM.c: 268:         case 3:
+[e :U 908 ]
+"269
+[; ;InterrupcionM.c: 269:             LATD=TRES;
+[e = _LATD _TRES ]
+"270
+[; ;InterrupcionM.c: 270:         break;
+[e $U 903  ]
+"272
+[; ;InterrupcionM.c: 272:         case 4:
+[e :U 909 ]
+"273
+[; ;InterrupcionM.c: 273:             LATD=CUATRO;
+[e = _LATD _CUATRO ]
+"274
+[; ;InterrupcionM.c: 274:         break;
+[e $U 903  ]
+"276
+[; ;InterrupcionM.c: 276:         case 5:
+[e :U 910 ]
+"277
+[; ;InterrupcionM.c: 277:             LATD=CINCO;
+[e = _LATD _CINCO ]
+"278
+[; ;InterrupcionM.c: 278:         break;
+[e $U 903  ]
+"280
+[; ;InterrupcionM.c: 280:         case 6:
+[e :U 911 ]
+"281
+[; ;InterrupcionM.c: 281:             LATD=SEIS;
+[e = _LATD _SEIS ]
+"282
+[; ;InterrupcionM.c: 282:         break;
+[e $U 903  ]
+"283
+[; ;InterrupcionM.c: 283:     }
+}
+[e $U 903  ]
+[e :U 904 ]
+[e [\ _n3 , $ -> 0 `i 905
+ , $ -> 1 `i 906
+ , $ -> 2 `i 907
+ , $ -> 3 `i 908
+ , $ -> 4 `i 909
+ , $ -> 5 `i 910
+ , $ -> 6 `i 911
+ 903 ]
+[e :U 903 ]
+"284
+[; ;InterrupcionM.c: 284:     _delay((unsigned long)((35)*(8000000/4000.0)));
+[e ( __delay (1 -> * -> -> 35 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"285
+[; ;InterrupcionM.c: 285: }
+[e :UE 902 ]
 }

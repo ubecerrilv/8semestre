@@ -3,47 +3,61 @@
 [d edition pro ]
 [d chip 18F46K22 ]
 [d frameptr 4065 ]
-"4 /opt/microchip/xc8/v2.46/pic/sources/c99/common/fleq.c
+"4 /opt/microchip/xc8/v2.41/pic/sources/c99/common/fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
-"62 /opt/microchip/xc8/v2.46/pic/sources/c99/common/float.c
+"62 /opt/microchip/xc8/v2.41/pic/sources/c99/common/float.c
 [v ___ftpack __ftpack `(f  1 e 4 0 ]
-"86 /opt/microchip/xc8/v2.46/pic/sources/c99/common/ftadd.c
+"86 /opt/microchip/xc8/v2.41/pic/sources/c99/common/ftadd.c
 [v ___ftadd __ftadd `(f  1 e 4 0 ]
-"54 /opt/microchip/xc8/v2.46/pic/sources/c99/common/ftdiv.c
+"54 /opt/microchip/xc8/v2.41/pic/sources/c99/common/ftdiv.c
 [v ___ftdiv __ftdiv `(f  1 e 4 0 ]
-"62 /opt/microchip/xc8/v2.46/pic/sources/c99/common/ftmul.c
+"62 /opt/microchip/xc8/v2.41/pic/sources/c99/common/ftmul.c
 [v ___ftmul __ftmul `(f  1 e 4 0 ]
-"19 /opt/microchip/xc8/v2.46/pic/sources/c99/common/ftsub.c
+"19 /opt/microchip/xc8/v2.41/pic/sources/c99/common/ftsub.c
 [v ___ftsub __ftsub `(f  1 e 4 0 ]
-"10 /opt/microchip/xc8/v2.46/pic/sources/c99/common/sprcadd.c
+"10 /opt/microchip/xc8/v2.41/pic/sources/c99/common/sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "245
 [v ___flsub __flsub `(d  1 e 4 0 ]
-"11 /opt/microchip/xc8/v2.46/pic/sources/c99/common/sprcdiv.c
+"11 /opt/microchip/xc8/v2.41/pic/sources/c99/common/sprcdiv.c
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
-"8 /opt/microchip/xc8/v2.46/pic/sources/c99/common/sprcmul.c
+"8 /opt/microchip/xc8/v2.41/pic/sources/c99/common/sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
-"15 /opt/microchip/xc8/v2.46/pic/sources/c99/common/Umul32.c
+"15 /opt/microchip/xc8/v2.41/pic/sources/c99/common/Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"91 /opt/microchip/xc8/v2.46/pic/sources/c99/common/Umul64.c
+"91 /opt/microchip/xc8/v2.41/pic/sources/c99/common/Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
-"22 /home/ubecerril/MPLABXProjects/PRACTICA_06.X/InterrupcionM.c
+"43 /home/ubecerril/Documentos/Ingenieria/8semestre/Embebidos/MPLab/PRACTICA_06.X/InterrupcionM.c
 [v _main main `(v  1 e 1 0 ]
-"46
+"71
 [v _isr_general isr_general `IIH(v  1 e 1 0 ]
-"63
-[v _cambia cambia `(v  1 e 1 0 ]
+"119
+[v _display0 display0 `(v  1 e 1 0 ]
+"168
+[v _display1 display1 `(v  1 e 1 0 ]
+"203
+[v _display2 display2 `(v  1 e 1 0 ]
+"251
+[v _display3 display3 `(v  1 e 1 0 ]
 "97 /opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/proc/pic18f46k22.h
 [v _ANSELB ANSELB `VEuc  1 e 1 @3897 ]
 "2781
 [v _IOCB IOCB `VEuc  1 e 1 @3938 ]
 "6565
 [v _PORTB PORTB `VEuc  1 e 1 @3969 ]
+"7784
+[v _LATC LATC `VEuc  1 e 1 @3979 ]
+"7896
+[v _LATD LATD `VEuc  1 e 1 @3980 ]
 "8282
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"8504
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
 "8726
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
-[s S28 . 1 `uc 1 RBIF 1 0 :1:0 
+"16926
+[v _INTCON INTCON `VEuc  1 e 1 @4082 ]
+[s S46 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -53,7 +67,7 @@
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "16958
-[s S37 . 1 `uc 1 . 1 0 :1:0 
+[s S55 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -62,29 +76,50 @@
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S46 . 1 `uc 1 . 1 0 :6:0 
+[s S64 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S50 . 1 `S28 1 . 1 0 `S37 1 . 1 0 `S46 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES50  1 e 1 @4082 ]
-"15 /home/ubecerril/MPLABXProjects/PRACTICA_06.X/InterrupcionM.c
-[v _contador contador `i  1 e 2 0 ]
+[u S68 . 1 `S46 1 . 1 0 `S55 1 . 1 0 `S64 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES68  1 e 1 @4082 ]
+"15 /home/ubecerril/Documentos/Ingenieria/8semestre/Embebidos/MPLab/PRACTICA_06.X/InterrupcionM.c
+[v _n0 n0 `i  1 e 2 0 ]
+[v _n1 n1 `i  1 e 2 0 ]
+[v _n2 n2 `i  1 e 2 0 ]
+[v _n3 n3 `i  1 e 2 0 ]
 "16
-[v _dato dato `i  1 e 2 0 ]
-"22
+[v _anterior anterior `VEuc  1 e 1 0 ]
+"17
+[v _cambios cambios `VEuc  1 e 1 0 ]
+"43
 [v _main main `(v  1 e 1 0 ]
 {
-"44
+"69
 } 0
-"46
+"251
+[v _display3 display3 `(v  1 e 1 0 ]
+{
+"285
+} 0
+"203
+[v _display2 display2 `(v  1 e 1 0 ]
+{
+"249
+} 0
+"168
+[v _display1 display1 `(v  1 e 1 0 ]
+{
+"202
+} 0
+"119
+[v _display0 display0 `(v  1 e 1 0 ]
+{
+"166
+} 0
+"71
 [v _isr_general isr_general `IIH(v  1 e 1 0 ]
 {
-"61
-} 0
-"63
-[v _cambia cambia `(v  1 e 1 0 ]
-{
-[v cambia@dato dato `i  1 p 2 0 ]
-"77
+"76
+[v isr_general@actual actual `uc  1 a 1 2 ]
+"117
 } 0

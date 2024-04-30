@@ -1,0 +1,126 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F46K22 ]
+[d frameptr 4065 ]
+"4 /opt/microchip/xc8/v2.41/pic/sources/c99/common/fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 /opt/microchip/xc8/v2.41/pic/sources/c99/common/float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 /opt/microchip/xc8/v2.41/pic/sources/c99/common/ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 /opt/microchip/xc8/v2.41/pic/sources/c99/common/ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 /opt/microchip/xc8/v2.41/pic/sources/c99/common/ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 /opt/microchip/xc8/v2.41/pic/sources/c99/common/ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 /opt/microchip/xc8/v2.41/pic/sources/c99/common/sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 /opt/microchip/xc8/v2.41/pic/sources/c99/common/sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 /opt/microchip/xc8/v2.41/pic/sources/c99/common/sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 /opt/microchip/xc8/v2.41/pic/sources/c99/common/Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 /opt/microchip/xc8/v2.41/pic/sources/c99/common/Umul64.c
+[v ___omul __omul `(uo  1 e 8 0 ]
+"40 /home/ubecerril/Documentos/Ingenieria/8semestre/Embebidos/MPLab/PRACTICA_06.X/InterrupcionM.c
+[v _main main `(v  1 e 1 0 ]
+"68
+[v _isr_general isr_general `IIH(v  1 e 1 0 ]
+"88
+[v _cambia cambia `(v  1 e 1 0 ]
+"127
+[v _display0 display0 `(v  1 e 1 0 ]
+"176
+[v _display1 display1 `(v  1 e 1 0 ]
+"211
+[v _display2 display2 `(v  1 e 1 0 ]
+"259
+[v _display3 display3 `(v  1 e 1 0 ]
+"97 /opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/proc/pic18f46k22.h
+[v _ANSELB ANSELB `VEuc  1 e 1 @3897 ]
+"2781
+[v _IOCB IOCB `VEuc  1 e 1 @3938 ]
+"6565
+[v _PORTB PORTB `VEuc  1 e 1 @3969 ]
+"7784
+[v _LATC LATC `VEuc  1 e 1 @3979 ]
+"7896
+[v _LATD LATD `VEuc  1 e 1 @3980 ]
+"8282
+[v _TRISB TRISB `VEuc  1 e 1 @3987 ]
+"8504
+[v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+"8726
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+[s S29 . 1 `uc 1 RBIF 1 0 :1:0 
+`uc 1 INT0IF 1 0 :1:1 
+`uc 1 TMR0IF 1 0 :1:2 
+`uc 1 RBIE 1 0 :1:3 
+`uc 1 INT0IE 1 0 :1:4 
+`uc 1 TMR0IE 1 0 :1:5 
+`uc 1 PEIE_GIEL 1 0 :1:6 
+`uc 1 GIE_GIEH 1 0 :1:7 
+]
+"16958
+[s S38 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 INT0F 1 0 :1:1 
+`uc 1 T0IF 1 0 :1:2 
+`uc 1 . 1 0 :1:3 
+`uc 1 INT0E 1 0 :1:4 
+`uc 1 T0IE 1 0 :1:5 
+`uc 1 PEIE 1 0 :1:6 
+`uc 1 GIE 1 0 :1:7 
+]
+[s S47 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 GIEL 1 0 :1:6 
+`uc 1 GIEH 1 0 :1:7 
+]
+[u S51 . 1 `S29 1 . 1 0 `S38 1 . 1 0 `S47 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES51  1 e 1 @4082 ]
+"14 /home/ubecerril/Documentos/Ingenieria/8semestre/Embebidos/MPLab/PRACTICA_06.X/InterrupcionM.c
+[v _dato dato `i  1 e 2 0 ]
+[v _n0 n0 `i  1 e 2 0 ]
+[v _n1 n1 `i  1 e 2 0 ]
+[v _n2 n2 `i  1 e 2 0 ]
+[v _n3 n3 `i  1 e 2 0 ]
+"40
+[v _main main `(v  1 e 1 0 ]
+{
+"66
+} 0
+"259
+[v _display3 display3 `(v  1 e 1 0 ]
+{
+"293
+} 0
+"211
+[v _display2 display2 `(v  1 e 1 0 ]
+{
+"257
+} 0
+"176
+[v _display1 display1 `(v  1 e 1 0 ]
+{
+"210
+} 0
+"127
+[v _display0 display0 `(v  1 e 1 0 ]
+{
+"174
+} 0
+"68
+[v _isr_general isr_general `IIH(v  1 e 1 0 ]
+{
+"83
+} 0
+"88
+[v _cambia cambia `(v  1 e 1 0 ]
+{
+[v cambia@dato dato `i  1 p 2 0 ]
+"125
+} 0

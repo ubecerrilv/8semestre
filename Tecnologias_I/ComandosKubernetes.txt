@@ -71,3 +71,18 @@ sudo docker run --rm --name kubernetes-service -p 8080:8080 kubernetes-try:0.0.1
 /*KUBERNETES*/
 //Cargar la imagen a minikube
 minikube image load kubernetes-try:0.0.1-SNAPSHOT
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: kubernetes-try
+  labels: 
+    app: kubernetes-try
+spec:
+  type: ClusterIP
+  selector:
+    app: mi-aplicacion
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080

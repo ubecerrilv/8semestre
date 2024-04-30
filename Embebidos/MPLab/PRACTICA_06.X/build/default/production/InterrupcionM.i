@@ -15,10 +15,15 @@
 
 
 
-#pragma config FOSC = XT
+#pragma config FOSC = HSHP
 #pragma config PWRTEN = ON
 #pragma config WDTEN = OFF
+#pragma config MCLRE = INTMCLR
 
+
+int dato=0, n0=0, n1=0, n2=0, n3=0;
+volatile unsigned char anterior = 0;
+volatile unsigned char cambios = 0;
 
 # 1 "/opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/xc.h" 1 3
 # 18 "/opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/xc.h" 3
@@ -28,42 +33,39 @@ extern double __fpnormalize(double);
 
 
 
-# 1 "/opt/microchip/xc8/v2.46/pic/include/c99/xc8debug.h" 1 3
+# 1 "/opt/microchip/xc8/v2.41/pic/include/c99/xc8debug.h" 1 3
 
 
 
-# 1 "/opt/microchip/xc8/v2.46/pic/include/c99/stdlib.h" 1 3
+# 1 "/opt/microchip/xc8/v2.41/pic/include/c99/stdlib.h" 1 3
 
 
 
-# 1 "/opt/microchip/xc8/v2.46/pic/include/c99/musl_xc8.h" 1 3
-# 5 "/opt/microchip/xc8/v2.46/pic/include/c99/stdlib.h" 2 3
+# 1 "/opt/microchip/xc8/v2.41/pic/include/c99/musl_xc8.h" 1 3
+# 5 "/opt/microchip/xc8/v2.41/pic/include/c99/stdlib.h" 2 3
 
 
 
 
 
-# 1 "/opt/microchip/xc8/v2.46/pic/include/c99/features.h" 1 3
-# 11 "/opt/microchip/xc8/v2.46/pic/include/c99/stdlib.h" 2 3
-# 21 "/opt/microchip/xc8/v2.46/pic/include/c99/stdlib.h" 3
-# 1 "/opt/microchip/xc8/v2.46/pic/include/c99/bits/alltypes.h" 1 3
-# 24 "/opt/microchip/xc8/v2.46/pic/include/c99/bits/alltypes.h" 3
+# 1 "/opt/microchip/xc8/v2.41/pic/include/c99/features.h" 1 3
+# 11 "/opt/microchip/xc8/v2.41/pic/include/c99/stdlib.h" 2 3
+# 21 "/opt/microchip/xc8/v2.41/pic/include/c99/stdlib.h" 3
+# 1 "/opt/microchip/xc8/v2.41/pic/include/c99/bits/alltypes.h" 1 3
+# 18 "/opt/microchip/xc8/v2.41/pic/include/c99/bits/alltypes.h" 3
 typedef long int wchar_t;
-# 128 "/opt/microchip/xc8/v2.46/pic/include/c99/bits/alltypes.h" 3
+# 122 "/opt/microchip/xc8/v2.41/pic/include/c99/bits/alltypes.h" 3
 typedef unsigned size_t;
-# 174 "/opt/microchip/xc8/v2.46/pic/include/c99/bits/alltypes.h" 3
+# 168 "/opt/microchip/xc8/v2.41/pic/include/c99/bits/alltypes.h" 3
 typedef __int24 int24_t;
-# 210 "/opt/microchip/xc8/v2.46/pic/include/c99/bits/alltypes.h" 3
+# 204 "/opt/microchip/xc8/v2.41/pic/include/c99/bits/alltypes.h" 3
 typedef __uint24 uint24_t;
-# 22 "/opt/microchip/xc8/v2.46/pic/include/c99/stdlib.h" 2 3
+# 22 "/opt/microchip/xc8/v2.41/pic/include/c99/stdlib.h" 2 3
 
 int atoi (const char *);
 long atol (const char *);
-
 long long atoll (const char *);
-
 double atof (const char *);
-
 
 float strtof (const char *restrict, char **restrict);
 double strtod (const char *restrict, char **restrict);
@@ -73,15 +75,9 @@ long double strtold (const char *restrict, char **restrict);
 
 long strtol (const char *restrict, char **restrict, int);
 unsigned long strtoul (const char *restrict, char **restrict, int);
-
 long long strtoll (const char *restrict, char **restrict, int);
 unsigned long long strtoull (const char *restrict, char **restrict, int);
 
-
-unsigned long __strtoxl(const char * s, char ** endptr, int base, char is_signed);
-
-unsigned long long __strtoxll(const char * s, char ** endptr, int base, char is_signed);
-# 55 "/opt/microchip/xc8/v2.46/pic/include/c99/stdlib.h" 3
 int rand (void);
 void srand (unsigned);
 
@@ -107,27 +103,21 @@ __attribute__((nonreentrant)) void qsort (void *, size_t, size_t, int (*)(const 
 
 int abs (int);
 long labs (long);
-
 long long llabs (long long);
-
 
 typedef struct { int quot, rem; } div_t;
 typedef struct { long quot, rem; } ldiv_t;
-
 typedef struct { long long quot, rem; } lldiv_t;
-
 
 div_t div (int, int);
 ldiv_t ldiv (long, long);
-
 lldiv_t lldiv (long long, long long);
-
 
 typedef struct { unsigned int quot, rem; } udiv_t;
 typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
-# 5 "/opt/microchip/xc8/v2.46/pic/include/c99/xc8debug.h" 2 3
+# 5 "/opt/microchip/xc8/v2.41/pic/include/c99/xc8debug.h" 2 3
 
 
 
@@ -142,21 +132,21 @@ extern void __builtin_software_breakpoint(void);
 
 
 
-# 1 "/opt/microchip/xc8/v2.46/pic/include/c99/stdint.h" 1 3
-# 26 "/opt/microchip/xc8/v2.46/pic/include/c99/stdint.h" 3
-# 1 "/opt/microchip/xc8/v2.46/pic/include/c99/bits/alltypes.h" 1 3
-# 133 "/opt/microchip/xc8/v2.46/pic/include/c99/bits/alltypes.h" 3
-typedef unsigned __int24 uintptr_t;
-# 148 "/opt/microchip/xc8/v2.46/pic/include/c99/bits/alltypes.h" 3
-typedef __int24 intptr_t;
-# 164 "/opt/microchip/xc8/v2.46/pic/include/c99/bits/alltypes.h" 3
+# 1 "/opt/microchip/xc8/v2.41/pic/include/c99/stdint.h" 1 3
+# 22 "/opt/microchip/xc8/v2.41/pic/include/c99/stdint.h" 3
+# 1 "/opt/microchip/xc8/v2.41/pic/include/c99/bits/alltypes.h" 1 3
+# 127 "/opt/microchip/xc8/v2.41/pic/include/c99/bits/alltypes.h" 3
+typedef unsigned long uintptr_t;
+# 142 "/opt/microchip/xc8/v2.41/pic/include/c99/bits/alltypes.h" 3
+typedef long intptr_t;
+# 158 "/opt/microchip/xc8/v2.41/pic/include/c99/bits/alltypes.h" 3
 typedef signed char int8_t;
 
 
 
 
 typedef short int16_t;
-# 179 "/opt/microchip/xc8/v2.46/pic/include/c99/bits/alltypes.h" 3
+# 173 "/opt/microchip/xc8/v2.41/pic/include/c99/bits/alltypes.h" 3
 typedef long int32_t;
 
 
@@ -164,7 +154,7 @@ typedef long int32_t;
 
 
 typedef long long int64_t;
-# 194 "/opt/microchip/xc8/v2.46/pic/include/c99/bits/alltypes.h" 3
+# 188 "/opt/microchip/xc8/v2.41/pic/include/c99/bits/alltypes.h" 3
 typedef long long intmax_t;
 
 
@@ -177,7 +167,7 @@ typedef unsigned char uint8_t;
 
 
 typedef unsigned short uint16_t;
-# 215 "/opt/microchip/xc8/v2.46/pic/include/c99/bits/alltypes.h" 3
+# 209 "/opt/microchip/xc8/v2.41/pic/include/c99/bits/alltypes.h" 3
 typedef unsigned long uint32_t;
 
 
@@ -185,9 +175,9 @@ typedef unsigned long uint32_t;
 
 
 typedef unsigned long long uint64_t;
-# 235 "/opt/microchip/xc8/v2.46/pic/include/c99/bits/alltypes.h" 3
+# 229 "/opt/microchip/xc8/v2.41/pic/include/c99/bits/alltypes.h" 3
 typedef unsigned long long uintmax_t;
-# 27 "/opt/microchip/xc8/v2.46/pic/include/c99/stdint.h" 2 3
+# 23 "/opt/microchip/xc8/v2.41/pic/include/c99/stdint.h" 2 3
 
 typedef int8_t int_fast8_t;
 
@@ -219,13 +209,13 @@ typedef uint24_t uint_fast24_t;
 typedef uint32_t uint_least32_t;
 
 typedef uint64_t uint_least64_t;
-# 148 "/opt/microchip/xc8/v2.46/pic/include/c99/stdint.h" 3
-# 1 "/opt/microchip/xc8/v2.46/pic/include/c99/bits/stdint.h" 1 3
+# 144 "/opt/microchip/xc8/v2.41/pic/include/c99/stdint.h" 3
+# 1 "/opt/microchip/xc8/v2.41/pic/include/c99/bits/stdint.h" 1 3
 typedef int16_t int_fast16_t;
 typedef int32_t int_fast32_t;
 typedef uint16_t uint_fast16_t;
 typedef uint32_t uint_fast32_t;
-# 149 "/opt/microchip/xc8/v2.46/pic/include/c99/stdint.h" 2 3
+# 145 "/opt/microchip/xc8/v2.41/pic/include/c99/stdint.h" 2 3
 # 5 "/opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/builtins.h" 2 3
 
 
@@ -9665,34 +9655,54 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "/opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/xc.h" 2 3
-# 14 "InterrupcionM.c" 2
+# 19 "InterrupcionM.c" 2
 
-int contador;
-int dato;
+unsigned char CERO = 0x3F;
+unsigned char UNO = 0x06;
+unsigned char DOS = 0x5B;
+unsigned char TRES= 0x4F;
+unsigned char CUATRO = 0x66;
+unsigned char CINCO = 0x6D;
+unsigned char SEIS = 0x7D;
+unsigned char SIETE = 0x07;
+unsigned char OCHO = 0x7F;
+unsigned char NUEVE = 0x6F;
 
+unsigned char D3 = 0xF7;
+unsigned char D2 = 0xFB;
+unsigned char D1 = 0xFD;
+unsigned char D0 = 0xFE;
 
 
 void cambia(int);
+void display0(void);
+void display1(void);
+void display2(void);
+void display3(void);
 
 void main(void)
 {
 
-    TRISD=0X00;
-    TRISB=0XFF;
-    ANSELB=0X00;
+    TRISC = 0xF0;
+    TRISD=0x00;
+    TRISB=0xF0;
+    ANSELB=0x0F;
 
 
-    IOCB=0XF0;
+    INTCON=0x88;
 
-    INTCONbits.RBIE=1;
-    INTCONbits.RBIF=0;
-    INTCONbits.GIE=1;
+    IOCB=0xF0;
 
-    contador=0;
+
+
+
 
     while(1)
     {
-
+        display0();
+        display1();
+        display2();
+        display3();
     }
 
     return;
@@ -9700,33 +9710,216 @@ void main(void)
 
 void __attribute__((picinterrupt(("")))) isr_general ()
 {
-    IOCB=0X00;
-    dato=PORTB;
-    INTCONbits.RBIF=0;
     INTCONbits.RBIE=0;
 
+    _delay((unsigned long)((200)*(8000000/4000.0)));
+        unsigned char actual = PORTB;
+        switch (actual){
+            case 0x80:
+                n0=0;
+                n1=0;
+                n2=0;
+                n3=1;
+                break;
 
+            case 0x40:
+                n0=0;
+                n1=0;
+                n2=1;
+                n3=0;
+                break;
 
-    cambia(dato);
+            case 0x20:
+                n0=0;
+                n1=1;
+                n2=0;
+                n3=0;
+                break;
 
+            case 0x10:
+                n0=1;
+                n1=0;
+                n2=0;
+                n3=0;
+                break;
 
+            case 0x00:
+                n0=0;
+                n1=0;
+                n2=0;
+                n3=0;
+                break;
+        }
 
+    _delay((unsigned long)((100)*(8000000/4000.0)));
+    INTCONbits.RBIF=0;
     INTCONbits.RBIE=1;
-    IOCB=0XF0;
    }
 
-void cambia (int dato){
-    switch (dato){
+void display0 ()
+{
+
+    LATC = D0;
+    switch (n0)
+    {
+        case 0:
+            LATD=CERO;
+        break;
+
         case 1:
-            break;
+            LATD=UNO;
+        break;
 
         case 2:
-            break;
+            LATD=DOS;
+        break;
 
         case 3:
-            break;
+            LATD=TRES;
+        break;
 
         case 4:
-            break;
+            LATD=CUATRO;
+        break;
+
+        case 5:
+            LATD=CINCO;
+        break;
+
+        case 6:
+            LATD=SEIS;
+        break;
+
+        case 7:
+            LATD=SIETE;
+        break;
+
+        case 8:
+            LATD=OCHO;
+        break;
+
+        case 9:
+            LATD=NUEVE;
+        break;
     }
+    _delay((unsigned long)((35)*(8000000/4000.0)));
+}
+
+void display1 ()
+{
+    LATC = D1;
+    switch (n1)
+    {
+        case 0:
+            LATD=CERO;
+        break;
+
+        case 1:
+            LATD=UNO;
+        break;
+
+        case 2:
+            LATD=DOS;
+        break;
+
+        case 3:
+            LATD=TRES;
+        break;
+
+        case 4:
+            LATD=CUATRO;
+        break;
+
+        case 5:
+            LATD=CINCO;
+        break;
+
+        case 6:
+            LATD=SEIS;
+        break;
+    }
+    _delay((unsigned long)((35)*(8000000/4000.0)));
+}
+void display2 ()
+{
+    LATC = D2;
+    switch (n2)
+    {
+        case 0:
+            LATD=CERO;
+        break;
+
+        case 1:
+            LATD=UNO;
+        break;
+
+        case 2:
+            LATD=DOS;
+        break;
+
+        case 3:
+            LATD=TRES;
+        break;
+
+        case 4:
+            LATD=CUATRO;
+        break;
+
+        case 5:
+            LATD=CINCO;
+        break;
+
+        case 6:
+            LATD=SEIS;
+        break;
+
+        case 7:
+            LATD=SIETE;
+        break;
+
+        case 8:
+            LATD=OCHO;
+        break;
+
+        case 9:
+            LATD=NUEVE;
+        break;
+    }
+    _delay((unsigned long)((35)*(8000000/4000.0)));
+}
+
+void display3 ()
+{
+    LATC = D3;
+    switch (n3)
+    {
+        case 0:
+            LATD=CERO;
+        break;
+
+        case 1:
+            LATD=UNO;
+        break;
+
+        case 2:
+            LATD=DOS;
+        break;
+
+        case 3:
+            LATD=TRES;
+        break;
+
+        case 4:
+            LATD=CUATRO;
+        break;
+
+        case 5:
+            LATD=CINCO;
+        break;
+
+        case 6:
+            LATD=SEIS;
+        break;
+    }
+    _delay((unsigned long)((35)*(8000000/4000.0)));
 }
