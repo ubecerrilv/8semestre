@@ -1,0 +1,32 @@
+{
+"clave": 1215,
+"volumenes" :[
+	{"numero": 1,
+	"year": 2015,
+	"articulos": [
+		"https://revistas.uncu.edu.ar/ojs/index.php/millca-digital/article/view/299",
+		"https://revistas.uncu.edu.ar/ojs/index.php/millca-digital/article/view/298",
+		"https://revistas.uncu.edu.ar/ojs/index.php/millca-digital/article/view/297",
+		"https://revistas.uncu.edu.ar/ojs/index.php/millca-digital/article/view/296",
+		"https://revistas.uncu.edu.ar/ojs/index.php/millca-digital/article/view/295"
+	]},
+	{"numero": 2,
+	"year": 2016,
+	"articulos": [
+		"https://revistas.uncu.edu.ar/ojs/index.php/millca-digital/article/view/299",
+		"https://revistas.uncu.edu.ar/ojs/index.php/millca-digital/article/view/298",
+		"https://revistas.uncu.edu.ar/ojs/index.php/millca-digital/article/view/297",
+		"https://revistas.uncu.edu.ar/ojs/index.php/millca-digital/article/view/296",
+		"https://revistas.uncu.edu.ar/ojs/index.php/millca-digital/article/view/295"
+	]},
+	{"numero": 3,
+	"year": 2017,
+	"articulos": [
+		"https://revistas.uncu.edu.ar/ojs/index.php/millca-digital/article/view/299",
+		"https://revistas.uncu.edu.ar/ojs/index.php/millca-digital/article/view/298",
+		"https://revistas.uncu.edu.ar/ojs/index.php/millca-digital/article/view/297",
+		"https://revistas.uncu.edu.ar/ojs/index.php/millca-digital/article/view/296",
+		"https://revistas.uncu.edu.ar/ojs/index.php/millca-digital/article/view/295"
+	]}
+]
+}
