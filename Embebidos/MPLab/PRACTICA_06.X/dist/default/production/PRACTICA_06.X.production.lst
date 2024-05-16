@@ -1,9 +1,9 @@
 
 
-Microchip MPLAB XC8 Assembler V2.41 build 20230208172133 
-                                                                                               Fri Apr 26 22:30:30 2024
+Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
+                                                                                               Wed May 15 16:57:19 2024
 
-Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1 
+Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
      1                           	processor	18F46K22
      2                           	fnconf	rparam,??,?,0
      3                           	pagewidth 120
@@ -19,1575 +19,1533 @@ Microchip MPLAB XC8 C Compiler v2.41 (Free license) build 20230208172133 Og1
     13                           	psect	text3,global,reloc=2,class=CODE,delta=1
     14                           	psect	text4,global,reloc=2,class=CODE,delta=1
     15                           	psect	intcode,global,reloc=2,class=CODE,delta=1
-    16                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
-    17                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
-    18                           	psect	temp,global,ovrld,common,class=COMRAM,space=1,delta=1
-    19                           	psect	idloc,global,abs,ovrld,class=IDLOC,space=5,delta=1,noexec
-    20                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=1,noexec
-    21   000000                     
-    22                           ; Generated 06/04/2022 GMT
-    23                           ; 
-    24                           ; Copyright © 2022, Microchip Technology Inc. and its subsidiaries ("Microchip")
-    25                           ; All rights reserved.
-    26                           ; 
-    27                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
+    16                           	psect	smallconst,global,reloc=2,class=SMALLCONST,delta=1,noexec
+    17                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1,noexec
+    18                           	psect	rparam,global,class=COMRAM,space=1,delta=1,noexec
+    19                           	psect	temp,global,ovrld,common,class=COMRAM,space=1,delta=1,lowdata
+    20                           	psect	idloc,global,abs,ovrld,class=IDLOC,space=5,delta=1,noexec
+    21                           	psect	config,global,abs,ovrld,class=CONFIG,space=4,delta=1,noexec
+    22   000000                     
+    23                           ; Generated 06/04/2022 GMT
+    24                           ; 
+    25                           ; Copyright © 2022, Microchip Technology Inc. and its subsidiaries ("Microchip")
+    26                           ; All rights reserved.
+    27                           ; 
+    28                           ; This software is developed by Microchip Technology Inc. and its subsidiaries ("Microch
       +                          ip").
-    28                           ; 
-    29                           ; Redistribution and use in source and binary forms, with or without modification, are
-    30                           ; permitted provided that the following conditions are met:
-    31                           ; 
-    32                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
+    29                           ; 
+    30                           ; Redistribution and use in source and binary forms, with or without modification, are
+    31                           ; permitted provided that the following conditions are met:
+    32                           ; 
+    33                           ;     1. Redistributions of source code must retain the above copyright notice, this lis
       +                          t of
-    33                           ;        conditions and the following disclaimer.
-    34                           ; 
-    35                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
+    34                           ;        conditions and the following disclaimer.
+    35                           ; 
+    36                           ;     2. Redistributions in binary form must reproduce the above copyright notice, this 
       +                          list
-    36                           ;        of conditions and the following disclaimer in the documentation and/or other
-    37                           ;        materials provided with the distribution. Publication is not required when
-    38                           ;        this file is used in an embedded application.
-    39                           ; 
-    40                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
+    37                           ;        of conditions and the following disclaimer in the documentation and/or other
+    38                           ;        materials provided with the distribution. Publication is not required when
+    39                           ;        this file is used in an embedded application.
+    40                           ; 
+    41                           ;     3. Microchip's name may not be used to endorse or promote products derived from th
       +                          is
-    41                           ;        software without specific prior written permission.
-    42                           ; 
-    43                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
-    44                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
+    42                           ;        software without specific prior written permission.
+    43                           ; 
+    44                           ; THIS SOFTWARE IS PROVIDED BY MICROCHIP "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
+    45                           ; INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS F
       +                          OR
-    45                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
+    46                           ; PURPOSE ARE DISCLAIMED.  IN NO EVENT SHALL MICROCHIP BE LIABLE FOR ANY DIRECT, INDIREC
       +                          T,
-    46                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
-    47                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
-    48                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
+    47                           ; INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING BUT NOT LIMITED TO
+    48                           ; PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA OR PROFITS; OR BUSINESS
+    49                           ; INTERRUPTION) HOWSOEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, ST
       +                          RICT
-    49                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
+    50                           ; LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE U
       +                          SE OF
-    50                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-    51                           ; 
+    51                           ; THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
     52                           ; 
-    53                           ; Code-generator required, PIC18F46K22 Definitions
-    54                           ; 
-    55                           ; SFR Addresses
-    56   000000                     
-    57                           	psect	idataCOMRAM
-    58   0004A2                     __pidataCOMRAM:
-    59                           	callstack 0
-    60                           
-    61                           ;initializer for _D0
-    62   0004A2  FE                 	db	254
-    63                           
-    64                           ;initializer for _D1
-    65   0004A3  FD                 	db	253
-    66                           
-    67                           ;initializer for _D2
-    68   0004A4  FB                 	db	251
-    69                           
-    70                           ;initializer for _D3
-    71   0004A5  F7                 	db	247
-    72                           
-    73                           ;initializer for _NUEVE
-    74   0004A6  6F                 	db	111
-    75                           
-    76                           ;initializer for _OCHO
-    77   0004A7  7F                 	db	127
-    78                           
-    79                           ;initializer for _SIETE
-    80   0004A8  07                 	db	7
-    81                           
-    82                           ;initializer for _SEIS
-    83   0004A9  7D                 	db	125
-    84                           
-    85                           ;initializer for _CINCO
-    86   0004AA  6D                 	db	109
-    87                           
-    88                           ;initializer for _CUATRO
-    89   0004AB  66                 	db	102
-    90                           
-    91                           ;initializer for _TRES
-    92   0004AC  4F                 	db	79
-    93                           
-    94                           ;initializer for _DOS
-    95   0004AD  5B                 	db	91
-    96                           
-    97                           ;initializer for _UNO
-    98   0004AE  06                 	db	6
-    99                           
-   100                           ;initializer for _CERO
-   101   0004AF  3F                 	db	63
-   102   000000                     _INTCONbits	set	4082
-   103   000000                     _ANSELB	set	3897
-   104   000000                     _TRISB	set	3987
-   105   000000                     _TRISC	set	3988
-   106   000000                     _INTCON	set	4082
-   107   000000                     _TRISD	set	3989
-   108   000000                     _IOCB	set	3938
-   109   000000                     _PORTB	set	3969
-   110   000000                     _LATC	set	3979
-   111   000000                     _LATD	set	3980
-   112                           
-   113                           ; #config settings
-   114                           
-   115                           	psect	cinit
-   116   000436                     __pcinit:
-   117                           	callstack 0
-   118   000436                     start_initialization:
-   119                           	callstack 0
-   120   000436                     __initialization:
-   121                           	callstack 0
-   122                           
-   123                           ; Initialize objects allocated to COMRAM (14 bytes)
-   124                           ; load TBLPTR registers with __pidataCOMRAM
-   125   000436  0EA2               	movlw	low __pidataCOMRAM
-   126   000438  6EF6               	movwf	tblptrl,c
-   127   00043A  0E04               	movlw	high __pidataCOMRAM
-   128   00043C  6EF7               	movwf	tblptrh,c
-   129   00043E  0E00               	movlw	low (__pidataCOMRAM shr (0+16))
-   130   000440  6EF8               	movwf	tblptru,c
-   131   000442  EE00  F001         	lfsr	0,__pdataCOMRAM
-   132   000446  EE10 F00E          	lfsr	1,14
-   133   00044A                     copy_data0:
-   134   00044A  0009               	tblrd		*+
-   135   00044C  CFF5 FFEE          	movff	tablat,postinc0
-   136   000450  50E5               	movf	postdec1,w,c
-   137   000452  50E1               	movf	fsr1l,w,c
-   138   000454  E1FA               	bnz	copy_data0
-   139                           
-   140                           ; Clear objects allocated to COMRAM (12 bytes)
-   141   000456  EE00  F00F         	lfsr	0,__pbssCOMRAM
-   142   00045A  0E0C               	movlw	12
-   143   00045C                     clear_0:
-   144   00045C  6AEE               	clrf	postinc0,c
-   145   00045E  06E8               	decf	wreg,f,c
-   146   000460  E1FD               	bnz	clear_0
-   147   000462                     end_of_initialization:
-   148                           	callstack 0
-   149   000462                     __end_of__initialization:
-   150                           	callstack 0
-   151   000462  9020               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
-   152   000464  9220               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
-   153   000466  0E00               	movlw	low (__Lmediumconst shr (0+16))
-   154   000468  6EF8               	movwf	tblptru,c
-   155   00046A  0100               	movlb	0
-   156   00046C  EF38  F002         	goto	_main	;jump to C main() function
-   157                           
-   158                           	psect	bssCOMRAM
-   159   00000F                     __pbssCOMRAM:
-   160                           	callstack 0
-   161   00000F                     _n3:
-   162                           	callstack 0
-   163   00000F                     	ds	2
-   164   000011                     _n2:
-   165                           	callstack 0
-   166   000011                     	ds	2
-   167   000013                     _n1:
-   168                           	callstack 0
-   169   000013                     	ds	2
-   170   000015                     _n0:
-   171                           	callstack 0
-   172   000015                     	ds	2
-   173   000017                     _dato:
-   174                           	callstack 0
-   175   000017                     	ds	2
-   176   000019                     _cambios:
-   177                           	callstack 0
-   178   000019                     	ds	1
-   179   00001A                     _anterior:
-   180                           	callstack 0
-   181   00001A                     	ds	1
-   182                           
-   183                           	psect	dataCOMRAM
-   184   000001                     __pdataCOMRAM:
-   185                           	callstack 0
-   186   000001                     _D0:
-   187                           	callstack 0
-   188   000001                     	ds	1
-   189   000002                     _D1:
-   190                           	callstack 0
-   191   000002                     	ds	1
-   192   000003                     _D2:
-   193                           	callstack 0
-   194   000003                     	ds	1
-   195   000004                     _D3:
-   196                           	callstack 0
-   197   000004                     	ds	1
-   198   000005                     _NUEVE:
-   199                           	callstack 0
-   200   000005                     	ds	1
-   201   000006                     _OCHO:
-   202                           	callstack 0
-   203   000006                     	ds	1
-   204   000007                     _SIETE:
-   205                           	callstack 0
-   206   000007                     	ds	1
-   207   000008                     _SEIS:
-   208                           	callstack 0
-   209   000008                     	ds	1
-   210   000009                     _CINCO:
-   211                           	callstack 0
-   212   000009                     	ds	1
-   213   00000A                     _CUATRO:
-   214                           	callstack 0
-   215   00000A                     	ds	1
-   216   00000B                     _TRES:
-   217                           	callstack 0
-   218   00000B                     	ds	1
-   219   00000C                     _DOS:
-   220                           	callstack 0
-   221   00000C                     	ds	1
-   222   00000D                     _UNO:
-   223                           	callstack 0
-   224   00000D                     	ds	1
-   225   00000E                     _CERO:
-   226                           	callstack 0
-   227   00000E                     	ds	1
-   228                           
-   229                           	psect	cstackCOMRAM
-   230   00001B                     __pcstackCOMRAM:
-   231                           	callstack 0
-   232   00001B                     ??_isr_general:
-   233                           
-   234                           ; 1 bytes @ 0x0
-   235   00001B                     	ds	2
-   236   00001D                     isr_general@actual:
-   237                           	callstack 0
-   238                           
-   239                           ; 1 bytes @ 0x2
-   240   00001D                     	ds	1
-   241   00001E                     ??_display0:
-   242   00001E                     ??_display1:
-   243   00001E                     ??_display2:
-   244   00001E                     ??_display3:
-   245                           
-   246                           ; 1 bytes @ 0x3
-   247   00001E                     	ds	2
-   248   000020                     
-   249                           ; 1 bytes @ 0x5
-   250 ;;
-   251 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-   252 ;;
-   253 ;; *************** function _main *****************
-   254 ;; Defined at:
-   255 ;;		line 43 in file "InterrupcionM.c"
-   256 ;; Parameters:    Size  Location     Type
-   257 ;;		None
-   258 ;; Auto vars:     Size  Location     Type
-   259 ;;		None
-   260 ;; Return value:  Size  Location     Type
-   261 ;;                  1    wreg      void 
-   262 ;; Registers used:
-   263 ;;		wreg, status,2, status,0, cstack
-   264 ;; Tracked objects:
-   265 ;;		On entry : 0/0
-   266 ;;		On exit  : 0/0
-   267 ;;		Unchanged: 0/0
-   268 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+    53                           ; 
+    54                           ; Code-generator required, PIC18F46K22 Definitions
+    55                           ; 
+    56                           ; SFR Addresses
+    57   000000                     
+    58                           	psect	idataCOMRAM
+    59   00135E                     __pidataCOMRAM:
+    60                           	callstack 0
+    61                           
+    62                           ;initializer for _D0
+    63   00135E  FE                 	db	254
+    64                           
+    65                           ;initializer for _D1
+    66   00135F  FD                 	db	253
+    67                           
+    68                           ;initializer for _D2
+    69   001360  FB                 	db	251
+    70                           
+    71                           ;initializer for _D3
+    72   001361  F7                 	db	247
+    73                           
+    74                           ;initializer for _NUEVE
+    75   001362  6F                 	db	111
+    76                           
+    77                           ;initializer for _OCHO
+    78   001363  7F                 	db	127
+    79                           
+    80                           ;initializer for _SIETE
+    81   001364  07                 	db	7
+    82                           
+    83                           ;initializer for _SEIS
+    84   001365  7D                 	db	125
+    85                           
+    86                           ;initializer for _CINCO
+    87   001366  6D                 	db	109
+    88                           
+    89                           ;initializer for _CUATRO
+    90   001367  66                 	db	102
+    91                           
+    92                           ;initializer for _TRES
+    93   001368  4F                 	db	79
+    94                           
+    95                           ;initializer for _DOS
+    96   001369  5B                 	db	91
+    97                           
+    98                           ;initializer for _UNO
+    99   00136A  06                 	db	6
+   100                           
+   101                           ;initializer for _CERO
+   102   00136B  3F                 	db	63
+   103   000000                     _INTCONbits	set	4082
+   104   000000                     _ANSELB	set	3897
+   105   000000                     _TRISB	set	3987
+   106   000000                     _TRISC	set	3988
+   107   000000                     _INTCON	set	4082
+   108   000000                     _TRISD	set	3989
+   109   000000                     _IOCB	set	3938
+   110   000000                     _PORTB	set	3969
+   111   000000                     _LATC	set	3979
+   112   000000                     _LATD	set	3980
+   113                           
+   114                           ; #config settings
+   115                           
+   116                           	psect	cinit
+   117   0012F2                     __pcinit:
+   118                           	callstack 0
+   119   0012F2                     start_initialization:
+   120                           	callstack 0
+   121   0012F2                     __initialization:
+   122                           	callstack 0
+   123                           
+   124                           ; Initialize objects allocated to COMRAM (14 bytes)
+   125                           ; load TBLPTR registers with __pidataCOMRAM
+   126   0012F2  0E5E               	movlw	low __pidataCOMRAM
+   127   0012F4  6EF6               	movwf	tblptrl,c
+   128   0012F6  0E13               	movlw	high __pidataCOMRAM
+   129   0012F8  6EF7               	movwf	tblptrh,c
+   130   0012FA  0E00               	movlw	low (__pidataCOMRAM shr (0+16))
+   131   0012FC  6EF8               	movwf	tblptru,c
+   132   0012FE  EE00  F001         	lfsr	0,__pdataCOMRAM
+   133   001302  EE10 F00E          	lfsr	1,14
+   134   001306                     copy_data0:
+   135   001306  0009               	tblrd		*+
+   136   001308  CFF5 FFEE          	movff	tablat,postinc0
+   137   00130C  50E5               	movf	postdec1,w,c
+   138   00130E  50E1               	movf	fsr1l,w,c
+   139   001310  E1FA               	bnz	copy_data0
+   140                           
+   141                           ; Clear objects allocated to COMRAM (12 bytes)
+   142   001312  EE00  F00F         	lfsr	0,__pbssCOMRAM
+   143   001316  0E0C               	movlw	12
+   144   001318                     clear_0:
+   145   001318  6AEE               	clrf	postinc0,c
+   146   00131A  06E8               	decf	wreg,f,c
+   147   00131C  E1FD               	bnz	clear_0
+   148   00131E                     end_of_initialization:
+   149                           	callstack 0
+   150   00131E                     __end_of__initialization:
+   151                           	callstack 0
+   152   00131E  9020               	bcf	int$flags,0,c	;clear compiler interrupt flag (level 1)
+   153   001320  9220               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+   154   001322  0E00               	movlw	low (__Lmediumconst shr (0+16))
+   155   001324  6EF8               	movwf	tblptru,c
+   156   001326  0100               	movlb	0
+   157   001328  EF96  F009         	goto	_main	;jump to C main() function
+   158                           
+   159                           	psect	bssCOMRAM
+   160   00000F                     __pbssCOMRAM:
+   161                           	callstack 0
+   162   00000F                     _n3:
+   163                           	callstack 0
+   164   00000F                     	ds	2
+   165   000011                     _n2:
+   166                           	callstack 0
+   167   000011                     	ds	2
+   168   000013                     _n1:
+   169                           	callstack 0
+   170   000013                     	ds	2
+   171   000015                     _n0:
+   172                           	callstack 0
+   173   000015                     	ds	2
+   174   000017                     _dato:
+   175                           	callstack 0
+   176   000017                     	ds	2
+   177   000019                     _cambios:
+   178                           	callstack 0
+   179   000019                     	ds	1
+   180   00001A                     _anterior:
+   181                           	callstack 0
+   182   00001A                     	ds	1
+   183                           
+   184                           	psect	dataCOMRAM
+   185   000001                     __pdataCOMRAM:
+   186                           	callstack 0
+   187   000001                     _D0:
+   188                           	callstack 0
+   189   000001                     	ds	1
+   190   000002                     _D1:
+   191                           	callstack 0
+   192   000002                     	ds	1
+   193   000003                     _D2:
+   194                           	callstack 0
+   195   000003                     	ds	1
+   196   000004                     _D3:
+   197                           	callstack 0
+   198   000004                     	ds	1
+   199   000005                     _NUEVE:
+   200                           	callstack 0
+   201   000005                     	ds	1
+   202   000006                     _OCHO:
+   203                           	callstack 0
+   204   000006                     	ds	1
+   205   000007                     _SIETE:
+   206                           	callstack 0
+   207   000007                     	ds	1
+   208   000008                     _SEIS:
+   209                           	callstack 0
+   210   000008                     	ds	1
+   211   000009                     _CINCO:
+   212                           	callstack 0
+   213   000009                     	ds	1
+   214   00000A                     _CUATRO:
+   215                           	callstack 0
+   216   00000A                     	ds	1
+   217   00000B                     _TRES:
+   218                           	callstack 0
+   219   00000B                     	ds	1
+   220   00000C                     _DOS:
+   221                           	callstack 0
+   222   00000C                     	ds	1
+   223   00000D                     _UNO:
+   224                           	callstack 0
+   225   00000D                     	ds	1
+   226   00000E                     _CERO:
+   227                           	callstack 0
+   228   00000E                     	ds	1
+   229                           
+   230                           	psect	cstackCOMRAM
+   231   00001B                     __pcstackCOMRAM:
+   232                           	callstack 0
+   233   00001B                     ??_isr_general:
+   234                           
+   235                           ; 1 bytes @ 0x0
+   236   00001B                     	ds	2
+   237   00001D                     isr_general@actual:
+   238                           	callstack 0
+   239                           
+   240                           ; 1 bytes @ 0x2
+   241   00001D                     	ds	1
+   242   00001E                     ??_display0:
+   243   00001E                     ??_display1:
+   244   00001E                     ??_display2:
+   245   00001E                     ??_display3:
+   246                           
+   247                           ; 1 bytes @ 0x3
+   248   00001E                     	ds	2
+   249   000020                     
+   250                           ; 1 bytes @ 0x5
+   251 ;;
+   252 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   253 ;;
+   254 ;; *************** function _main *****************
+   255 ;; Defined at:
+   256 ;;		line 43 in file "InterrupcionM.c"
+   257 ;; Parameters:    Size  Location     Type
+   258 ;;		None
+   259 ;; Auto vars:     Size  Location     Type
+   260 ;;		None
+   261 ;; Return value:  Size  Location     Type
+   262 ;;                  1    wreg      void 
+   263 ;; Registers used:
+   264 ;;		wreg, status,2, status,0, cstack
+   265 ;; Tracked objects:
+   266 ;;		On entry : 0/0
+   267 ;;		On exit  : 0/0
+   268 ;;		Unchanged: 0/0
+   269 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14  BANK15
-   269 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   270 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   270 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   271 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   271 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   272 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   272 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   273 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   273 ;;Total ram usage:        0 bytes
-   274 ;; Hardware stack levels required when called: 2
-   275 ;; This function calls:
-   276 ;;		_display0
-   277 ;;		_display1
-   278 ;;		_display2
-   279 ;;		_display3
-   280 ;; This function is called by:
-   281 ;;		Startup code after reset
-   282 ;; This function uses a non-reentrant model
-   283 ;;
-   284                           
-   285                           	psect	text0
-   286   000470                     __ptext0:
-   287                           	callstack 0
-   288   000470                     _main:
-   289                           	callstack 29
-   290   000470                     
-   291                           ;InterrupcionM.c: 46:     TRISC = 0xF0;
-   292   000470  0EF0               	movlw	240
-   293   000472  6E94               	movwf	148,c	;volatile
-   294                           
-   295                           ;InterrupcionM.c: 47:     TRISD=0x00;
-   296   000474  0E00               	movlw	0
-   297   000476  6E95               	movwf	149,c	;volatile
-   298                           
-   299                           ;InterrupcionM.c: 48:     TRISB=0xF0;
-   300   000478  0EF0               	movlw	240
-   301   00047A  6E93               	movwf	147,c	;volatile
-   302                           
-   303                           ;InterrupcionM.c: 49:     ANSELB=0x0F;
-   304   00047C  0E0F               	movlw	15
-   305   00047E  010F               	movlb	15	; () banked
-   306   000480  6F39               	movwf	57,b	;volatile
-   307                           
-   308                           ;InterrupcionM.c: 52:     INTCON=0x88;
-   309   000482  0E88               	movlw	136
-   310   000484  6EF2               	movwf	242,c	;volatile
-   311                           
-   312                           ;InterrupcionM.c: 54:     IOCB=0xF0;
-   313   000486  0EF0               	movlw	240
-   314   000488  6E62               	movwf	98,c	;volatile
-   315   00048A                     l940:
-   316                           
-   317                           ;InterrupcionM.c: 61:     {;InterrupcionM.c: 62:         display0();
-   318   00048A  EC0D  F001         	call	_display0	;wreg free
-   319   00048E                     
-   320                           ;InterrupcionM.c: 63:         display1();
-   321   00048E  ECC9  F001         	call	_display1	;wreg free
-   322   000492                     
-   323                           ;InterrupcionM.c: 64:         display2();
-   324   000492  ECA3  F000         	call	_display2	;wreg free
-   325   000496                     
-   326                           ;InterrupcionM.c: 65:         display3();
-   327   000496  EC77  F001         	call	_display3	;wreg free
-   328   00049A  EF45  F002         	goto	l940
-   329   00049E  EFA1  F000         	goto	start
-   330   0004A2                     __end_of_main:
-   331                           	callstack 0
-   332                           
-   333 ;; *************** function _display3 *****************
-   334 ;; Defined at:
-   335 ;;		line 251 in file "InterrupcionM.c"
-   336 ;; Parameters:    Size  Location     Type
-   337 ;;		None
-   338 ;; Auto vars:     Size  Location     Type
-   339 ;;		None
-   340 ;; Return value:  Size  Location     Type
-   341 ;;                  1    wreg      void 
-   342 ;; Registers used:
-   343 ;;		wreg, status,2, status,0
-   344 ;; Tracked objects:
-   345 ;;		On entry : 0/0
-   346 ;;		On exit  : 0/0
-   347 ;;		Unchanged: 0/0
-   348 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   274 ;;Total ram usage:        0 bytes
+   275 ;; Hardware stack levels required when called: 2
+   276 ;; This function calls:
+   277 ;;		_display0
+   278 ;;		_display1
+   279 ;;		_display2
+   280 ;;		_display3
+   281 ;; This function is called by:
+   282 ;;		Startup code after reset
+   283 ;; This function uses a non-reentrant model
+   284 ;;
+   285                           
+   286                           	psect	text0
+   287   00132C                     __ptext0:
+   288                           	callstack 0
+   289   00132C                     _main:
+   290                           	callstack 29
+   291   00132C                     
+   292                           ;InterrupcionM.c: 46:     TRISC = 0xF0;
+   293   00132C  0EF0               	movlw	240
+   294   00132E  6E94               	movwf	148,c	;volatile
+   295                           
+   296                           ;InterrupcionM.c: 47:     TRISD=0x00;
+   297   001330  0E00               	movlw	0
+   298   001332  6E95               	movwf	149,c	;volatile
+   299                           
+   300                           ;InterrupcionM.c: 48:     TRISB=0xF0;
+   301   001334  0EF0               	movlw	240
+   302   001336  6E93               	movwf	147,c	;volatile
+   303                           
+   304                           ;InterrupcionM.c: 49:     ANSELB=0x0F;
+   305   001338  0E0F               	movlw	15
+   306   00133A  010F               	movlb	15	; () banked
+   307   00133C  6F39               	movwf	57,b	;volatile
+   308                           
+   309                           ;InterrupcionM.c: 52:     INTCON=0x88;
+   310   00133E  0E88               	movlw	136
+   311   001340  6EF2               	movwf	242,c	;volatile
+   312                           
+   313                           ;InterrupcionM.c: 54:     IOCB=0xF0;
+   314   001342  0EF0               	movlw	240
+   315   001344  6E62               	movwf	98,c	;volatile
+   316   001346                     l939:
+   317                           
+   318                           ;InterrupcionM.c: 61:     {;InterrupcionM.c: 62:         display0();
+   319   001346  EC6B  F008         	call	_display0	;wreg free
+   320   00134A                     
+   321                           ;InterrupcionM.c: 63:         display1();
+   322   00134A  EC27  F009         	call	_display1	;wreg free
+   323   00134E                     
+   324                           ;InterrupcionM.c: 64:         display2();
+   325   00134E  EC01  F008         	call	_display2	;wreg free
+   326   001352                     
+   327                           ;InterrupcionM.c: 65:         display3();
+   328   001352  ECD5  F008         	call	_display3	;wreg free
+   329   001356  EFA3  F009         	goto	l939
+   330   00135A  EF81  F000         	goto	start
+   331   00135E                     __end_of_main:
+   332                           	callstack 0
+   333                           
+   334 ;; *************** function _display3 *****************
+   335 ;; Defined at:
+   336 ;;		line 245 in file "InterrupcionM.c"
+   337 ;; Parameters:    Size  Location     Type
+   338 ;;		None
+   339 ;; Auto vars:     Size  Location     Type
+   340 ;;		None
+   341 ;; Return value:  Size  Location     Type
+   342 ;;                  1    wreg      void 
+   343 ;; Registers used:
+   344 ;;		wreg, status,2, status,0
+   345 ;; Tracked objects:
+   346 ;;		On entry : 0/0
+   347 ;;		On exit  : 0/0
+   348 ;;		Unchanged: 0/0
+   349 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14  BANK15
-   349 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   350 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   350 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   351 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   351 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+   352 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   352 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+   353 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   353 ;;Total ram usage:        2 bytes
-   354 ;; Hardware stack levels used: 1
-   355 ;; Hardware stack levels required when called: 1
-   356 ;; This function calls:
-   357 ;;		Nothing
-   358 ;; This function is called by:
-   359 ;;		_main
-   360 ;; This function uses a non-reentrant model
-   361 ;;
-   362                           
-   363                           	psect	text1
-   364   0002EE                     __ptext1:
-   365                           	callstack 0
-   366   0002EE                     _display3:
-   367                           	callstack 29
-   368   0002EE                     
-   369                           ;InterrupcionM.c: 253:     LATC = D3;
-   370   0002EE  0EF7               	movlw	247
-   371   0002F0  6E8B               	movwf	139,c	;volatile
-   372                           
-   373                           ;InterrupcionM.c: 254:     switch (n3)
-   374   0002F2  EF97  F001         	goto	l930
-   375   0002F6                     l914:
-   376                           
-   377                           ;InterrupcionM.c: 257:             LATD=CERO;
-   378   0002F6  0E3F               	movlw	63
-   379   0002F8  6E8C               	movwf	140,c	;volatile
-   380                           
-   381                           ;InterrupcionM.c: 258:         break;
-   382   0002FA  EFC1  F001         	goto	l932
-   383   0002FE                     l916:
-   384                           
-   385                           ;InterrupcionM.c: 261:             LATD=UNO;
-   386   0002FE  0E06               	movlw	6
-   387   000300  6E8C               	movwf	140,c	;volatile
-   388                           
-   389                           ;InterrupcionM.c: 262:         break;
-   390   000302  EFC1  F001         	goto	l932
-   391   000306                     l918:
-   392                           
-   393                           ;InterrupcionM.c: 265:             LATD=DOS;
-   394   000306  0E5B               	movlw	91
-   395   000308  6E8C               	movwf	140,c	;volatile
-   396                           
-   397                           ;InterrupcionM.c: 266:         break;
-   398   00030A  EFC1  F001         	goto	l932
-   399   00030E                     l920:
-   400                           
-   401                           ;InterrupcionM.c: 269:             LATD=TRES;
-   402   00030E  0E4F               	movlw	79
-   403   000310  6E8C               	movwf	140,c	;volatile
-   404                           
-   405                           ;InterrupcionM.c: 270:         break;
-   406   000312  EFC1  F001         	goto	l932
-   407   000316                     l922:
-   408                           
-   409                           ;InterrupcionM.c: 273:             LATD=CUATRO;
-   410   000316  0E66               	movlw	102
-   411   000318  6E8C               	movwf	140,c	;volatile
-   412                           
-   413                           ;InterrupcionM.c: 274:         break;
-   414   00031A  EFC1  F001         	goto	l932
-   415   00031E                     l924:
-   416                           
-   417                           ;InterrupcionM.c: 277:             LATD=CINCO;
-   418   00031E  0E6D               	movlw	109
-   419   000320  6E8C               	movwf	140,c	;volatile
-   420                           
-   421                           ;InterrupcionM.c: 278:         break;
-   422   000322  EFC1  F001         	goto	l932
-   423   000326                     l926:
-   424                           
-   425                           ;InterrupcionM.c: 281:             LATD=SEIS;
-   426   000326  0E7D               	movlw	125
-   427   000328  6E8C               	movwf	140,c	;volatile
-   428                           
-   429                           ;InterrupcionM.c: 282:         break;
-   430   00032A  EFC1  F001         	goto	l932
-   431   00032E                     l930:
-   432   00032E  C00F  F01E         	movff	_n3,??_display3
-   433   000332  C010  F01F         	movff	_n3+1,??_display3+1
-   434                           
-   435                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+   354 ;;Total ram usage:        2 bytes
+   355 ;; Hardware stack levels used: 1
+   356 ;; Hardware stack levels required when called: 1
+   357 ;; This function calls:
+   358 ;;		Nothing
+   359 ;; This function is called by:
+   360 ;;		_main
+   361 ;; This function uses a non-reentrant model
+   362 ;;
+   363                           
+   364                           	psect	text1
+   365   0011AA                     __ptext1:
+   366                           	callstack 0
+   367   0011AA                     _display3:
+   368                           	callstack 29
+   369   0011AA                     
+   370                           ;InterrupcionM.c: 247:     LATC = D3;
+   371   0011AA  0EF7               	movlw	247
+   372   0011AC  6E8B               	movwf	139,c	;volatile
+   373                           
+   374                           ;InterrupcionM.c: 248:     switch (n3)
+   375   0011AE  EFF5  F008         	goto	l929
+   376   0011B2                     l913:
+   377                           
+   378                           ;InterrupcionM.c: 251:             LATD=CERO;
+   379   0011B2  0E3F               	movlw	63
+   380   0011B4  6E8C               	movwf	140,c	;volatile
+   381                           
+   382                           ;InterrupcionM.c: 252:         break;
+   383   0011B6  EF1F  F009         	goto	l931
+   384   0011BA                     l915:
+   385                           
+   386                           ;InterrupcionM.c: 255:             LATD=UNO;
+   387   0011BA  0E06               	movlw	6
+   388   0011BC  6E8C               	movwf	140,c	;volatile
+   389                           
+   390                           ;InterrupcionM.c: 256:         break;
+   391   0011BE  EF1F  F009         	goto	l931
+   392   0011C2                     l917:
+   393                           
+   394                           ;InterrupcionM.c: 259:             LATD=DOS;
+   395   0011C2  0E5B               	movlw	91
+   396   0011C4  6E8C               	movwf	140,c	;volatile
+   397                           
+   398                           ;InterrupcionM.c: 260:         break;
+   399   0011C6  EF1F  F009         	goto	l931
+   400   0011CA                     l919:
+   401                           
+   402                           ;InterrupcionM.c: 263:             LATD=TRES;
+   403   0011CA  0E4F               	movlw	79
+   404   0011CC  6E8C               	movwf	140,c	;volatile
+   405                           
+   406                           ;InterrupcionM.c: 264:         break;
+   407   0011CE  EF1F  F009         	goto	l931
+   408   0011D2                     l921:
+   409                           
+   410                           ;InterrupcionM.c: 267:             LATD=CUATRO;
+   411   0011D2  0E66               	movlw	102
+   412   0011D4  6E8C               	movwf	140,c	;volatile
+   413                           
+   414                           ;InterrupcionM.c: 268:         break;
+   415   0011D6  EF1F  F009         	goto	l931
+   416   0011DA                     l923:
+   417                           
+   418                           ;InterrupcionM.c: 271:             LATD=CINCO;
+   419   0011DA  0E6D               	movlw	109
+   420   0011DC  6E8C               	movwf	140,c	;volatile
+   421                           
+   422                           ;InterrupcionM.c: 272:         break;
+   423   0011DE  EF1F  F009         	goto	l931
+   424   0011E2                     l925:
+   425                           
+   426                           ;InterrupcionM.c: 275:             LATD=SEIS;
+   427   0011E2  0E7D               	movlw	125
+   428   0011E4  6E8C               	movwf	140,c	;volatile
+   429                           
+   430                           ;InterrupcionM.c: 276:         break;
+   431   0011E6  EF1F  F009         	goto	l931
+   432   0011EA                     l929:
+   433   0011EA  C00F  F01E         	movff	_n3,??_display3
+   434   0011EE  C010  F01F         	movff	_n3+1,??_display3+1
+   435                           
+   436                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
       +                          itches
-   436                           ; Switch size 1, requested type "simple"
-   437                           ; Number of cases is 1, Range of values is 0 to 0
-   438                           ; switch strategies available:
-   439                           ; Name         Instructions Cycles
-   440                           ; simple_byte            4     3 (average)
-   441                           ;	Chosen strategy is simple_byte
-   442   000336  501F               	movf	(??_display3+1)^0,w,c
-   443   000338  0A00               	xorlw	0	; case 0
-   444   00033A  B4D8               	btfsc	status,2,c
-   445   00033C  EFA2  F001         	goto	l1078
-   446   000340  EFC1  F001         	goto	l932
-   447   000344                     l1078:
-   448                           
-   449                           ; Switch size 1, requested type "simple"
-   450                           ; Number of cases is 7, Range of values is 0 to 6
-   451                           ; switch strategies available:
-   452                           ; Name         Instructions Cycles
-   453                           ; simple_byte           22    12 (average)
-   454                           ;	Chosen strategy is simple_byte
-   455   000344  501E               	movf	??_display3^0,w,c
-   456   000346  0A00               	xorlw	0	; case 0
-   457   000348  B4D8               	btfsc	status,2,c
-   458   00034A  EF7B  F001         	goto	l914
-   459   00034E  0A01               	xorlw	1	; case 1
-   460   000350  B4D8               	btfsc	status,2,c
-   461   000352  EF7F  F001         	goto	l916
-   462   000356  0A03               	xorlw	3	; case 2
-   463   000358  B4D8               	btfsc	status,2,c
-   464   00035A  EF83  F001         	goto	l918
-   465   00035E  0A01               	xorlw	1	; case 3
-   466   000360  B4D8               	btfsc	status,2,c
-   467   000362  EF87  F001         	goto	l920
-   468   000366  0A07               	xorlw	7	; case 4
-   469   000368  B4D8               	btfsc	status,2,c
-   470   00036A  EF8B  F001         	goto	l922
-   471   00036E  0A01               	xorlw	1	; case 5
-   472   000370  B4D8               	btfsc	status,2,c
-   473   000372  EF8F  F001         	goto	l924
-   474   000376  0A03               	xorlw	3	; case 6
-   475   000378  B4D8               	btfsc	status,2,c
-   476   00037A  EF93  F001         	goto	l926
-   477   00037E  EFC1  F001         	goto	l932
-   478   000382                     l932:
-   479                           
-   480                           ;InterrupcionM.c: 284:     _delay((unsigned long)((35)*(8000000/4000.0)));
-   481   000382  0E5B               	movlw	91
-   482   000384  6E1E               	movwf	??_display3^0,c
-   483   000386  0EE8               	movlw	232
-   484   000388                     u17:
-   485   000388  2EE8               	decfsz	wreg,f,c
-   486   00038A  D7FE               	bra	u17
-   487   00038C  2E1E               	decfsz	??_display3^0,f,c
-   488   00038E  D7FC               	bra	u17
-   489   000390  0012               	return		;funcret
-   490   000392                     __end_of_display3:
-   491                           	callstack 0
-   492                           
-   493 ;; *************** function _display2 *****************
-   494 ;; Defined at:
-   495 ;;		line 203 in file "InterrupcionM.c"
-   496 ;; Parameters:    Size  Location     Type
-   497 ;;		None
-   498 ;; Auto vars:     Size  Location     Type
-   499 ;;		None
-   500 ;; Return value:  Size  Location     Type
-   501 ;;                  1    wreg      void 
-   502 ;; Registers used:
-   503 ;;		wreg, status,2, status,0
-   504 ;; Tracked objects:
-   505 ;;		On entry : 0/0
-   506 ;;		On exit  : 0/0
-   507 ;;		Unchanged: 0/0
-   508 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   437                           ; Switch size 1, requested type "simple"
+   438                           ; Number of cases is 1, Range of values is 0 to 0
+   439                           ; switch strategies available:
+   440                           ; Name         Instructions Cycles
+   441                           ; simple_byte            4     3 (average)
+   442                           ;	Chosen strategy is simple_byte
+   443   0011F2  501F               	movf	(??_display3+1)^0,w,c
+   444   0011F4  0A00               	xorlw	0	; case 0
+   445   0011F6  B4D8               	btfsc	status,2,c
+   446   0011F8  EF00  F009         	goto	l1051
+   447   0011FC  EF1F  F009         	goto	l931
+   448   001200                     l1051:
+   449                           
+   450                           ; Switch size 1, requested type "simple"
+   451                           ; Number of cases is 7, Range of values is 0 to 6
+   452                           ; switch strategies available:
+   453                           ; Name         Instructions Cycles
+   454                           ; simple_byte           22    12 (average)
+   455                           ;	Chosen strategy is simple_byte
+   456   001200  501E               	movf	??_display3^0,w,c
+   457   001202  0A00               	xorlw	0	; case 0
+   458   001204  B4D8               	btfsc	status,2,c
+   459   001206  EFD9  F008         	goto	l913
+   460   00120A  0A01               	xorlw	1	; case 1
+   461   00120C  B4D8               	btfsc	status,2,c
+   462   00120E  EFDD  F008         	goto	l915
+   463   001212  0A03               	xorlw	3	; case 2
+   464   001214  B4D8               	btfsc	status,2,c
+   465   001216  EFE1  F008         	goto	l917
+   466   00121A  0A01               	xorlw	1	; case 3
+   467   00121C  B4D8               	btfsc	status,2,c
+   468   00121E  EFE5  F008         	goto	l919
+   469   001222  0A07               	xorlw	7	; case 4
+   470   001224  B4D8               	btfsc	status,2,c
+   471   001226  EFE9  F008         	goto	l921
+   472   00122A  0A01               	xorlw	1	; case 5
+   473   00122C  B4D8               	btfsc	status,2,c
+   474   00122E  EFED  F008         	goto	l923
+   475   001232  0A03               	xorlw	3	; case 6
+   476   001234  B4D8               	btfsc	status,2,c
+   477   001236  EFF1  F008         	goto	l925
+   478   00123A  EF1F  F009         	goto	l931
+   479   00123E                     l931:
+   480                           
+   481                           ;InterrupcionM.c: 278:     _delay((unsigned long)((35)*(8000000/4000.0)));
+   482   00123E  0E5B               	movlw	91
+   483   001240  6E1E               	movwf	??_display3^0,c
+   484   001242  0EE8               	movlw	232
+   485   001244                     u17:
+   486   001244  2EE8               	decfsz	wreg,f,c
+   487   001246  D7FE               	bra	u17
+   488   001248  2E1E               	decfsz	??_display3^0,f,c
+   489   00124A  D7FC               	bra	u17
+   490   00124C  0012               	return		;funcret
+   491   00124E                     __end_of_display3:
+   492                           	callstack 0
+   493                           
+   494 ;; *************** function _display2 *****************
+   495 ;; Defined at:
+   496 ;;		line 197 in file "InterrupcionM.c"
+   497 ;; Parameters:    Size  Location     Type
+   498 ;;		None
+   499 ;; Auto vars:     Size  Location     Type
+   500 ;;		None
+   501 ;; Return value:  Size  Location     Type
+   502 ;;                  1    wreg      void 
+   503 ;; Registers used:
+   504 ;;		wreg, status,2, status,0
+   505 ;; Tracked objects:
+   506 ;;		On entry : 0/0
+   507 ;;		On exit  : 0/0
+   508 ;;		Unchanged: 0/0
+   509 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14  BANK15
-   509 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   510 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   510 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   511 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   511 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+   512 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   512 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+   513 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   513 ;;Total ram usage:        2 bytes
-   514 ;; Hardware stack levels used: 1
-   515 ;; Hardware stack levels required when called: 1
-   516 ;; This function calls:
-   517 ;;		Nothing
-   518 ;; This function is called by:
-   519 ;;		_main
-   520 ;; This function uses a non-reentrant model
-   521 ;;
-   522                           
-   523                           	psect	text2
-   524   000146                     __ptext2:
-   525                           	callstack 0
-   526   000146                     _display2:
-   527                           	callstack 29
-   528   000146                     
-   529                           ;InterrupcionM.c: 205:     LATC = D2;
-   530   000146  0EFB               	movlw	251
-   531   000148  6E8B               	movwf	139,c	;volatile
-   532                           
-   533                           ;InterrupcionM.c: 206:     switch (n2)
-   534   00014A  EFCF  F000         	goto	l904
-   535   00014E                     l882:
-   536                           
-   537                           ;InterrupcionM.c: 209:             LATD=CERO;
-   538   00014E  0E3F               	movlw	63
-   539   000150  6E8C               	movwf	140,c	;volatile
-   540                           
-   541                           ;InterrupcionM.c: 210:         break;
-   542   000152  EF05  F001         	goto	l906
-   543   000156                     l884:
-   544                           
-   545                           ;InterrupcionM.c: 213:             LATD=UNO;
-   546   000156  0E06               	movlw	6
-   547   000158  6E8C               	movwf	140,c	;volatile
-   548                           
-   549                           ;InterrupcionM.c: 214:         break;
-   550   00015A  EF05  F001         	goto	l906
-   551   00015E                     l886:
-   552                           
-   553                           ;InterrupcionM.c: 217:             LATD=DOS;
-   554   00015E  0E5B               	movlw	91
-   555   000160  6E8C               	movwf	140,c	;volatile
-   556                           
-   557                           ;InterrupcionM.c: 218:         break;
-   558   000162  EF05  F001         	goto	l906
-   559   000166                     l888:
-   560                           
-   561                           ;InterrupcionM.c: 221:             LATD=TRES;
-   562   000166  0E4F               	movlw	79
-   563   000168  6E8C               	movwf	140,c	;volatile
-   564                           
-   565                           ;InterrupcionM.c: 222:         break;
-   566   00016A  EF05  F001         	goto	l906
-   567   00016E                     l890:
-   568                           
-   569                           ;InterrupcionM.c: 225:             LATD=CUATRO;
-   570   00016E  0E66               	movlw	102
-   571   000170  6E8C               	movwf	140,c	;volatile
-   572                           
-   573                           ;InterrupcionM.c: 226:         break;
-   574   000172  EF05  F001         	goto	l906
-   575   000176                     l892:
-   576                           
-   577                           ;InterrupcionM.c: 229:             LATD=CINCO;
-   578   000176  0E6D               	movlw	109
-   579   000178  6E8C               	movwf	140,c	;volatile
-   580                           
-   581                           ;InterrupcionM.c: 230:         break;
-   582   00017A  EF05  F001         	goto	l906
-   583   00017E                     l894:
-   584                           
-   585                           ;InterrupcionM.c: 233:             LATD=SEIS;
-   586   00017E  0E7D               	movlw	125
-   587   000180  6E8C               	movwf	140,c	;volatile
-   588                           
-   589                           ;InterrupcionM.c: 234:         break;
-   590   000182  EF05  F001         	goto	l906
-   591   000186                     l896:
-   592                           
-   593                           ;InterrupcionM.c: 237:             LATD=SIETE;
-   594   000186  0E07               	movlw	7
-   595   000188  6E8C               	movwf	140,c	;volatile
-   596                           
-   597                           ;InterrupcionM.c: 238:         break;
-   598   00018A  EF05  F001         	goto	l906
-   599   00018E                     l898:
-   600                           
-   601                           ;InterrupcionM.c: 241:             LATD=OCHO;
-   602   00018E  0E7F               	movlw	127
-   603   000190  6E8C               	movwf	140,c	;volatile
-   604                           
-   605                           ;InterrupcionM.c: 242:         break;
-   606   000192  EF05  F001         	goto	l906
-   607   000196                     l900:
-   608                           
-   609                           ;InterrupcionM.c: 245:             LATD=NUEVE;
-   610   000196  0E6F               	movlw	111
-   611   000198  6E8C               	movwf	140,c	;volatile
-   612                           
-   613                           ;InterrupcionM.c: 246:         break;
-   614   00019A  EF05  F001         	goto	l906
-   615   00019E                     l904:
-   616   00019E  C011  F01E         	movff	_n2,??_display2
-   617   0001A2  C012  F01F         	movff	_n2+1,??_display2+1
-   618                           
-   619                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+   514 ;;Total ram usage:        2 bytes
+   515 ;; Hardware stack levels used: 1
+   516 ;; Hardware stack levels required when called: 1
+   517 ;; This function calls:
+   518 ;;		Nothing
+   519 ;; This function is called by:
+   520 ;;		_main
+   521 ;; This function uses a non-reentrant model
+   522 ;;
+   523                           
+   524                           	psect	text2
+   525   001002                     __ptext2:
+   526                           	callstack 0
+   527   001002                     _display2:
+   528                           	callstack 29
+   529   001002                     
+   530                           ;InterrupcionM.c: 199:     LATC = D2;
+   531   001002  0EFB               	movlw	251
+   532   001004  6E8B               	movwf	139,c	;volatile
+   533                           
+   534                           ;InterrupcionM.c: 200:     switch (n2)
+   535   001006  EF2D  F008         	goto	l903
+   536   00100A                     l881:
+   537                           
+   538                           ;InterrupcionM.c: 203:             LATD=CERO;
+   539   00100A  0E3F               	movlw	63
+   540   00100C  6E8C               	movwf	140,c	;volatile
+   541                           
+   542                           ;InterrupcionM.c: 204:         break;
+   543   00100E  EF63  F008         	goto	l905
+   544   001012                     l883:
+   545                           
+   546                           ;InterrupcionM.c: 207:             LATD=UNO;
+   547   001012  0E06               	movlw	6
+   548   001014  6E8C               	movwf	140,c	;volatile
+   549                           
+   550                           ;InterrupcionM.c: 208:         break;
+   551   001016  EF63  F008         	goto	l905
+   552   00101A                     l885:
+   553                           
+   554                           ;InterrupcionM.c: 211:             LATD=DOS;
+   555   00101A  0E5B               	movlw	91
+   556   00101C  6E8C               	movwf	140,c	;volatile
+   557                           
+   558                           ;InterrupcionM.c: 212:         break;
+   559   00101E  EF63  F008         	goto	l905
+   560   001022                     l887:
+   561                           
+   562                           ;InterrupcionM.c: 215:             LATD=TRES;
+   563   001022  0E4F               	movlw	79
+   564   001024  6E8C               	movwf	140,c	;volatile
+   565                           
+   566                           ;InterrupcionM.c: 216:         break;
+   567   001026  EF63  F008         	goto	l905
+   568   00102A                     l889:
+   569                           
+   570                           ;InterrupcionM.c: 219:             LATD=CUATRO;
+   571   00102A  0E66               	movlw	102
+   572   00102C  6E8C               	movwf	140,c	;volatile
+   573                           
+   574                           ;InterrupcionM.c: 220:         break;
+   575   00102E  EF63  F008         	goto	l905
+   576   001032                     l891:
+   577                           
+   578                           ;InterrupcionM.c: 223:             LATD=CINCO;
+   579   001032  0E6D               	movlw	109
+   580   001034  6E8C               	movwf	140,c	;volatile
+   581                           
+   582                           ;InterrupcionM.c: 224:         break;
+   583   001036  EF63  F008         	goto	l905
+   584   00103A                     l893:
+   585                           
+   586                           ;InterrupcionM.c: 227:             LATD=SEIS;
+   587   00103A  0E7D               	movlw	125
+   588   00103C  6E8C               	movwf	140,c	;volatile
+   589                           
+   590                           ;InterrupcionM.c: 228:         break;
+   591   00103E  EF63  F008         	goto	l905
+   592   001042                     l895:
+   593                           
+   594                           ;InterrupcionM.c: 231:             LATD=SIETE;
+   595   001042  0E07               	movlw	7
+   596   001044  6E8C               	movwf	140,c	;volatile
+   597                           
+   598                           ;InterrupcionM.c: 232:         break;
+   599   001046  EF63  F008         	goto	l905
+   600   00104A                     l897:
+   601                           
+   602                           ;InterrupcionM.c: 235:             LATD=OCHO;
+   603   00104A  0E7F               	movlw	127
+   604   00104C  6E8C               	movwf	140,c	;volatile
+   605                           
+   606                           ;InterrupcionM.c: 236:         break;
+   607   00104E  EF63  F008         	goto	l905
+   608   001052                     l899:
+   609                           
+   610                           ;InterrupcionM.c: 239:             LATD=NUEVE;
+   611   001052  0E6F               	movlw	111
+   612   001054  6E8C               	movwf	140,c	;volatile
+   613                           
+   614                           ;InterrupcionM.c: 240:         break;
+   615   001056  EF63  F008         	goto	l905
+   616   00105A                     l903:
+   617   00105A  C011  F01E         	movff	_n2,??_display2
+   618   00105E  C012  F01F         	movff	_n2+1,??_display2+1
+   619                           
+   620                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
       +                          itches
-   620                           ; Switch size 1, requested type "simple"
-   621                           ; Number of cases is 1, Range of values is 0 to 0
-   622                           ; switch strategies available:
-   623                           ; Name         Instructions Cycles
-   624                           ; simple_byte            4     3 (average)
-   625                           ;	Chosen strategy is simple_byte
-   626   0001A6  501F               	movf	(??_display2+1)^0,w,c
-   627   0001A8  0A00               	xorlw	0	; case 0
-   628   0001AA  B4D8               	btfsc	status,2,c
-   629   0001AC  EFDA  F000         	goto	l1080
-   630   0001B0  EF05  F001         	goto	l906
-   631   0001B4                     l1080:
-   632                           
-   633                           ; Switch size 1, requested type "simple"
-   634                           ; Number of cases is 10, Range of values is 0 to 9
-   635                           ; switch strategies available:
-   636                           ; Name         Instructions Cycles
-   637                           ; simple_byte           31    16 (average)
-   638                           ;	Chosen strategy is simple_byte
-   639   0001B4  501E               	movf	??_display2^0,w,c
-   640   0001B6  0A00               	xorlw	0	; case 0
-   641   0001B8  B4D8               	btfsc	status,2,c
-   642   0001BA  EFA7  F000         	goto	l882
-   643   0001BE  0A01               	xorlw	1	; case 1
-   644   0001C0  B4D8               	btfsc	status,2,c
-   645   0001C2  EFAB  F000         	goto	l884
-   646   0001C6  0A03               	xorlw	3	; case 2
-   647   0001C8  B4D8               	btfsc	status,2,c
-   648   0001CA  EFAF  F000         	goto	l886
-   649   0001CE  0A01               	xorlw	1	; case 3
-   650   0001D0  B4D8               	btfsc	status,2,c
-   651   0001D2  EFB3  F000         	goto	l888
-   652   0001D6  0A07               	xorlw	7	; case 4
-   653   0001D8  B4D8               	btfsc	status,2,c
-   654   0001DA  EFB7  F000         	goto	l890
-   655   0001DE  0A01               	xorlw	1	; case 5
-   656   0001E0  B4D8               	btfsc	status,2,c
-   657   0001E2  EFBB  F000         	goto	l892
-   658   0001E6  0A03               	xorlw	3	; case 6
-   659   0001E8  B4D8               	btfsc	status,2,c
-   660   0001EA  EFBF  F000         	goto	l894
-   661   0001EE  0A01               	xorlw	1	; case 7
-   662   0001F0  B4D8               	btfsc	status,2,c
-   663   0001F2  EFC3  F000         	goto	l896
-   664   0001F6  0A0F               	xorlw	15	; case 8
-   665   0001F8  B4D8               	btfsc	status,2,c
-   666   0001FA  EFC7  F000         	goto	l898
-   667   0001FE  0A01               	xorlw	1	; case 9
-   668   000200  B4D8               	btfsc	status,2,c
-   669   000202  EFCB  F000         	goto	l900
-   670   000206  EF05  F001         	goto	l906
-   671   00020A                     l906:
-   672                           
-   673                           ;InterrupcionM.c: 248:     _delay((unsigned long)((35)*(8000000/4000.0)));
-   674   00020A  0E5B               	movlw	91
-   675   00020C  6E1E               	movwf	??_display2^0,c
-   676   00020E  0EE8               	movlw	232
-   677   000210                     u27:
-   678   000210  2EE8               	decfsz	wreg,f,c
-   679   000212  D7FE               	bra	u27
-   680   000214  2E1E               	decfsz	??_display2^0,f,c
-   681   000216  D7FC               	bra	u27
-   682   000218  0012               	return		;funcret
-   683   00021A                     __end_of_display2:
-   684                           	callstack 0
-   685                           
-   686 ;; *************** function _display1 *****************
-   687 ;; Defined at:
-   688 ;;		line 168 in file "InterrupcionM.c"
-   689 ;; Parameters:    Size  Location     Type
-   690 ;;		None
-   691 ;; Auto vars:     Size  Location     Type
-   692 ;;		None
-   693 ;; Return value:  Size  Location     Type
-   694 ;;                  1    wreg      void 
-   695 ;; Registers used:
-   696 ;;		wreg, status,2, status,0
-   697 ;; Tracked objects:
-   698 ;;		On entry : 0/0
-   699 ;;		On exit  : 0/0
-   700 ;;		Unchanged: 0/0
-   701 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   621                           ; Switch size 1, requested type "simple"
+   622                           ; Number of cases is 1, Range of values is 0 to 0
+   623                           ; switch strategies available:
+   624                           ; Name         Instructions Cycles
+   625                           ; simple_byte            4     3 (average)
+   626                           ;	Chosen strategy is simple_byte
+   627   001062  501F               	movf	(??_display2+1)^0,w,c
+   628   001064  0A00               	xorlw	0	; case 0
+   629   001066  B4D8               	btfsc	status,2,c
+   630   001068  EF38  F008         	goto	l1053
+   631   00106C  EF63  F008         	goto	l905
+   632   001070                     l1053:
+   633                           
+   634                           ; Switch size 1, requested type "simple"
+   635                           ; Number of cases is 10, Range of values is 0 to 9
+   636                           ; switch strategies available:
+   637                           ; Name         Instructions Cycles
+   638                           ; simple_byte           31    16 (average)
+   639                           ;	Chosen strategy is simple_byte
+   640   001070  501E               	movf	??_display2^0,w,c
+   641   001072  0A00               	xorlw	0	; case 0
+   642   001074  B4D8               	btfsc	status,2,c
+   643   001076  EF05  F008         	goto	l881
+   644   00107A  0A01               	xorlw	1	; case 1
+   645   00107C  B4D8               	btfsc	status,2,c
+   646   00107E  EF09  F008         	goto	l883
+   647   001082  0A03               	xorlw	3	; case 2
+   648   001084  B4D8               	btfsc	status,2,c
+   649   001086  EF0D  F008         	goto	l885
+   650   00108A  0A01               	xorlw	1	; case 3
+   651   00108C  B4D8               	btfsc	status,2,c
+   652   00108E  EF11  F008         	goto	l887
+   653   001092  0A07               	xorlw	7	; case 4
+   654   001094  B4D8               	btfsc	status,2,c
+   655   001096  EF15  F008         	goto	l889
+   656   00109A  0A01               	xorlw	1	; case 5
+   657   00109C  B4D8               	btfsc	status,2,c
+   658   00109E  EF19  F008         	goto	l891
+   659   0010A2  0A03               	xorlw	3	; case 6
+   660   0010A4  B4D8               	btfsc	status,2,c
+   661   0010A6  EF1D  F008         	goto	l893
+   662   0010AA  0A01               	xorlw	1	; case 7
+   663   0010AC  B4D8               	btfsc	status,2,c
+   664   0010AE  EF21  F008         	goto	l895
+   665   0010B2  0A0F               	xorlw	15	; case 8
+   666   0010B4  B4D8               	btfsc	status,2,c
+   667   0010B6  EF25  F008         	goto	l897
+   668   0010BA  0A01               	xorlw	1	; case 9
+   669   0010BC  B4D8               	btfsc	status,2,c
+   670   0010BE  EF29  F008         	goto	l899
+   671   0010C2  EF63  F008         	goto	l905
+   672   0010C6                     l905:
+   673                           
+   674                           ;InterrupcionM.c: 242:     _delay((unsigned long)((35)*(8000000/4000.0)));
+   675   0010C6  0E5B               	movlw	91
+   676   0010C8  6E1E               	movwf	??_display2^0,c
+   677   0010CA  0EE8               	movlw	232
+   678   0010CC                     u27:
+   679   0010CC  2EE8               	decfsz	wreg,f,c
+   680   0010CE  D7FE               	bra	u27
+   681   0010D0  2E1E               	decfsz	??_display2^0,f,c
+   682   0010D2  D7FC               	bra	u27
+   683   0010D4  0012               	return		;funcret
+   684   0010D6                     __end_of_display2:
+   685                           	callstack 0
+   686                           
+   687 ;; *************** function _display1 *****************
+   688 ;; Defined at:
+   689 ;;		line 162 in file "InterrupcionM.c"
+   690 ;; Parameters:    Size  Location     Type
+   691 ;;		None
+   692 ;; Auto vars:     Size  Location     Type
+   693 ;;		None
+   694 ;; Return value:  Size  Location     Type
+   695 ;;                  1    wreg      void 
+   696 ;; Registers used:
+   697 ;;		wreg, status,2, status,0
+   698 ;; Tracked objects:
+   699 ;;		On entry : 0/0
+   700 ;;		On exit  : 0/0
+   701 ;;		Unchanged: 0/0
+   702 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14  BANK15
-   702 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   703 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   703 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   704 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   704 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+   705 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   705 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+   706 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   706 ;;Total ram usage:        2 bytes
-   707 ;; Hardware stack levels used: 1
-   708 ;; Hardware stack levels required when called: 1
-   709 ;; This function calls:
-   710 ;;		Nothing
-   711 ;; This function is called by:
-   712 ;;		_main
-   713 ;; This function uses a non-reentrant model
-   714 ;;
-   715                           
-   716                           	psect	text3
-   717   000392                     __ptext3:
-   718                           	callstack 0
-   719   000392                     _display1:
-   720                           	callstack 29
-   721   000392                     
-   722                           ;InterrupcionM.c: 170:     LATC = D1;
-   723   000392  0EFD               	movlw	253
-   724   000394  6E8B               	movwf	139,c	;volatile
-   725                           
-   726                           ;InterrupcionM.c: 171:     switch (n1)
-   727   000396  EFE9  F001         	goto	l872
-   728   00039A                     l856:
-   729                           
-   730                           ;InterrupcionM.c: 174:             LATD=CERO;
-   731   00039A  0E3F               	movlw	63
-   732   00039C  6E8C               	movwf	140,c	;volatile
-   733                           
-   734                           ;InterrupcionM.c: 175:         break;
-   735   00039E  EF13  F002         	goto	l874
-   736   0003A2                     l858:
-   737                           
-   738                           ;InterrupcionM.c: 178:             LATD=UNO;
-   739   0003A2  0E06               	movlw	6
-   740   0003A4  6E8C               	movwf	140,c	;volatile
-   741                           
-   742                           ;InterrupcionM.c: 179:         break;
-   743   0003A6  EF13  F002         	goto	l874
-   744   0003AA                     l860:
-   745                           
-   746                           ;InterrupcionM.c: 182:             LATD=DOS;
-   747   0003AA  0E5B               	movlw	91
-   748   0003AC  6E8C               	movwf	140,c	;volatile
-   749                           
-   750                           ;InterrupcionM.c: 183:         break;
-   751   0003AE  EF13  F002         	goto	l874
-   752   0003B2                     l862:
-   753                           
-   754                           ;InterrupcionM.c: 186:             LATD=TRES;
-   755   0003B2  0E4F               	movlw	79
-   756   0003B4  6E8C               	movwf	140,c	;volatile
-   757                           
-   758                           ;InterrupcionM.c: 187:         break;
-   759   0003B6  EF13  F002         	goto	l874
-   760   0003BA                     l864:
-   761                           
-   762                           ;InterrupcionM.c: 190:             LATD=CUATRO;
-   763   0003BA  0E66               	movlw	102
-   764   0003BC  6E8C               	movwf	140,c	;volatile
-   765                           
-   766                           ;InterrupcionM.c: 191:         break;
-   767   0003BE  EF13  F002         	goto	l874
-   768   0003C2                     l866:
-   769                           
-   770                           ;InterrupcionM.c: 194:             LATD=CINCO;
-   771   0003C2  0E6D               	movlw	109
-   772   0003C4  6E8C               	movwf	140,c	;volatile
-   773                           
-   774                           ;InterrupcionM.c: 195:         break;
-   775   0003C6  EF13  F002         	goto	l874
-   776   0003CA                     l868:
-   777                           
-   778                           ;InterrupcionM.c: 198:             LATD=SEIS;
-   779   0003CA  0E7D               	movlw	125
-   780   0003CC  6E8C               	movwf	140,c	;volatile
-   781                           
-   782                           ;InterrupcionM.c: 199:         break;
-   783   0003CE  EF13  F002         	goto	l874
-   784   0003D2                     l872:
-   785   0003D2  C013  F01E         	movff	_n1,??_display1
-   786   0003D6  C014  F01F         	movff	_n1+1,??_display1+1
-   787                           
-   788                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+   707 ;;Total ram usage:        2 bytes
+   708 ;; Hardware stack levels used: 1
+   709 ;; Hardware stack levels required when called: 1
+   710 ;; This function calls:
+   711 ;;		Nothing
+   712 ;; This function is called by:
+   713 ;;		_main
+   714 ;; This function uses a non-reentrant model
+   715 ;;
+   716                           
+   717                           	psect	text3
+   718   00124E                     __ptext3:
+   719                           	callstack 0
+   720   00124E                     _display1:
+   721                           	callstack 29
+   722   00124E                     
+   723                           ;InterrupcionM.c: 164:     LATC = D1;
+   724   00124E  0EFD               	movlw	253
+   725   001250  6E8B               	movwf	139,c	;volatile
+   726                           
+   727                           ;InterrupcionM.c: 165:     switch (n1)
+   728   001252  EF47  F009         	goto	l871
+   729   001256                     l855:
+   730                           
+   731                           ;InterrupcionM.c: 168:             LATD=CERO;
+   732   001256  0E3F               	movlw	63
+   733   001258  6E8C               	movwf	140,c	;volatile
+   734                           
+   735                           ;InterrupcionM.c: 169:         break;
+   736   00125A  EF71  F009         	goto	l873
+   737   00125E                     l857:
+   738                           
+   739                           ;InterrupcionM.c: 172:             LATD=UNO;
+   740   00125E  0E06               	movlw	6
+   741   001260  6E8C               	movwf	140,c	;volatile
+   742                           
+   743                           ;InterrupcionM.c: 173:         break;
+   744   001262  EF71  F009         	goto	l873
+   745   001266                     l859:
+   746                           
+   747                           ;InterrupcionM.c: 176:             LATD=DOS;
+   748   001266  0E5B               	movlw	91
+   749   001268  6E8C               	movwf	140,c	;volatile
+   750                           
+   751                           ;InterrupcionM.c: 177:         break;
+   752   00126A  EF71  F009         	goto	l873
+   753   00126E                     l861:
+   754                           
+   755                           ;InterrupcionM.c: 180:             LATD=TRES;
+   756   00126E  0E4F               	movlw	79
+   757   001270  6E8C               	movwf	140,c	;volatile
+   758                           
+   759                           ;InterrupcionM.c: 181:         break;
+   760   001272  EF71  F009         	goto	l873
+   761   001276                     l863:
+   762                           
+   763                           ;InterrupcionM.c: 184:             LATD=CUATRO;
+   764   001276  0E66               	movlw	102
+   765   001278  6E8C               	movwf	140,c	;volatile
+   766                           
+   767                           ;InterrupcionM.c: 185:         break;
+   768   00127A  EF71  F009         	goto	l873
+   769   00127E                     l865:
+   770                           
+   771                           ;InterrupcionM.c: 188:             LATD=CINCO;
+   772   00127E  0E6D               	movlw	109
+   773   001280  6E8C               	movwf	140,c	;volatile
+   774                           
+   775                           ;InterrupcionM.c: 189:         break;
+   776   001282  EF71  F009         	goto	l873
+   777   001286                     l867:
+   778                           
+   779                           ;InterrupcionM.c: 192:             LATD=SEIS;
+   780   001286  0E7D               	movlw	125
+   781   001288  6E8C               	movwf	140,c	;volatile
+   782                           
+   783                           ;InterrupcionM.c: 193:         break;
+   784   00128A  EF71  F009         	goto	l873
+   785   00128E                     l871:
+   786   00128E  C013  F01E         	movff	_n1,??_display1
+   787   001292  C014  F01F         	movff	_n1+1,??_display1+1
+   788                           
+   789                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
       +                          itches
-   789                           ; Switch size 1, requested type "simple"
-   790                           ; Number of cases is 1, Range of values is 0 to 0
-   791                           ; switch strategies available:
-   792                           ; Name         Instructions Cycles
-   793                           ; simple_byte            4     3 (average)
-   794                           ;	Chosen strategy is simple_byte
-   795   0003DA  501F               	movf	(??_display1+1)^0,w,c
-   796   0003DC  0A00               	xorlw	0	; case 0
-   797   0003DE  B4D8               	btfsc	status,2,c
-   798   0003E0  EFF4  F001         	goto	l1082
-   799   0003E4  EF13  F002         	goto	l874
-   800   0003E8                     l1082:
-   801                           
-   802                           ; Switch size 1, requested type "simple"
-   803                           ; Number of cases is 7, Range of values is 0 to 6
-   804                           ; switch strategies available:
-   805                           ; Name         Instructions Cycles
-   806                           ; simple_byte           22    12 (average)
-   807                           ;	Chosen strategy is simple_byte
-   808   0003E8  501E               	movf	??_display1^0,w,c
-   809   0003EA  0A00               	xorlw	0	; case 0
-   810   0003EC  B4D8               	btfsc	status,2,c
-   811   0003EE  EFCD  F001         	goto	l856
-   812   0003F2  0A01               	xorlw	1	; case 1
-   813   0003F4  B4D8               	btfsc	status,2,c
-   814   0003F6  EFD1  F001         	goto	l858
-   815   0003FA  0A03               	xorlw	3	; case 2
-   816   0003FC  B4D8               	btfsc	status,2,c
-   817   0003FE  EFD5  F001         	goto	l860
-   818   000402  0A01               	xorlw	1	; case 3
-   819   000404  B4D8               	btfsc	status,2,c
-   820   000406  EFD9  F001         	goto	l862
-   821   00040A  0A07               	xorlw	7	; case 4
-   822   00040C  B4D8               	btfsc	status,2,c
-   823   00040E  EFDD  F001         	goto	l864
-   824   000412  0A01               	xorlw	1	; case 5
-   825   000414  B4D8               	btfsc	status,2,c
-   826   000416  EFE1  F001         	goto	l866
-   827   00041A  0A03               	xorlw	3	; case 6
-   828   00041C  B4D8               	btfsc	status,2,c
-   829   00041E  EFE5  F001         	goto	l868
-   830   000422  EF13  F002         	goto	l874
-   831   000426                     l874:
-   832                           
-   833                           ;InterrupcionM.c: 201:     _delay((unsigned long)((35)*(8000000/4000.0)));
-   834   000426  0E5B               	movlw	91
-   835   000428  6E1E               	movwf	??_display1^0,c
-   836   00042A  0EE8               	movlw	232
-   837   00042C                     u37:
-   838   00042C  2EE8               	decfsz	wreg,f,c
-   839   00042E  D7FE               	bra	u37
-   840   000430  2E1E               	decfsz	??_display1^0,f,c
-   841   000432  D7FC               	bra	u37
-   842   000434  0012               	return		;funcret
-   843   000436                     __end_of_display1:
-   844                           	callstack 0
-   845                           
-   846 ;; *************** function _display0 *****************
-   847 ;; Defined at:
-   848 ;;		line 119 in file "InterrupcionM.c"
-   849 ;; Parameters:    Size  Location     Type
-   850 ;;		None
-   851 ;; Auto vars:     Size  Location     Type
-   852 ;;		None
-   853 ;; Return value:  Size  Location     Type
-   854 ;;                  1    wreg      void 
-   855 ;; Registers used:
-   856 ;;		wreg, status,2, status,0
-   857 ;; Tracked objects:
-   858 ;;		On entry : 0/0
-   859 ;;		On exit  : 0/0
-   860 ;;		Unchanged: 0/0
-   861 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   790                           ; Switch size 1, requested type "simple"
+   791                           ; Number of cases is 1, Range of values is 0 to 0
+   792                           ; switch strategies available:
+   793                           ; Name         Instructions Cycles
+   794                           ; simple_byte            4     3 (average)
+   795                           ;	Chosen strategy is simple_byte
+   796   001296  501F               	movf	(??_display1+1)^0,w,c
+   797   001298  0A00               	xorlw	0	; case 0
+   798   00129A  B4D8               	btfsc	status,2,c
+   799   00129C  EF52  F009         	goto	l1055
+   800   0012A0  EF71  F009         	goto	l873
+   801   0012A4                     l1055:
+   802                           
+   803                           ; Switch size 1, requested type "simple"
+   804                           ; Number of cases is 7, Range of values is 0 to 6
+   805                           ; switch strategies available:
+   806                           ; Name         Instructions Cycles
+   807                           ; simple_byte           22    12 (average)
+   808                           ;	Chosen strategy is simple_byte
+   809   0012A4  501E               	movf	??_display1^0,w,c
+   810   0012A6  0A00               	xorlw	0	; case 0
+   811   0012A8  B4D8               	btfsc	status,2,c
+   812   0012AA  EF2B  F009         	goto	l855
+   813   0012AE  0A01               	xorlw	1	; case 1
+   814   0012B0  B4D8               	btfsc	status,2,c
+   815   0012B2  EF2F  F009         	goto	l857
+   816   0012B6  0A03               	xorlw	3	; case 2
+   817   0012B8  B4D8               	btfsc	status,2,c
+   818   0012BA  EF33  F009         	goto	l859
+   819   0012BE  0A01               	xorlw	1	; case 3
+   820   0012C0  B4D8               	btfsc	status,2,c
+   821   0012C2  EF37  F009         	goto	l861
+   822   0012C6  0A07               	xorlw	7	; case 4
+   823   0012C8  B4D8               	btfsc	status,2,c
+   824   0012CA  EF3B  F009         	goto	l863
+   825   0012CE  0A01               	xorlw	1	; case 5
+   826   0012D0  B4D8               	btfsc	status,2,c
+   827   0012D2  EF3F  F009         	goto	l865
+   828   0012D6  0A03               	xorlw	3	; case 6
+   829   0012D8  B4D8               	btfsc	status,2,c
+   830   0012DA  EF43  F009         	goto	l867
+   831   0012DE  EF71  F009         	goto	l873
+   832   0012E2                     l873:
+   833                           
+   834                           ;InterrupcionM.c: 195:     _delay((unsigned long)((35)*(8000000/4000.0)));
+   835   0012E2  0E5B               	movlw	91
+   836   0012E4  6E1E               	movwf	??_display1^0,c
+   837   0012E6  0EE8               	movlw	232
+   838   0012E8                     u37:
+   839   0012E8  2EE8               	decfsz	wreg,f,c
+   840   0012EA  D7FE               	bra	u37
+   841   0012EC  2E1E               	decfsz	??_display1^0,f,c
+   842   0012EE  D7FC               	bra	u37
+   843   0012F0  0012               	return		;funcret
+   844   0012F2                     __end_of_display1:
+   845                           	callstack 0
+   846                           
+   847 ;; *************** function _display0 *****************
+   848 ;; Defined at:
+   849 ;;		line 113 in file "InterrupcionM.c"
+   850 ;; Parameters:    Size  Location     Type
+   851 ;;		None
+   852 ;; Auto vars:     Size  Location     Type
+   853 ;;		None
+   854 ;; Return value:  Size  Location     Type
+   855 ;;                  1    wreg      void 
+   856 ;; Registers used:
+   857 ;;		wreg, status,2, status,0
+   858 ;; Tracked objects:
+   859 ;;		On entry : 0/0
+   860 ;;		On exit  : 0/0
+   861 ;;		Unchanged: 0/0
+   862 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14  BANK15
-   862 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   863 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   863 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   864 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   864 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+   865 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   865 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+   866 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   866 ;;Total ram usage:        2 bytes
-   867 ;; Hardware stack levels used: 1
-   868 ;; Hardware stack levels required when called: 1
-   869 ;; This function calls:
-   870 ;;		Nothing
-   871 ;; This function is called by:
-   872 ;;		_main
-   873 ;; This function uses a non-reentrant model
-   874 ;;
-   875                           
-   876                           	psect	text4
-   877   00021A                     __ptext4:
-   878                           	callstack 0
-   879   00021A                     _display0:
-   880                           	callstack 29
-   881   00021A                     
-   882                           ;InterrupcionM.c: 122:     LATC = D0;
-   883   00021A  0EFE               	movlw	254
-   884   00021C  6E8B               	movwf	139,c	;volatile
-   885                           
-   886                           ;InterrupcionM.c: 123:     switch (n0)
-   887   00021E  EF39  F001         	goto	l846
-   888   000222                     l824:
-   889                           
-   890                           ;InterrupcionM.c: 126:             LATD=CERO;
-   891   000222  0E3F               	movlw	63
-   892   000224  6E8C               	movwf	140,c	;volatile
-   893                           
-   894                           ;InterrupcionM.c: 127:         break;
-   895   000226  EF6F  F001         	goto	l848
-   896   00022A                     l826:
-   897                           
-   898                           ;InterrupcionM.c: 130:             LATD=UNO;
-   899   00022A  0E06               	movlw	6
-   900   00022C  6E8C               	movwf	140,c	;volatile
-   901                           
-   902                           ;InterrupcionM.c: 131:         break;
-   903   00022E  EF6F  F001         	goto	l848
-   904   000232                     l828:
-   905                           
-   906                           ;InterrupcionM.c: 134:             LATD=DOS;
-   907   000232  0E5B               	movlw	91
-   908   000234  6E8C               	movwf	140,c	;volatile
-   909                           
-   910                           ;InterrupcionM.c: 135:         break;
-   911   000236  EF6F  F001         	goto	l848
-   912   00023A                     l830:
-   913                           
-   914                           ;InterrupcionM.c: 138:             LATD=TRES;
-   915   00023A  0E4F               	movlw	79
-   916   00023C  6E8C               	movwf	140,c	;volatile
-   917                           
-   918                           ;InterrupcionM.c: 139:         break;
-   919   00023E  EF6F  F001         	goto	l848
-   920   000242                     l832:
-   921                           
-   922                           ;InterrupcionM.c: 142:             LATD=CUATRO;
-   923   000242  0E66               	movlw	102
-   924   000244  6E8C               	movwf	140,c	;volatile
-   925                           
-   926                           ;InterrupcionM.c: 143:         break;
-   927   000246  EF6F  F001         	goto	l848
-   928   00024A                     l834:
-   929                           
-   930                           ;InterrupcionM.c: 146:             LATD=CINCO;
-   931   00024A  0E6D               	movlw	109
-   932   00024C  6E8C               	movwf	140,c	;volatile
-   933                           
-   934                           ;InterrupcionM.c: 147:         break;
-   935   00024E  EF6F  F001         	goto	l848
-   936   000252                     l836:
-   937                           
-   938                           ;InterrupcionM.c: 150:             LATD=SEIS;
-   939   000252  0E7D               	movlw	125
-   940   000254  6E8C               	movwf	140,c	;volatile
-   941                           
-   942                           ;InterrupcionM.c: 151:         break;
-   943   000256  EF6F  F001         	goto	l848
-   944   00025A                     l838:
-   945                           
-   946                           ;InterrupcionM.c: 154:             LATD=SIETE;
-   947   00025A  0E07               	movlw	7
-   948   00025C  6E8C               	movwf	140,c	;volatile
-   949                           
-   950                           ;InterrupcionM.c: 155:         break;
-   951   00025E  EF6F  F001         	goto	l848
-   952   000262                     l840:
-   953                           
-   954                           ;InterrupcionM.c: 158:             LATD=OCHO;
-   955   000262  0E7F               	movlw	127
-   956   000264  6E8C               	movwf	140,c	;volatile
-   957                           
-   958                           ;InterrupcionM.c: 159:         break;
-   959   000266  EF6F  F001         	goto	l848
-   960   00026A                     l842:
-   961                           
-   962                           ;InterrupcionM.c: 162:             LATD=NUEVE;
-   963   00026A  0E6F               	movlw	111
-   964   00026C  6E8C               	movwf	140,c	;volatile
-   965                           
-   966                           ;InterrupcionM.c: 163:         break;
-   967   00026E  EF6F  F001         	goto	l848
-   968   000272                     l846:
-   969   000272  C015  F01E         	movff	_n0,??_display0
-   970   000276  C016  F01F         	movff	_n0+1,??_display0+1
-   971                           
-   972                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
+   867 ;;Total ram usage:        2 bytes
+   868 ;; Hardware stack levels used: 1
+   869 ;; Hardware stack levels required when called: 1
+   870 ;; This function calls:
+   871 ;;		Nothing
+   872 ;; This function is called by:
+   873 ;;		_main
+   874 ;; This function uses a non-reentrant model
+   875 ;;
+   876                           
+   877                           	psect	text4
+   878   0010D6                     __ptext4:
+   879                           	callstack 0
+   880   0010D6                     _display0:
+   881                           	callstack 29
+   882   0010D6                     
+   883                           ;InterrupcionM.c: 116:     LATC = D0;
+   884   0010D6  0EFE               	movlw	254
+   885   0010D8  6E8B               	movwf	139,c	;volatile
+   886                           
+   887                           ;InterrupcionM.c: 117:     switch (n0)
+   888   0010DA  EF97  F008         	goto	l845
+   889   0010DE                     l823:
+   890                           
+   891                           ;InterrupcionM.c: 120:             LATD=CERO;
+   892   0010DE  0E3F               	movlw	63
+   893   0010E0  6E8C               	movwf	140,c	;volatile
+   894                           
+   895                           ;InterrupcionM.c: 121:         break;
+   896   0010E2  EFCD  F008         	goto	l847
+   897   0010E6                     l825:
+   898                           
+   899                           ;InterrupcionM.c: 124:             LATD=UNO;
+   900   0010E6  0E06               	movlw	6
+   901   0010E8  6E8C               	movwf	140,c	;volatile
+   902                           
+   903                           ;InterrupcionM.c: 125:         break;
+   904   0010EA  EFCD  F008         	goto	l847
+   905   0010EE                     l827:
+   906                           
+   907                           ;InterrupcionM.c: 128:             LATD=DOS;
+   908   0010EE  0E5B               	movlw	91
+   909   0010F0  6E8C               	movwf	140,c	;volatile
+   910                           
+   911                           ;InterrupcionM.c: 129:         break;
+   912   0010F2  EFCD  F008         	goto	l847
+   913   0010F6                     l829:
+   914                           
+   915                           ;InterrupcionM.c: 132:             LATD=TRES;
+   916   0010F6  0E4F               	movlw	79
+   917   0010F8  6E8C               	movwf	140,c	;volatile
+   918                           
+   919                           ;InterrupcionM.c: 133:         break;
+   920   0010FA  EFCD  F008         	goto	l847
+   921   0010FE                     l831:
+   922                           
+   923                           ;InterrupcionM.c: 136:             LATD=CUATRO;
+   924   0010FE  0E66               	movlw	102
+   925   001100  6E8C               	movwf	140,c	;volatile
+   926                           
+   927                           ;InterrupcionM.c: 137:         break;
+   928   001102  EFCD  F008         	goto	l847
+   929   001106                     l833:
+   930                           
+   931                           ;InterrupcionM.c: 140:             LATD=CINCO;
+   932   001106  0E6D               	movlw	109
+   933   001108  6E8C               	movwf	140,c	;volatile
+   934                           
+   935                           ;InterrupcionM.c: 141:         break;
+   936   00110A  EFCD  F008         	goto	l847
+   937   00110E                     l835:
+   938                           
+   939                           ;InterrupcionM.c: 144:             LATD=SEIS;
+   940   00110E  0E7D               	movlw	125
+   941   001110  6E8C               	movwf	140,c	;volatile
+   942                           
+   943                           ;InterrupcionM.c: 145:         break;
+   944   001112  EFCD  F008         	goto	l847
+   945   001116                     l837:
+   946                           
+   947                           ;InterrupcionM.c: 148:             LATD=SIETE;
+   948   001116  0E07               	movlw	7
+   949   001118  6E8C               	movwf	140,c	;volatile
+   950                           
+   951                           ;InterrupcionM.c: 149:         break;
+   952   00111A  EFCD  F008         	goto	l847
+   953   00111E                     l839:
+   954                           
+   955                           ;InterrupcionM.c: 152:             LATD=OCHO;
+   956   00111E  0E7F               	movlw	127
+   957   001120  6E8C               	movwf	140,c	;volatile
+   958                           
+   959                           ;InterrupcionM.c: 153:         break;
+   960   001122  EFCD  F008         	goto	l847
+   961   001126                     l841:
+   962                           
+   963                           ;InterrupcionM.c: 156:             LATD=NUEVE;
+   964   001126  0E6F               	movlw	111
+   965   001128  6E8C               	movwf	140,c	;volatile
+   966                           
+   967                           ;InterrupcionM.c: 157:         break;
+   968   00112A  EFCD  F008         	goto	l847
+   969   00112E                     l845:
+   970   00112E  C015  F01E         	movff	_n0,??_display0
+   971   001132  C016  F01F         	movff	_n0+1,??_display0+1
+   972                           
+   973                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
       +                          itches
-   973                           ; Switch size 1, requested type "simple"
-   974                           ; Number of cases is 1, Range of values is 0 to 0
-   975                           ; switch strategies available:
-   976                           ; Name         Instructions Cycles
-   977                           ; simple_byte            4     3 (average)
-   978                           ;	Chosen strategy is simple_byte
-   979   00027A  501F               	movf	(??_display0+1)^0,w,c
-   980   00027C  0A00               	xorlw	0	; case 0
-   981   00027E  B4D8               	btfsc	status,2,c
-   982   000280  EF44  F001         	goto	l1084
-   983   000284  EF6F  F001         	goto	l848
-   984   000288                     l1084:
-   985                           
-   986                           ; Switch size 1, requested type "simple"
-   987                           ; Number of cases is 10, Range of values is 0 to 9
-   988                           ; switch strategies available:
-   989                           ; Name         Instructions Cycles
-   990                           ; simple_byte           31    16 (average)
-   991                           ;	Chosen strategy is simple_byte
-   992   000288  501E               	movf	??_display0^0,w,c
-   993   00028A  0A00               	xorlw	0	; case 0
-   994   00028C  B4D8               	btfsc	status,2,c
-   995   00028E  EF11  F001         	goto	l824
-   996   000292  0A01               	xorlw	1	; case 1
-   997   000294  B4D8               	btfsc	status,2,c
-   998   000296  EF15  F001         	goto	l826
-   999   00029A  0A03               	xorlw	3	; case 2
-  1000   00029C  B4D8               	btfsc	status,2,c
-  1001   00029E  EF19  F001         	goto	l828
-  1002   0002A2  0A01               	xorlw	1	; case 3
-  1003   0002A4  B4D8               	btfsc	status,2,c
-  1004   0002A6  EF1D  F001         	goto	l830
-  1005   0002AA  0A07               	xorlw	7	; case 4
-  1006   0002AC  B4D8               	btfsc	status,2,c
-  1007   0002AE  EF21  F001         	goto	l832
-  1008   0002B2  0A01               	xorlw	1	; case 5
-  1009   0002B4  B4D8               	btfsc	status,2,c
-  1010   0002B6  EF25  F001         	goto	l834
-  1011   0002BA  0A03               	xorlw	3	; case 6
-  1012   0002BC  B4D8               	btfsc	status,2,c
-  1013   0002BE  EF29  F001         	goto	l836
-  1014   0002C2  0A01               	xorlw	1	; case 7
-  1015   0002C4  B4D8               	btfsc	status,2,c
-  1016   0002C6  EF2D  F001         	goto	l838
-  1017   0002CA  0A0F               	xorlw	15	; case 8
-  1018   0002CC  B4D8               	btfsc	status,2,c
-  1019   0002CE  EF31  F001         	goto	l840
-  1020   0002D2  0A01               	xorlw	1	; case 9
-  1021   0002D4  B4D8               	btfsc	status,2,c
-  1022   0002D6  EF35  F001         	goto	l842
-  1023   0002DA  EF6F  F001         	goto	l848
-  1024   0002DE                     l848:
-  1025                           
-  1026                           ;InterrupcionM.c: 165:     _delay((unsigned long)((35)*(8000000/4000.0)));
-  1027   0002DE  0E5B               	movlw	91
-  1028   0002E0  6E1E               	movwf	??_display0^0,c
-  1029   0002E2  0EE8               	movlw	232
-  1030   0002E4                     u47:
-  1031   0002E4  2EE8               	decfsz	wreg,f,c
-  1032   0002E6  D7FE               	bra	u47
-  1033   0002E8  2E1E               	decfsz	??_display0^0,f,c
-  1034   0002EA  D7FC               	bra	u47
-  1035   0002EC  0012               	return		;funcret
-  1036   0002EE                     __end_of_display0:
-  1037                           	callstack 0
-  1038                           
-  1039 ;; *************** function _isr_general *****************
-  1040 ;; Defined at:
-  1041 ;;		line 71 in file "InterrupcionM.c"
-  1042 ;; Parameters:    Size  Location     Type
-  1043 ;;		None
-  1044 ;; Auto vars:     Size  Location     Type
-  1045 ;;  actual          1    2[COMRAM] unsigned char 
-  1046 ;; Return value:  Size  Location     Type
-  1047 ;;                  1    wreg      void 
-  1048 ;; Registers used:
-  1049 ;;		wreg, status,2, status,0
-  1050 ;; Tracked objects:
-  1051 ;;		On entry : 0/0
-  1052 ;;		On exit  : 0/0
-  1053 ;;		Unchanged: 0/0
-  1054 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   974                           ; Switch size 1, requested type "simple"
+   975                           ; Number of cases is 1, Range of values is 0 to 0
+   976                           ; switch strategies available:
+   977                           ; Name         Instructions Cycles
+   978                           ; simple_byte            4     3 (average)
+   979                           ;	Chosen strategy is simple_byte
+   980   001136  501F               	movf	(??_display0+1)^0,w,c
+   981   001138  0A00               	xorlw	0	; case 0
+   982   00113A  B4D8               	btfsc	status,2,c
+   983   00113C  EFA2  F008         	goto	l1057
+   984   001140  EFCD  F008         	goto	l847
+   985   001144                     l1057:
+   986                           
+   987                           ; Switch size 1, requested type "simple"
+   988                           ; Number of cases is 10, Range of values is 0 to 9
+   989                           ; switch strategies available:
+   990                           ; Name         Instructions Cycles
+   991                           ; simple_byte           31    16 (average)
+   992                           ;	Chosen strategy is simple_byte
+   993   001144  501E               	movf	??_display0^0,w,c
+   994   001146  0A00               	xorlw	0	; case 0
+   995   001148  B4D8               	btfsc	status,2,c
+   996   00114A  EF6F  F008         	goto	l823
+   997   00114E  0A01               	xorlw	1	; case 1
+   998   001150  B4D8               	btfsc	status,2,c
+   999   001152  EF73  F008         	goto	l825
+  1000   001156  0A03               	xorlw	3	; case 2
+  1001   001158  B4D8               	btfsc	status,2,c
+  1002   00115A  EF77  F008         	goto	l827
+  1003   00115E  0A01               	xorlw	1	; case 3
+  1004   001160  B4D8               	btfsc	status,2,c
+  1005   001162  EF7B  F008         	goto	l829
+  1006   001166  0A07               	xorlw	7	; case 4
+  1007   001168  B4D8               	btfsc	status,2,c
+  1008   00116A  EF7F  F008         	goto	l831
+  1009   00116E  0A01               	xorlw	1	; case 5
+  1010   001170  B4D8               	btfsc	status,2,c
+  1011   001172  EF83  F008         	goto	l833
+  1012   001176  0A03               	xorlw	3	; case 6
+  1013   001178  B4D8               	btfsc	status,2,c
+  1014   00117A  EF87  F008         	goto	l835
+  1015   00117E  0A01               	xorlw	1	; case 7
+  1016   001180  B4D8               	btfsc	status,2,c
+  1017   001182  EF8B  F008         	goto	l837
+  1018   001186  0A0F               	xorlw	15	; case 8
+  1019   001188  B4D8               	btfsc	status,2,c
+  1020   00118A  EF8F  F008         	goto	l839
+  1021   00118E  0A01               	xorlw	1	; case 9
+  1022   001190  B4D8               	btfsc	status,2,c
+  1023   001192  EF93  F008         	goto	l841
+  1024   001196  EFCD  F008         	goto	l847
+  1025   00119A                     l847:
+  1026                           
+  1027                           ;InterrupcionM.c: 159:     _delay((unsigned long)((35)*(8000000/4000.0)));
+  1028   00119A  0E5B               	movlw	91
+  1029   00119C  6E1E               	movwf	??_display0^0,c
+  1030   00119E  0EE8               	movlw	232
+  1031   0011A0                     u47:
+  1032   0011A0  2EE8               	decfsz	wreg,f,c
+  1033   0011A2  D7FE               	bra	u47
+  1034   0011A4  2E1E               	decfsz	??_display0^0,f,c
+  1035   0011A6  D7FC               	bra	u47
+  1036   0011A8  0012               	return		;funcret
+  1037   0011AA                     __end_of_display0:
+  1038                           	callstack 0
+  1039                           
+  1040 ;; *************** function _isr_general *****************
+  1041 ;; Defined at:
+  1042 ;;		line 71 in file "InterrupcionM.c"
+  1043 ;; Parameters:    Size  Location     Type
+  1044 ;;		None
+  1045 ;; Auto vars:     Size  Location     Type
+  1046 ;;  actual          1    2[COMRAM] unsigned char 
+  1047 ;; Return value:  Size  Location     Type
+  1048 ;;                  1    wreg      void 
+  1049 ;; Registers used:
+  1050 ;;		wreg, status,2, status,0
+  1051 ;; Tracked objects:
+  1052 ;;		On entry : 0/0
+  1053 ;;		On exit  : 0/0
+  1054 ;;		Unchanged: 0/0
+  1055 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14  BANK15
-  1055 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+  1056 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-  1056 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
+  1057 ;;      Locals:         1       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-  1057 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
+  1058 ;;      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-  1058 ;;      Totals:         3       0       0       0       0       0       0       0       0       0       0       0       
+  1059 ;;      Totals:         3       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-  1059 ;;Total ram usage:        3 bytes
-  1060 ;; Hardware stack levels used: 1
-  1061 ;; This function calls:
-  1062 ;;		Nothing
-  1063 ;; This function is called by:
-  1064 ;;		Interrupt level 2
-  1065 ;; This function uses a non-reentrant model
-  1066 ;;
-  1067                           
-  1068                           	psect	intcode
-  1069   000008                     __pintcode:
-  1070                           	callstack 0
-  1071   000008                     _isr_general:
-  1072                           	callstack 29
-  1073                           
-  1074                           ;incstack = 0
-  1075   000008  8220               	bsf	int$flags,1,c	;set compiler interrupt flag (level 2)
-  1076   00000A                     
-  1077                           ;InterrupcionM.c: 73:     INTCONbits.RBIE=0;
-  1078   00000A  96F2               	bcf	242,3,c	;volatile
-  1079   00000C                     
-  1080                           ;InterrupcionM.c: 75:     _delay((unsigned long)((200)*(8000000/4000.0)));
-  1081   00000C  0E03               	movlw	3
-  1082   00000E  6E1C               	movwf	(??_isr_general+1)^0,c
-  1083   000010  0E08               	movlw	8
-  1084   000012  6E1B               	movwf	??_isr_general^0,c
-  1085   000014  0E77               	movlw	119
-  1086   000016                     i2u5_47:
-  1087   000016  2EE8               	decfsz	wreg,f,c
-  1088   000018  D7FE               	bra	i2u5_47
-  1089   00001A  2E1B               	decfsz	??_isr_general^0,f,c
-  1090   00001C  D7FC               	bra	i2u5_47
-  1091   00001E  2E1C               	decfsz	(??_isr_general+1)^0,f,c
-  1092   000020  D7FA               	bra	i2u5_47
-  1093   000022  F000               	nop	
-  1094   000024                     
-  1095                           ;InterrupcionM.c: 76:         unsigned char actual = PORTB;
-  1096   000024  CF81 F01D          	movff	3969,isr_general@actual	;volatile
-  1097                           
-  1098                           ;InterrupcionM.c: 77:         switch (actual){
-  1099   000028  EF70  F000         	goto	i2l966
-  1100   00002C                     i2l954:
-  1101                           
-  1102                           ;InterrupcionM.c: 79:                 n0=0;
-  1103   00002C  0E00               	movlw	0
-  1104   00002E  6E16               	movwf	(_n0+1)^0,c
-  1105   000030  0E00               	movlw	0
-  1106   000032  6E15               	movwf	_n0^0,c
-  1107                           
-  1108                           ;InterrupcionM.c: 80:                 n1=0;
-  1109   000034  0E00               	movlw	0
-  1110   000036  6E14               	movwf	(_n1+1)^0,c
-  1111   000038  0E00               	movlw	0
-  1112   00003A  6E13               	movwf	_n1^0,c
-  1113                           
-  1114                           ;InterrupcionM.c: 81:                 n2=0;
-  1115   00003C  0E00               	movlw	0
-  1116   00003E  6E12               	movwf	(_n2+1)^0,c
-  1117   000040  0E00               	movlw	0
-  1118   000042  6E11               	movwf	_n2^0,c
-  1119                           
-  1120                           ;InterrupcionM.c: 82:                 n3=1;
-  1121   000044  0E00               	movlw	0
-  1122   000046  6E10               	movwf	(_n3+1)^0,c
-  1123   000048  0E01               	movlw	1
-  1124   00004A  6E0F               	movwf	_n3^0,c
-  1125                           
-  1126                           ;InterrupcionM.c: 83:                 break;
-  1127   00004C  EF91  F000         	goto	i2l968
-  1128   000050                     i2l956:
-  1129                           
-  1130                           ;InterrupcionM.c: 86:                 n0=0;
-  1131   000050  0E00               	movlw	0
-  1132   000052  6E16               	movwf	(_n0+1)^0,c
-  1133   000054  0E00               	movlw	0
-  1134   000056  6E15               	movwf	_n0^0,c
-  1135                           
-  1136                           ;InterrupcionM.c: 87:                 n1=0;
-  1137   000058  0E00               	movlw	0
-  1138   00005A  6E14               	movwf	(_n1+1)^0,c
-  1139   00005C  0E00               	movlw	0
-  1140   00005E  6E13               	movwf	_n1^0,c
-  1141                           
-  1142                           ;InterrupcionM.c: 88:                 n2=1;
-  1143   000060  0E00               	movlw	0
-  1144   000062  6E12               	movwf	(_n2+1)^0,c
-  1145   000064  0E01               	movlw	1
-  1146   000066  6E11               	movwf	_n2^0,c
-  1147                           
-  1148                           ;InterrupcionM.c: 89:                 n3=0;
-  1149   000068  0E00               	movlw	0
-  1150   00006A  6E10               	movwf	(_n3+1)^0,c
-  1151   00006C  0E00               	movlw	0
-  1152   00006E  6E0F               	movwf	_n3^0,c
-  1153                           
-  1154                           ;InterrupcionM.c: 90:                 break;
-  1155   000070  EF91  F000         	goto	i2l968
-  1156   000074                     i2l958:
-  1157                           
-  1158                           ;InterrupcionM.c: 93:                 n0=0;
-  1159   000074  0E00               	movlw	0
-  1160   000076  6E16               	movwf	(_n0+1)^0,c
-  1161   000078  0E00               	movlw	0
-  1162   00007A  6E15               	movwf	_n0^0,c
-  1163                           
-  1164                           ;InterrupcionM.c: 94:                 n1=1;
-  1165   00007C  0E00               	movlw	0
-  1166   00007E  6E14               	movwf	(_n1+1)^0,c
-  1167   000080  0E01               	movlw	1
-  1168   000082  6E13               	movwf	_n1^0,c
-  1169                           
-  1170                           ;InterrupcionM.c: 95:                 n2=0;
-  1171   000084  0E00               	movlw	0
-  1172   000086  6E12               	movwf	(_n2+1)^0,c
-  1173   000088  0E00               	movlw	0
-  1174   00008A  6E11               	movwf	_n2^0,c
-  1175                           
-  1176                           ;InterrupcionM.c: 96:                 n3=0;
-  1177   00008C  0E00               	movlw	0
-  1178   00008E  6E10               	movwf	(_n3+1)^0,c
-  1179   000090  0E00               	movlw	0
-  1180   000092  6E0F               	movwf	_n3^0,c
-  1181                           
-  1182                           ;InterrupcionM.c: 97:                 break;
-  1183   000094  EF91  F000         	goto	i2l968
-  1184   000098                     i2l960:
-  1185                           
-  1186                           ;InterrupcionM.c: 100:                 n0=1;
-  1187   000098  0E00               	movlw	0
-  1188   00009A  6E16               	movwf	(_n0+1)^0,c
-  1189   00009C  0E01               	movlw	1
-  1190   00009E  6E15               	movwf	_n0^0,c
-  1191                           
-  1192                           ;InterrupcionM.c: 101:                 n1=0;
-  1193   0000A0  0E00               	movlw	0
-  1194   0000A2  6E14               	movwf	(_n1+1)^0,c
-  1195   0000A4  0E00               	movlw	0
-  1196   0000A6  6E13               	movwf	_n1^0,c
-  1197                           
-  1198                           ;InterrupcionM.c: 102:                 n2=0;
-  1199   0000A8  0E00               	movlw	0
-  1200   0000AA  6E12               	movwf	(_n2+1)^0,c
-  1201   0000AC  0E00               	movlw	0
-  1202   0000AE  6E11               	movwf	_n2^0,c
-  1203                           
-  1204                           ;InterrupcionM.c: 103:                 n3=0;
-  1205   0000B0  0E00               	movlw	0
-  1206   0000B2  6E10               	movwf	(_n3+1)^0,c
-  1207   0000B4  0E00               	movlw	0
-  1208   0000B6  6E0F               	movwf	_n3^0,c
-  1209                           
-  1210                           ;InterrupcionM.c: 104:                 break;
-  1211   0000B8  EF91  F000         	goto	i2l968
-  1212   0000BC                     i2l962:
-  1213                           
-  1214                           ;InterrupcionM.c: 107:                 n0=0;
-  1215   0000BC  0E00               	movlw	0
-  1216   0000BE  6E16               	movwf	(_n0+1)^0,c
-  1217   0000C0  0E00               	movlw	0
-  1218   0000C2  6E15               	movwf	_n0^0,c
-  1219                           
-  1220                           ;InterrupcionM.c: 108:                 n1=0;
-  1221   0000C4  0E00               	movlw	0
-  1222   0000C6  6E14               	movwf	(_n1+1)^0,c
-  1223   0000C8  0E00               	movlw	0
-  1224   0000CA  6E13               	movwf	_n1^0,c
-  1225                           
-  1226                           ;InterrupcionM.c: 109:                 n2=0;
-  1227   0000CC  0E00               	movlw	0
-  1228   0000CE  6E12               	movwf	(_n2+1)^0,c
-  1229   0000D0  0E00               	movlw	0
-  1230   0000D2  6E11               	movwf	_n2^0,c
-  1231                           
-  1232                           ;InterrupcionM.c: 110:                 n3=0;
-  1233   0000D4  0E00               	movlw	0
-  1234   0000D6  6E10               	movwf	(_n3+1)^0,c
-  1235   0000D8  0E00               	movlw	0
-  1236   0000DA  6E0F               	movwf	_n3^0,c
-  1237                           
-  1238                           ;InterrupcionM.c: 111:                 break;
-  1239   0000DC  EF91  F000         	goto	i2l968
-  1240   0000E0                     i2l966:
-  1241   0000E0  501D               	movf	isr_general@actual^0,w,c
-  1242   0000E2  6E1B               	movwf	??_isr_general^0,c
-  1243   0000E4  6A1C               	clrf	(??_isr_general+1)^0,c
-  1244                           
-  1245                           ; Switch on 2 bytes has been partitioned into a top level switch of size 1, and 1 sub-sw
-      +                          itches
-  1246                           ; Switch size 1, requested type "simple"
-  1247                           ; Number of cases is 1, Range of values is 0 to 0
-  1248                           ; switch strategies available:
-  1249                           ; Name         Instructions Cycles
-  1250                           ; simple_byte            4     3 (average)
-  1251                           ;	Chosen strategy is simple_byte
-  1252   0000E6  501C               	movf	(??_isr_general+1)^0,w,c
-  1253   0000E8  0A00               	xorlw	0	; case 0
-  1254   0000EA  B4D8               	btfsc	status,2,c
-  1255   0000EC  EF7A  F000         	goto	i2l1086
-  1256   0000F0  EF91  F000         	goto	i2l968
-  1257   0000F4                     i2l1086:
-  1258                           
-  1259                           ; Switch size 1, requested type "simple"
-  1260                           ; Number of cases is 5, Range of values is 0 to 128
-  1261                           ; switch strategies available:
-  1262                           ; Name         Instructions Cycles
-  1263                           ; simple_byte           16     9 (average)
-  1264                           ;	Chosen strategy is simple_byte
-  1265   0000F4  501B               	movf	??_isr_general^0,w,c
-  1266   0000F6  0A00               	xorlw	0	; case 0
-  1267   0000F8  B4D8               	btfsc	status,2,c
-  1268   0000FA  EF5E  F000         	goto	i2l962
-  1269   0000FE  0A10               	xorlw	16	; case 16
-  1270   000100  B4D8               	btfsc	status,2,c
-  1271   000102  EF4C  F000         	goto	i2l960
-  1272   000106  0A30               	xorlw	48	; case 32
-  1273   000108  B4D8               	btfsc	status,2,c
-  1274   00010A  EF3A  F000         	goto	i2l958
-  1275   00010E  0A60               	xorlw	96	; case 64
-  1276   000110  B4D8               	btfsc	status,2,c
-  1277   000112  EF28  F000         	goto	i2l956
-  1278   000116  0AC0               	xorlw	192	; case 128
-  1279   000118  B4D8               	btfsc	status,2,c
-  1280   00011A  EF16  F000         	goto	i2l954
-  1281   00011E  EF91  F000         	goto	i2l968
-  1282   000122                     i2l968:
-  1283                           
-  1284                           ;InterrupcionM.c: 114:     _delay((unsigned long)((100)*(8000000/4000.0)));
-  1285   000122  0E02               	movlw	2
-  1286   000124  6E1C               	movwf	(??_isr_general+1)^0,c
-  1287   000126  0E04               	movlw	4
-  1288   000128  6E1B               	movwf	??_isr_general^0,c
-  1289   00012A  0EBA               	movlw	186
-  1290   00012C                     i2u6_47:
-  1291   00012C  2EE8               	decfsz	wreg,f,c
-  1292   00012E  D7FE               	bra	i2u6_47
-  1293   000130  2E1B               	decfsz	??_isr_general^0,f,c
-  1294   000132  D7FC               	bra	i2u6_47
-  1295   000134  2E1C               	decfsz	(??_isr_general+1)^0,f,c
-  1296   000136  D7FA               	bra	i2u6_47
-  1297   000138  D000               	nop2	
-  1298   00013A                     
-  1299                           ;InterrupcionM.c: 115:     INTCONbits.RBIF=0;
-  1300   00013A  90F2               	bcf	242,0,c	;volatile
-  1301   00013C                     
-  1302                           ;InterrupcionM.c: 116:     INTCONbits.RBIE=1;
-  1303   00013C  86F2               	bsf	242,3,c	;volatile
-  1304   00013E  9220               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
-  1305   000140  0011               	retfie		f
-  1306   000142                     __end_of_isr_general:
-  1307                           	callstack 0
-  1308   000000                     
-  1309                           	psect	rparam
-  1310   000000                     
-  1311                           	psect	temp
-  1312   000020                     btemp:
-  1313                           	callstack 0
-  1314   000020                     	ds	1
-  1315   000000                     int$flags	set	btemp
-  1316   000000                     wtemp8	set	btemp+1
-  1317   000000                     ttemp5	set	btemp+1
-  1318   000000                     ttemp6	set	btemp+4
-  1319   000000                     ttemp7	set	btemp+8
-  1320                           
-  1321                           	psect	idloc
-  1322                           
-  1323                           ;Config register IDLOC0 @ 0x200000
-  1324                           ;	unspecified, using default values
-  1325   200000                     	org	2097152
-  1326   200000  FF                 	db	255
+  1060 ;;Total ram usage:        3 bytes
+  1061 ;; Hardware stack levels used: 1
+  1062 ;; This function calls:
+  1063 ;;		Nothing
+  1064 ;; This function is called by:
+  1065 ;;		Interrupt level 2
+  1066 ;; This function uses a non-reentrant model
+  1067 ;;
+  1068                           
+  1069                           	psect	intcode
+  1070   000008                     __pintcode:
+  1071                           	callstack 0
+  1072   000008                     _isr_general:
+  1073                           	callstack 29
+  1074                           
+  1075                           ;incstack = 0
+  1076   000008  8220               	bsf	int$flags,1,c	;set compiler interrupt flag (level 2)
+  1077   00000A                     
+  1078                           ;InterrupcionM.c: 73:     INTCONbits.RBIE=0;
+  1079   00000A  96F2               	bcf	242,3,c	;volatile
+  1080   00000C                     
+  1081                           ;InterrupcionM.c: 75:     _delay((unsigned long)((200)*(8000000/4000.0)));
+  1082   00000C  0E03               	movlw	3
+  1083   00000E  6E1C               	movwf	(??_isr_general+1)^0,c
+  1084   000010  0E08               	movlw	8
+  1085   000012  6E1B               	movwf	??_isr_general^0,c
+  1086   000014  0E77               	movlw	119
+  1087   000016                     i2u5_47:
+  1088   000016  2EE8               	decfsz	wreg,f,c
+  1089   000018  D7FE               	bra	i2u5_47
+  1090   00001A  2E1B               	decfsz	??_isr_general^0,f,c
+  1091   00001C  D7FC               	bra	i2u5_47
+  1092   00001E  2E1C               	decfsz	(??_isr_general+1)^0,f,c
+  1093   000020  D7FA               	bra	i2u5_47
+  1094   000022  0000               	nop	
+  1095   000024                     
+  1096                           ;InterrupcionM.c: 76:         unsigned char actual = PORTB;
+  1097   000024  CF81 F01D          	movff	3969,isr_general@actual	;volatile
+  1098                           
+  1099                           ;InterrupcionM.c: 77:         switch (actual){
+  1100   000028  EF5E  F000         	goto	i2l963
+  1101   00002C                     i2l953:
+  1102                           
+  1103                           ;InterrupcionM.c: 79:                 n0=0;
+  1104   00002C  0E00               	movlw	0
+  1105   00002E  6E16               	movwf	(_n0+1)^0,c
+  1106   000030  0E00               	movlw	0
+  1107   000032  6E15               	movwf	_n0^0,c
+  1108                           
+  1109                           ;InterrupcionM.c: 80:                 n1=0;
+  1110   000034  0E00               	movlw	0
+  1111   000036  6E14               	movwf	(_n1+1)^0,c
+  1112   000038  0E00               	movlw	0
+  1113   00003A  6E13               	movwf	_n1^0,c
+  1114                           
+  1115                           ;InterrupcionM.c: 81:                 n2=0;
+  1116   00003C  0E00               	movlw	0
+  1117   00003E  6E12               	movwf	(_n2+1)^0,c
+  1118   000040  0E00               	movlw	0
+  1119   000042  6E11               	movwf	_n2^0,c
+  1120                           
+  1121                           ;InterrupcionM.c: 82:                 n3=1;
+  1122   000044  0E00               	movlw	0
+  1123   000046  6E10               	movwf	(_n3+1)^0,c
+  1124   000048  0E01               	movlw	1
+  1125   00004A  6E0F               	movwf	_n3^0,c
+  1126                           
+  1127                           ;InterrupcionM.c: 83:                 break;
+  1128   00004C  EF71  F000         	goto	i2l965
+  1129   000050                     i2l955:
+  1130                           
+  1131                           ;InterrupcionM.c: 86:                 n0=0;
+  1132   000050  0E00               	movlw	0
+  1133   000052  6E16               	movwf	(_n0+1)^0,c
+  1134   000054  0E00               	movlw	0
+  1135   000056  6E15               	movwf	_n0^0,c
+  1136                           
+  1137                           ;InterrupcionM.c: 87:                 n1=0;
+  1138   000058  0E00               	movlw	0
+  1139   00005A  6E14               	movwf	(_n1+1)^0,c
+  1140   00005C  0E00               	movlw	0
+  1141   00005E  6E13               	movwf	_n1^0,c
+  1142                           
+  1143                           ;InterrupcionM.c: 88:                 n2=1;
+  1144   000060  0E00               	movlw	0
+  1145   000062  6E12               	movwf	(_n2+1)^0,c
+  1146   000064  0E01               	movlw	1
+  1147   000066  6E11               	movwf	_n2^0,c
+  1148                           
+  1149                           ;InterrupcionM.c: 89:                 n3=0;
+  1150   000068  0E00               	movlw	0
+  1151   00006A  6E10               	movwf	(_n3+1)^0,c
+  1152   00006C  0E00               	movlw	0
+  1153   00006E  6E0F               	movwf	_n3^0,c
+  1154                           
+  1155                           ;InterrupcionM.c: 90:                 break;
+  1156   000070  EF71  F000         	goto	i2l965
+  1157   000074                     i2l957:
+  1158                           
+  1159                           ;InterrupcionM.c: 93:                 n0=0;
+  1160   000074  0E00               	movlw	0
+  1161   000076  6E16               	movwf	(_n0+1)^0,c
+  1162   000078  0E00               	movlw	0
+  1163   00007A  6E15               	movwf	_n0^0,c
+  1164                           
+  1165                           ;InterrupcionM.c: 94:                 n1=1;
+  1166   00007C  0E00               	movlw	0
+  1167   00007E  6E14               	movwf	(_n1+1)^0,c
+  1168   000080  0E01               	movlw	1
+  1169   000082  6E13               	movwf	_n1^0,c
+  1170                           
+  1171                           ;InterrupcionM.c: 95:                 n2=0;
+  1172   000084  0E00               	movlw	0
+  1173   000086  6E12               	movwf	(_n2+1)^0,c
+  1174   000088  0E00               	movlw	0
+  1175   00008A  6E11               	movwf	_n2^0,c
+  1176                           
+  1177                           ;InterrupcionM.c: 96:                 n3=0;
+  1178   00008C  0E00               	movlw	0
+  1179   00008E  6E10               	movwf	(_n3+1)^0,c
+  1180   000090  0E00               	movlw	0
+  1181   000092  6E0F               	movwf	_n3^0,c
+  1182                           
+  1183                           ;InterrupcionM.c: 97:                 break;
+  1184   000094  EF71  F000         	goto	i2l965
+  1185   000098                     i2l959:
+  1186                           
+  1187                           ;InterrupcionM.c: 100:                 n0=1;
+  1188   000098  0E00               	movlw	0
+  1189   00009A  6E16               	movwf	(_n0+1)^0,c
+  1190   00009C  0E01               	movlw	1
+  1191   00009E  6E15               	movwf	_n0^0,c
+  1192                           
+  1193                           ;InterrupcionM.c: 101:                 n1=0;
+  1194   0000A0  0E00               	movlw	0
+  1195   0000A2  6E14               	movwf	(_n1+1)^0,c
+  1196   0000A4  0E00               	movlw	0
+  1197   0000A6  6E13               	movwf	_n1^0,c
+  1198                           
+  1199                           ;InterrupcionM.c: 102:                 n2=0;
+  1200   0000A8  0E00               	movlw	0
+  1201   0000AA  6E12               	movwf	(_n2+1)^0,c
+  1202   0000AC  0E00               	movlw	0
+  1203   0000AE  6E11               	movwf	_n2^0,c
+  1204                           
+  1205                           ;InterrupcionM.c: 103:                 n3=0;
+  1206   0000B0  0E00               	movlw	0
+  1207   0000B2  6E10               	movwf	(_n3+1)^0,c
+  1208   0000B4  0E00               	movlw	0
+  1209   0000B6  6E0F               	movwf	_n3^0,c
+  1210                           
+  1211                           ;InterrupcionM.c: 104:                 break;
+  1212   0000B8  EF71  F000         	goto	i2l965
+  1213   0000BC                     i2l963:
+  1214   0000BC  501D               	movf	isr_general@actual^0,w,c
+  1215                           
+  1216                           ; Switch size 1, requested type "simple"
+  1217                           ; Number of cases is 4, Range of values is 16 to 128
+  1218                           ; switch strategies available:
+  1219                           ; Name         Instructions Cycles
+  1220                           ; simple_byte           13     7 (average)
+  1221                           ;	Chosen strategy is simple_byte
+  1222   0000BE  0A10               	xorlw	16	; case 16
+  1223   0000C0  B4D8               	btfsc	status,2,c
+  1224   0000C2  EF4C  F000         	goto	i2l959
+  1225   0000C6  0A30               	xorlw	48	; case 32
+  1226   0000C8  B4D8               	btfsc	status,2,c
+  1227   0000CA  EF3A  F000         	goto	i2l957
+  1228   0000CE  0A60               	xorlw	96	; case 64
+  1229   0000D0  B4D8               	btfsc	status,2,c
+  1230   0000D2  EF28  F000         	goto	i2l955
+  1231   0000D6  0AC0               	xorlw	192	; case 128
+  1232   0000D8  B4D8               	btfsc	status,2,c
+  1233   0000DA  EF16  F000         	goto	i2l953
+  1234   0000DE  EF71  F000         	goto	i2l965
+  1235   0000E2                     i2l965:
+  1236                           
+  1237                           ;InterrupcionM.c: 108:     _delay((unsigned long)((100)*(8000000/4000.0)));
+  1238   0000E2  0E02               	movlw	2
+  1239   0000E4  6E1C               	movwf	(??_isr_general+1)^0,c
+  1240   0000E6  0E04               	movlw	4
+  1241   0000E8  6E1B               	movwf	??_isr_general^0,c
+  1242   0000EA  0EBA               	movlw	186
+  1243   0000EC                     i2u6_47:
+  1244   0000EC  2EE8               	decfsz	wreg,f,c
+  1245   0000EE  D7FE               	bra	i2u6_47
+  1246   0000F0  2E1B               	decfsz	??_isr_general^0,f,c
+  1247   0000F2  D7FC               	bra	i2u6_47
+  1248   0000F4  2E1C               	decfsz	(??_isr_general+1)^0,f,c
+  1249   0000F6  D7FA               	bra	i2u6_47
+  1250   0000F8  D000               	nop2	
+  1251   0000FA                     
+  1252                           ;InterrupcionM.c: 109:     INTCONbits.RBIF=0;
+  1253   0000FA  90F2               	bcf	242,0,c	;volatile
+  1254   0000FC                     
+  1255                           ;InterrupcionM.c: 110:     INTCONbits.RBIE=1;
+  1256   0000FC  86F2               	bsf	242,3,c	;volatile
+  1257   0000FE  9220               	bcf	int$flags,1,c	;clear compiler interrupt flag (level 2)
+  1258   000100  0011               	retfie		f
+  1259   000102                     __end_of_isr_general:
+  1260                           	callstack 0
+  1261                           
+  1262                           	psect	smallconst
+  1263   001000                     __psmallconst:
+  1264                           	callstack 0
+  1265   001000  00                 	db	0
+  1266   001001  00                 	db	0	; dummy byte at the end
+  1267   000000                     
+  1268                           	psect	rparam
+  1269   000000                     
+  1270                           	psect	temp
+  1271   000020                     btemp:
+  1272                           	callstack 0
+  1273   000020                     	ds	1
+  1274   000000                     int$flags	set	btemp
+  1275   000000                     wtemp8	set	btemp+1
+  1276   000000                     ttemp5	set	btemp+1
+  1277   000000                     ttemp6	set	btemp+4
+  1278   000000                     ttemp7	set	btemp+8
+  1279                           
+  1280                           	psect	idloc
+  1281                           
+  1282                           ;Config register IDLOC0 @ 0x200000
+  1283                           ;	unspecified, using default values
+  1284   200000                     	org	2097152
+  1285   200000  FF                 	db	255
+  1286                           
+  1287                           ;Config register IDLOC1 @ 0x200001
+  1288                           ;	unspecified, using default values
+  1289   200001                     	org	2097153
+  1290   200001  FF                 	db	255
+  1291                           
+  1292                           ;Config register IDLOC2 @ 0x200002
+  1293                           ;	unspecified, using default values
+  1294   200002                     	org	2097154
+  1295   200002  FF                 	db	255
+  1296                           
+  1297                           ;Config register IDLOC3 @ 0x200003
+  1298                           ;	unspecified, using default values
+  1299   200003                     	org	2097155
+  1300   200003  FF                 	db	255
+  1301                           
+  1302                           ;Config register IDLOC4 @ 0x200004
+  1303                           ;	unspecified, using default values
+  1304   200004                     	org	2097156
+  1305   200004  FF                 	db	255
+  1306                           
+  1307                           ;Config register IDLOC5 @ 0x200005
+  1308                           ;	unspecified, using default values
+  1309   200005                     	org	2097157
+  1310   200005  FF                 	db	255
+  1311                           
+  1312                           ;Config register IDLOC6 @ 0x200006
+  1313                           ;	unspecified, using default values
+  1314   200006                     	org	2097158
+  1315   200006  FF                 	db	255
+  1316                           
+  1317                           ;Config register IDLOC7 @ 0x200007
+  1318                           ;	unspecified, using default values
+  1319   200007                     	org	2097159
+  1320   200007  FF                 	db	255
+  1321                           
+  1322                           	psect	config
+  1323                           
+  1324                           ; Padding undefined space
+  1325   300000                     	org	3145728
+  1326   300000  FF                 	db	255
   1327                           
-  1328                           ;Config register IDLOC1 @ 0x200001
-  1329                           ;	unspecified, using default values
-  1330   200001                     	org	2097153
-  1331   200001  FF                 	db	255
-  1332                           
-  1333                           ;Config register IDLOC2 @ 0x200002
-  1334                           ;	unspecified, using default values
-  1335   200002                     	org	2097154
-  1336   200002  FF                 	db	255
-  1337                           
-  1338                           ;Config register IDLOC3 @ 0x200003
-  1339                           ;	unspecified, using default values
-  1340   200003                     	org	2097155
-  1341   200003  FF                 	db	255
-  1342                           
-  1343                           ;Config register IDLOC4 @ 0x200004
-  1344                           ;	unspecified, using default values
-  1345   200004                     	org	2097156
-  1346   200004  FF                 	db	255
-  1347                           
-  1348                           ;Config register IDLOC5 @ 0x200005
-  1349                           ;	unspecified, using default values
-  1350   200005                     	org	2097157
-  1351   200005  FF                 	db	255
-  1352                           
-  1353                           ;Config register IDLOC6 @ 0x200006
-  1354                           ;	unspecified, using default values
-  1355   200006                     	org	2097158
-  1356   200006  FF                 	db	255
-  1357                           
-  1358                           ;Config register IDLOC7 @ 0x200007
-  1359                           ;	unspecified, using default values
-  1360   200007                     	org	2097159
-  1361   200007  FF                 	db	255
-  1362                           
-  1363                           	psect	config
-  1364                           
-  1365                           ; Padding undefined space
-  1366   300000                     	org	3145728
-  1367   300000  FF                 	db	255
-  1368                           
-  1369                           ;Config register CONFIG1H @ 0x300001
-  1370                           ;	Oscillator Selection bits
-  1371                           ;	FOSC = HSHP, HS oscillator (high power > 16 MHz)
-  1372                           ;	4X PLL Enable
-  1373                           ;	PLLCFG = 0x0, unprogrammed default
-  1374                           ;	Primary clock enable bit
-  1375                           ;	PRICLKEN = 0x1, unprogrammed default
-  1376                           ;	Fail-Safe Clock Monitor Enable bit
-  1377                           ;	FCMEN = 0x0, unprogrammed default
-  1378                           ;	Internal/External Oscillator Switchover bit
-  1379                           ;	IESO = 0x0, unprogrammed default
-  1380   300001                     	org	3145729
-  1381   300001  22                 	db	34
-  1382                           
-  1383                           ;Config register CONFIG2L @ 0x300002
-  1384                           ;	Power-up Timer Enable bit
-  1385                           ;	PWRTEN = ON, Power up timer enabled
-  1386                           ;	Brown-out Reset Enable bits
-  1387                           ;	BOREN = 0x3, unprogrammed default
-  1388                           ;	Brown Out Reset Voltage bits
-  1389                           ;	BORV = 0x3, unprogrammed default
-  1390   300002                     	org	3145730
-  1391   300002  1E                 	db	30
-  1392                           
-  1393                           ;Config register CONFIG2H @ 0x300003
-  1394                           ;	Watchdog Timer Enable bits
-  1395                           ;	WDTEN = OFF, Watch dog timer is always disabled. SWDTEN has no effect.
-  1396                           ;	Watchdog Timer Postscale Select bits
-  1397                           ;	WDTPS = 0xF, unprogrammed default
-  1398   300003                     	org	3145731
-  1399   300003  3C                 	db	60
-  1400                           
-  1401                           ; Padding undefined space
-  1402   300004                     	org	3145732
-  1403   300004  FF                 	db	255
-  1404                           
-  1405                           ;Config register CONFIG3H @ 0x300005
-  1406                           ;	CCP2 MUX bit
-  1407                           ;	CCP2MX = 0x1, unprogrammed default
-  1408                           ;	PORTB A/D Enable bit
-  1409                           ;	PBADEN = 0x1, unprogrammed default
-  1410                           ;	P3A/CCP3 Mux bit
-  1411                           ;	CCP3MX = 0x1, unprogrammed default
-  1412                           ;	HFINTOSC Fast Start-up
-  1413                           ;	HFOFST = 0x1, unprogrammed default
-  1414                           ;	Timer3 Clock input mux bit
-  1415                           ;	T3CMX = 0x1, unprogrammed default
-  1416                           ;	ECCP2 B output mux bit
-  1417                           ;	P2BMX = 0x1, unprogrammed default
-  1418                           ;	MCLR Pin Enable bit
-  1419                           ;	MCLRE = INTMCLR, RE3 input pin enabled; MCLR disabled
-  1420   300005                     	org	3145733
-  1421   300005  3F                 	db	63
-  1422                           
-  1423                           ;Config register CONFIG4L @ 0x300006
-  1424                           ;	unspecified, using default values
-  1425                           ;	Stack Full/Underflow Reset Enable bit
-  1426                           ;	STVREN = 0x1, unprogrammed default
-  1427                           ;	Single-Supply ICSP Enable bit
-  1428                           ;	LVP = 0x1, unprogrammed default
-  1429                           ;	Extended Instruction Set Enable bit
-  1430                           ;	XINST = 0x0, unprogrammed default
-  1431                           ;	Background Debug
-  1432                           ;	DEBUG = 0x1, unprogrammed default
-  1433   300006                     	org	3145734
-  1434   300006  85                 	db	133
-  1435                           
-  1436                           ; Padding undefined space
-  1437   300007                     	org	3145735
-  1438   300007  FF                 	db	255
-  1439                           
-  1440                           ;Config register CONFIG5L @ 0x300008
-  1441                           ;	unspecified, using default values
-  1442                           ;	Code Protection Block 0
-  1443                           ;	CP0 = 0x1, unprogrammed default
-  1444                           ;	Code Protection Block 1
-  1445                           ;	CP1 = 0x1, unprogrammed default
-  1446                           ;	Code Protection Block 2
-  1447                           ;	CP2 = 0x1, unprogrammed default
-  1448                           ;	Code Protection Block 3
-  1449                           ;	CP3 = 0x1, unprogrammed default
-  1450   300008                     	org	3145736
-  1451   300008  0F                 	db	15
-  1452                           
-  1453                           ;Config register CONFIG5H @ 0x300009
-  1454                           ;	unspecified, using default values
-  1455                           ;	Boot Block Code Protection bit
-  1456                           ;	CPB = 0x1, unprogrammed default
-  1457                           ;	Data EEPROM Code Protection bit
-  1458                           ;	CPD = 0x1, unprogrammed default
-  1459   300009                     	org	3145737
-  1460   300009  C0                 	db	192
-  1461                           
-  1462                           ;Config register CONFIG6L @ 0x30000A
-  1463                           ;	unspecified, using default values
-  1464                           ;	Write Protection Block 0
-  1465                           ;	WRT0 = 0x1, unprogrammed default
-  1466                           ;	Write Protection Block 1
-  1467                           ;	WRT1 = 0x1, unprogrammed default
-  1468                           ;	Write Protection Block 2
-  1469                           ;	WRT2 = 0x1, unprogrammed default
-  1470                           ;	Write Protection Block 3
-  1471                           ;	WRT3 = 0x1, unprogrammed default
-  1472   30000A                     	org	3145738
-  1473   30000A  0F                 	db	15
-  1474                           
-  1475                           ;Config register CONFIG6H @ 0x30000B
-  1476                           ;	unspecified, using default values
-  1477                           ;	Configuration Register Write Protection bit
-  1478                           ;	WRTC = 0x1, unprogrammed default
-  1479                           ;	Boot Block Write Protection bit
-  1480                           ;	WRTB = 0x1, unprogrammed default
-  1481                           ;	Data EEPROM Write Protection bit
-  1482                           ;	WRTD = 0x1, unprogrammed default
-  1483   30000B                     	org	3145739
-  1484   30000B  E0                 	db	224
-  1485                           
-  1486                           ;Config register CONFIG7L @ 0x30000C
-  1487                           ;	unspecified, using default values
-  1488                           ;	Table Read Protection Block 0
-  1489                           ;	EBTR0 = 0x1, unprogrammed default
-  1490                           ;	Table Read Protection Block 1
-  1491                           ;	EBTR1 = 0x1, unprogrammed default
-  1492                           ;	Table Read Protection Block 2
-  1493                           ;	EBTR2 = 0x1, unprogrammed default
-  1494                           ;	Table Read Protection Block 3
-  1495                           ;	EBTR3 = 0x1, unprogrammed default
-  1496   30000C                     	org	3145740
-  1497   30000C  0F                 	db	15
-  1498                           
-  1499                           ;Config register CONFIG7H @ 0x30000D
-  1500                           ;	unspecified, using default values
-  1501                           ;	Boot Block Table Read Protection bit
-  1502                           ;	EBTRB = 0x1, unprogrammed default
-  1503   30000D                     	org	3145741
-  1504   30000D  40                 	db	64
-  1505                           tosu	equ	0xFFF
-  1506                           tosh	equ	0xFFE
-  1507                           tosl	equ	0xFFD
-  1508                           stkptr	equ	0xFFC
-  1509                           pclatu	equ	0xFFB
-  1510                           pclath	equ	0xFFA
-  1511                           pcl	equ	0xFF9
-  1512                           tblptru	equ	0xFF8
-  1513                           tblptrh	equ	0xFF7
-  1514                           tblptrl	equ	0xFF6
-  1515                           tablat	equ	0xFF5
-  1516                           prodh	equ	0xFF4
-  1517                           prodl	equ	0xFF3
-  1518                           indf0	equ	0xFEF
-  1519                           postinc0	equ	0xFEE
-  1520                           postdec0	equ	0xFED
-  1521                           preinc0	equ	0xFEC
-  1522                           plusw0	equ	0xFEB
-  1523                           fsr0h	equ	0xFEA
-  1524                           fsr0l	equ	0xFE9
-  1525                           wreg	equ	0xFE8
-  1526                           indf1	equ	0xFE7
-  1527                           postinc1	equ	0xFE6
-  1528                           postdec1	equ	0xFE5
-  1529                           preinc1	equ	0xFE4
-  1530                           plusw1	equ	0xFE3
-  1531                           fsr1h	equ	0xFE2
-  1532                           fsr1l	equ	0xFE1
-  1533                           bsr	equ	0xFE0
-  1534                           indf2	equ	0xFDF
-  1535                           postinc2	equ	0xFDE
-  1536                           postdec2	equ	0xFDD
-  1537                           preinc2	equ	0xFDC
-  1538                           plusw2	equ	0xFDB
-  1539                           fsr2h	equ	0xFDA
-  1540                           fsr2l	equ	0xFD9
-  1541                           status	equ	0xFD8
+  1328                           ;Config register CONFIG1H @ 0x300001
+  1329                           ;	Oscillator Selection bits
+  1330                           ;	FOSC = HSHP, HS oscillator (high power > 16 MHz)
+  1331                           ;	4X PLL Enable
+  1332                           ;	PLLCFG = 0x0, unprogrammed default
+  1333                           ;	Primary clock enable bit
+  1334                           ;	PRICLKEN = 0x1, unprogrammed default
+  1335                           ;	Fail-Safe Clock Monitor Enable bit
+  1336                           ;	FCMEN = 0x0, unprogrammed default
+  1337                           ;	Internal/External Oscillator Switchover bit
+  1338                           ;	IESO = 0x0, unprogrammed default
+  1339   300001                     	org	3145729
+  1340   300001  22                 	db	34
+  1341                           
+  1342                           ;Config register CONFIG2L @ 0x300002
+  1343                           ;	Power-up Timer Enable bit
+  1344                           ;	PWRTEN = ON, Power up timer enabled
+  1345                           ;	Brown-out Reset Enable bits
+  1346                           ;	BOREN = 0x3, unprogrammed default
+  1347                           ;	Brown Out Reset Voltage bits
+  1348                           ;	BORV = 0x3, unprogrammed default
+  1349   300002                     	org	3145730
+  1350   300002  1E                 	db	30
+  1351                           
+  1352                           ;Config register CONFIG2H @ 0x300003
+  1353                           ;	Watchdog Timer Enable bits
+  1354                           ;	WDTEN = OFF, Watch dog timer is always disabled. SWDTEN has no effect.
+  1355                           ;	Watchdog Timer Postscale Select bits
+  1356                           ;	WDTPS = 0xF, unprogrammed default
+  1357   300003                     	org	3145731
+  1358   300003  3C                 	db	60
+  1359                           
+  1360                           ; Padding undefined space
+  1361   300004                     	org	3145732
+  1362   300004  FF                 	db	255
+  1363                           
+  1364                           ;Config register CONFIG3H @ 0x300005
+  1365                           ;	CCP2 MUX bit
+  1366                           ;	CCP2MX = 0x1, unprogrammed default
+  1367                           ;	PORTB A/D Enable bit
+  1368                           ;	PBADEN = 0x1, unprogrammed default
+  1369                           ;	P3A/CCP3 Mux bit
+  1370                           ;	CCP3MX = 0x1, unprogrammed default
+  1371                           ;	HFINTOSC Fast Start-up
+  1372                           ;	HFOFST = 0x1, unprogrammed default
+  1373                           ;	Timer3 Clock input mux bit
+  1374                           ;	T3CMX = 0x1, unprogrammed default
+  1375                           ;	ECCP2 B output mux bit
+  1376                           ;	P2BMX = 0x1, unprogrammed default
+  1377                           ;	MCLR Pin Enable bit
+  1378                           ;	MCLRE = INTMCLR, RE3 input pin enabled; MCLR disabled
+  1379   300005                     	org	3145733
+  1380   300005  3F                 	db	63
+  1381                           
+  1382                           ;Config register CONFIG4L @ 0x300006
+  1383                           ;	unspecified, using default values
+  1384                           ;	Stack Full/Underflow Reset Enable bit
+  1385                           ;	STVREN = 0x1, unprogrammed default
+  1386                           ;	Single-Supply ICSP Enable bit
+  1387                           ;	LVP = 0x1, unprogrammed default
+  1388                           ;	Extended Instruction Set Enable bit
+  1389                           ;	XINST = 0x0, unprogrammed default
+  1390                           ;	Background Debug
+  1391                           ;	DEBUG = 0x1, unprogrammed default
+  1392   300006                     	org	3145734
+  1393   300006  85                 	db	133
+  1394                           
+  1395                           ; Padding undefined space
+  1396   300007                     	org	3145735
+  1397   300007  FF                 	db	255
+  1398                           
+  1399                           ;Config register CONFIG5L @ 0x300008
+  1400                           ;	unspecified, using default values
+  1401                           ;	Code Protection Block 0
+  1402                           ;	CP0 = 0x1, unprogrammed default
+  1403                           ;	Code Protection Block 1
+  1404                           ;	CP1 = 0x1, unprogrammed default
+  1405                           ;	Code Protection Block 2
+  1406                           ;	CP2 = 0x1, unprogrammed default
+  1407                           ;	Code Protection Block 3
+  1408                           ;	CP3 = 0x1, unprogrammed default
+  1409   300008                     	org	3145736
+  1410   300008  0F                 	db	15
+  1411                           
+  1412                           ;Config register CONFIG5H @ 0x300009
+  1413                           ;	unspecified, using default values
+  1414                           ;	Boot Block Code Protection bit
+  1415                           ;	CPB = 0x1, unprogrammed default
+  1416                           ;	Data EEPROM Code Protection bit
+  1417                           ;	CPD = 0x1, unprogrammed default
+  1418   300009                     	org	3145737
+  1419   300009  C0                 	db	192
+  1420                           
+  1421                           ;Config register CONFIG6L @ 0x30000A
+  1422                           ;	unspecified, using default values
+  1423                           ;	Write Protection Block 0
+  1424                           ;	WRT0 = 0x1, unprogrammed default
+  1425                           ;	Write Protection Block 1
+  1426                           ;	WRT1 = 0x1, unprogrammed default
+  1427                           ;	Write Protection Block 2
+  1428                           ;	WRT2 = 0x1, unprogrammed default
+  1429                           ;	Write Protection Block 3
+  1430                           ;	WRT3 = 0x1, unprogrammed default
+  1431   30000A                     	org	3145738
+  1432   30000A  0F                 	db	15
+  1433                           
+  1434                           ;Config register CONFIG6H @ 0x30000B
+  1435                           ;	unspecified, using default values
+  1436                           ;	Configuration Register Write Protection bit
+  1437                           ;	WRTC = 0x1, unprogrammed default
+  1438                           ;	Boot Block Write Protection bit
+  1439                           ;	WRTB = 0x1, unprogrammed default
+  1440                           ;	Data EEPROM Write Protection bit
+  1441                           ;	WRTD = 0x1, unprogrammed default
+  1442   30000B                     	org	3145739
+  1443   30000B  E0                 	db	224
+  1444                           
+  1445                           ;Config register CONFIG7L @ 0x30000C
+  1446                           ;	unspecified, using default values
+  1447                           ;	Table Read Protection Block 0
+  1448                           ;	EBTR0 = 0x1, unprogrammed default
+  1449                           ;	Table Read Protection Block 1
+  1450                           ;	EBTR1 = 0x1, unprogrammed default
+  1451                           ;	Table Read Protection Block 2
+  1452                           ;	EBTR2 = 0x1, unprogrammed default
+  1453                           ;	Table Read Protection Block 3
+  1454                           ;	EBTR3 = 0x1, unprogrammed default
+  1455   30000C                     	org	3145740
+  1456   30000C  0F                 	db	15
+  1457                           
+  1458                           ;Config register CONFIG7H @ 0x30000D
+  1459                           ;	unspecified, using default values
+  1460                           ;	Boot Block Table Read Protection bit
+  1461                           ;	EBTRB = 0x1, unprogrammed default
+  1462   30000D                     	org	3145741
+  1463   30000D  40                 	db	64
+  1464                           tosu	equ	0xFFF
+  1465                           tosh	equ	0xFFE
+  1466                           tosl	equ	0xFFD
+  1467                           stkptr	equ	0xFFC
+  1468                           pclatu	equ	0xFFB
+  1469                           pclath	equ	0xFFA
+  1470                           pcl	equ	0xFF9
+  1471                           tblptru	equ	0xFF8
+  1472                           tblptrh	equ	0xFF7
+  1473                           tblptrl	equ	0xFF6
+  1474                           tablat	equ	0xFF5
+  1475                           prodh	equ	0xFF4
+  1476                           prodl	equ	0xFF3
+  1477                           indf0	equ	0xFEF
+  1478                           postinc0	equ	0xFEE
+  1479                           postdec0	equ	0xFED
+  1480                           preinc0	equ	0xFEC
+  1481                           plusw0	equ	0xFEB
+  1482                           fsr0h	equ	0xFEA
+  1483                           fsr0l	equ	0xFE9
+  1484                           wreg	equ	0xFE8
+  1485                           indf1	equ	0xFE7
+  1486                           postinc1	equ	0xFE6
+  1487                           postdec1	equ	0xFE5
+  1488                           preinc1	equ	0xFE4
+  1489                           plusw1	equ	0xFE3
+  1490                           fsr1h	equ	0xFE2
+  1491                           fsr1l	equ	0xFE1
+  1492                           bsr	equ	0xFE0
+  1493                           indf2	equ	0xFDF
+  1494                           postinc2	equ	0xFDE
+  1495                           postdec2	equ	0xFDD
+  1496                           preinc2	equ	0xFDC
+  1497                           plusw2	equ	0xFDB
+  1498                           fsr2h	equ	0xFDA
+  1499                           fsr2l	equ	0xFD9
+  1500                           status	equ	0xFD8
 
 Data Sizes:
     Strings     0
@@ -1860,67 +1818,67 @@ DATA                 0      0      1F       3        0.0%
 CODE                 0      0       0       0        0.0%
 
 
-Microchip Technology PIC18 Macro Assembler V2.41 build 20230208172133 
-Symbol Table                                                                                   Fri Apr 26 22:30:30 2024
+Microchip Technology PIC18 Macro Assembler V2.46 build 20240104201356 
+Symbol Table                                                                                   Wed May 15 16:57:19 2024
 
                      _D0 0001                       _D1 0002                       _D2 0003  
-                     _D3 0004                       u17 0388                       u27 0210  
-                     u37 042C                       u47 02E4                       _n0 0015  
+                     _D3 0004                       u17 1244                       u27 10CC  
+                     u37 12E8                       u47 11A0                       _n0 0015  
                      _n1 0013                       _n2 0011                       _n3 000F  
-                    l107 02EC                      l134 0218                      l119 0434  
-                    l146 0390                      l900 0196                      l830 023A  
-                    l822 021A                      l840 0262                      l832 0242  
-                    l824 0222                      l904 019E                      l920 030E  
-                    l912 02EE                      l842 026A                      l834 024A  
-                    l826 022A                      l906 020A                      l922 0316  
-                    l914 02F6                      l930 032E                      l836 0252  
-                    l828 0232                      l860 03AA                      l924 031E  
-                    l916 02FE                      l932 0382                      l940 048A  
-                    l838 025A                      l846 0272                      l862 03B2  
-                    l854 0392                      l926 0326                      l918 0306  
-                    l942 048E                      l848 02DE                      l864 03BA  
-                    l856 039A                      l872 03D2                      l880 0146  
-                    l944 0492                      l866 03C2                      l858 03A2  
-                    l874 0426                      l890 016E                      l882 014E  
-                    l946 0496                      l938 0470                      l868 03CA  
-                    l892 0176                      l884 0156                      l894 017E  
-                    l886 015E                      l896 0186                      l888 0166  
-                    l898 018E                      _DOS 000C                      _UNO 000D  
-                    wreg 0FE8                     l1080 01B4                     l1082 03E8  
-                   l1084 0288                     l1078 0344                     _CERO 000E  
+                    l106 11A8                      l133 10D4                      l118 12F0  
+                    l145 124C                      l821 10D6                      l831 10FE  
+                    l823 10DE                      l903 105A                      l911 11AA  
+                    l841 1126                      l833 1106                      l825 10E6  
+                    l905 10C6                      l921 11D2                      l913 11B2  
+                    l835 110E                      l827 10EE                      l923 11DA  
+                    l915 11BA                      l931 123E                      l837 1116  
+                    l829 10F6                      l845 112E                      l861 126E  
+                    l853 124E                      l925 11E2                      l917 11C2  
+                    l941 134A                      l839 111E                      l847 119A  
+                    l863 1276                      l855 1256                      l871 128E  
+                    l919 11CA                      l943 134E                      l865 127E  
+                    l857 125E                      l873 12E2                      l881 100A  
+                    l929 11EA                      l945 1352                      l937 132C  
+                    l867 1286                      l859 1266                      l891 1032  
+                    l883 1012                      l939 1346                      l893 103A  
+                    l885 101A                      l895 1042                      l887 1022  
+                    l879 1002                      l897 104A                      l889 102A  
+                    l899 1052                      _DOS 000C                      _UNO 000D  
+                    wreg 0FE8                     l1051 1200                     l1053 1070  
+                   l1055 12A4                     l1057 1144                     _CERO 000E  
                    _IOCB 0F62                     _LATC 0F8B                     _LATD 0F8C  
-                   _OCHO 0006                     i2l92 013E                     _SEIS 0008  
-                   _TRES 000B                     _dato 0017                     _main 0470  
-                   fsr1l 0FE1                     btemp 0020                     start 0142  
+                   _OCHO 0006                     i2l91 00FE                     _SEIS 0008  
+                   _TRES 000B                     _dato 0017                     _main 132C  
+                   fsr1l 0FE1                     btemp 0020                     start 0102  
            ___param_bank 0000                    ?_main 001B                    _CINCO 0009  
-                  i2l950 000C                    i2l960 0098                    i2l952 0024  
-                  i2l970 013A                    i2l962 00BC                    i2l954 002C  
-                  i2l972 013C                    i2l956 0050                    i2l948 000A  
-                  i2l958 0074                    i2l966 00E0                    i2l968 0122  
-                  _SIETE 0007                    _NUEVE 0005                    _PORTB 0F81  
-                  _TRISB 0F93                    _TRISC 0F94                    _TRISD 0F95  
-                  tablat 0FF5                    ttemp5 0021                    ttemp6 0024  
-                  ttemp7 0028                    status 0FD8                    wtemp8 0021  
-        __initialization 0436             ?_isr_general 001B             __end_of_main 04A2  
-                 ??_main 0020            __activetblptr 0002                   _ANSELB 0F39  
-                 _CUATRO 000A                   i2l1086 00F4                   _INTCON 0FF2  
-                 i2u5_47 0016                   i2u6_47 012C         __end_of_display0 02EE  
-       __end_of_display1 0436         __end_of_display2 021A         __end_of_display3 0392  
-                 clear_0 045C                   isa$std 0001             __pdataCOMRAM 0001  
-                 tblptrh 0FF7                   tblptrl 0FF6                   tblptru 0FF8  
-             __accesstop 0060  __end_of__initialization 0462            ___rparam_used 0001  
-         __pcstackCOMRAM 001B                ?_display0 001B                ?_display1 001B  
-              ?_display2 001B                ?_display3 001B                  __Hparam 0000  
-                __Lparam 0000                  _cambios 0019                  __pcinit 0436  
-                __ramtop 1000                  __ptext0 0470                  __ptext1 02EE  
-                __ptext2 0146                  __ptext3 0392                  __ptext4 021A  
+                  i2l951 0024                    i2l953 002C                    i2l955 0050  
+                  i2l963 00BC                    i2l947 000A                    i2l957 0074  
+                  i2l965 00E2                    i2l949 000C                    i2l967 00FA  
+                  i2l959 0098                    i2l969 00FC                    _SIETE 0007  
+                  _NUEVE 0005                    _PORTB 0F81                    _TRISB 0F93  
+                  _TRISC 0F94                    _TRISD 0F95                    tablat 0FF5  
+                  ttemp5 0021                    ttemp6 0024                    ttemp7 0028  
+                  status 0FD8                    wtemp8 0021          __initialization 12F2  
+           ?_isr_general 001B             __end_of_main 135E                   ??_main 0020  
+          __activetblptr 0002                   _ANSELB 0F39                   _CUATRO 000A  
+                 _INTCON 0FF2                   i2u5_47 0016                   i2u6_47 00EC  
+       __end_of_display0 11AA         __end_of_display1 12F2         __end_of_display2 10D6  
+       __end_of_display3 124E                   clear_0 1318                   isa$std 0001  
+           __pdataCOMRAM 0001             __mediumconst 0000                   tblptrh 0FF7  
+                 tblptrl 0FF6                   tblptru 0FF8               __accesstop 0060  
+__end_of__initialization 131E            ___rparam_used 0001           __pcstackCOMRAM 001B  
+              ?_display0 001B                ?_display1 001B                ?_display2 001B  
+              ?_display3 001B                  __Hparam 0000                  __Lparam 0000  
+           __psmallconst 1000                  _cambios 0019                  __pcinit 12F2  
+                __ramtop 1000                  __ptext0 132C                  __ptext1 11AA  
+                __ptext2 1002                  __ptext3 124E                  __ptext4 10D6  
              ??_display0 001E               ??_display1 001E               ??_display2 001E  
-             ??_display3 001E     end_of_initialization 0462            __Lmediumconst 0000  
-                postdec1 0FE5                  postinc0 0FEE            __pidataCOMRAM 04A2  
-    start_initialization 0436        isr_general@actual 001D              __pbssCOMRAM 000F  
-          ??_isr_general 001B                __pintcode 0008      __end_of_isr_general 0142  
-              copy_data0 044A                 __Hrparam 0000                 __Lrparam 0000  
-               _anterior 001A                 _display0 021A                 _display1 0392  
-               _display2 0146                 _display3 02EE              _isr_general 0008  
-               isa$xinst 0000                 int$flags 0020               _INTCONbits 0FF2  
-               intlevel2 0000  
+             ??_display3 001E     end_of_initialization 131E            __Lmediumconst 0000  
+                postdec1 0FE5                  postinc0 0FEE            __pidataCOMRAM 135E  
+    start_initialization 12F2        isr_general@actual 001D              __pbssCOMRAM 000F  
+          ??_isr_general 001B                __pintcode 0008              __smallconst 1000  
+    __end_of_isr_general 0102                copy_data0 1306                 __Hrparam 0000  
+               __Lrparam 0000                 _anterior 001A                 _display0 10D6  
+               _display1 124E                 _display2 1002                 _display3 11AA  
+            _isr_general 0008                 isa$xinst 0000                 int$flags 0020  
+             _INTCONbits 0FF2                 intlevel2 0000  

@@ -50,9 +50,8 @@ void main(void)
       
     //CONFIGURACIÓN DE INTERRUPCIONES
     INTCON=0x88;    //Interrupciones en general
-    //__delay_ms(1000);
-    IOCB=0xF0;      //habilita los pines del puerto B<4:7> para usarse en
-                            //la interrupción del puerto B
+    IOCB=0xF0;      //habilita los pines del puerto B<4:7> para usarse en la interrupción del puerto B
+    
     /*INTCONbits.RBIE=1;     //habilita las interrupción externa 0
     INTCONbits.RBIF=0;     //borra la bandera de la interrupción externa 0
     INTCONbits.GIE=1;      //habilita de forma global las interrupciones*/
@@ -103,12 +102,6 @@ void __interrupt () isr_general ()
                 n3=0;
                 break;
                 
-            case 0x00:
-                n0=0;
-                n1=0;
-                n2=0;
-                n3=0;
-                break;
         }
   
     __delay_ms(100);
