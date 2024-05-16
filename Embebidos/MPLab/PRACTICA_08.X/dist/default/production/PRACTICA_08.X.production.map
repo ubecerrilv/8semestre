@@ -1,36 +1,34 @@
-Microchip MPLAB XC8 Compiler V2.46
+Microchip MPLAB XC8 Compiler V2.41
 
 Linker command line:
 
--W-3 \
-  --edf=C:\Program Files\Microchip\xc8\v2.46\pic\dat\20240104201356_en.msgs \
-  -cn -h+dist/default/production\PRACTICA_08.X.production.sym \
-  --cmf=dist/default/production\PRACTICA_08.X.production.cmf -z -Q18F46K22 \
-  -oC:\Users\ulise\AppData\Local\Temp\xcAsjf8.\driver_tmp_3.o \
-  --defsym=__MPLAB_BUILD=1 --fixupoverflow=error \
+-W-3 --edf=/opt/microchip/xc8/v2.41/pic/dat/20230208172133_en.msgs -cn \
+  -h+dist/default/production/PRACTICA_08.X.production.sym \
+  --cmf=dist/default/production/PRACTICA_08.X.production.cmf -z -Q18F46K22 \
+  -o/tmp/xcXgjpppp/driver_tmp_3.o --defsym=__MPLAB_BUILD=1 \
+  --fixupoverflow=error \
   -Mdist/default/production/PRACTICA_08.X.production.map \
-  --md=C:\Users\ulise\AppData\Local\Temp\xcAsjf8.\driver_tmp_0.dat -E1 \
-  -ver=XC8 Compiler --acfsm=1493 -ACODE=00h-0FFFFh -ACONST=00h-0FFFFh \
-  -ASMALLCONST=01000h-010FFhx240 -AMEDIUMCONST=01000h-0FFFFh \
-  -ACOMRAM=01h-05Fh -AABS1=00h-0F37h -ABIGRAM=01h-0F37h \
-  -ARAM=060h-0FFh,0100h-01FFhx14,0F00h-0F37h -ABANK0=060h-0FFh \
-  -ABANK1=0100h-01FFh -ABANK2=0200h-02FFh -ABANK3=0300h-03FFh \
-  -ABANK4=0400h-04FFh -ABANK5=0500h-05FFh -ABANK6=0600h-06FFh \
-  -ABANK7=0700h-07FFh -ABANK8=0800h-08FFh -ABANK9=0900h-09FFh \
-  -ABANK10=0A00h-0AFFh -ABANK11=0B00h-0BFFh -ABANK12=0C00h-0CFFh \
-  -ABANK13=0D00h-0DFFh -ABANK14=0E00h-0EFFh -ABANK15=0F00h-0F37h \
-  -ASFR=0F38h-0F5Fh,0F60h-0FFFh -ABIGSFR=0F38h-0FFFh \
+  --md=/tmp/xcXgjpppp/driver_tmp_0.dat -E1 -ver=XC8 Compiler --acfsm=1493 \
+  -ACODE=00h-0FFFFh -ACONST=00h-0FFFFh -ASMALLCONST=01000h-010FFhx240 \
+  -AMEDIUMCONST=01000h-0FFFFh -ACOMRAM=01h-05Fh -AABS1=00h-0F37h \
+  -ABIGRAM=01h-0F37h -ARAM=060h-0FFh,0100h-01FFhx14,0F00h-0F37h \
+  -ABANK0=060h-0FFh -ABANK1=0100h-01FFh -ABANK2=0200h-02FFh \
+  -ABANK3=0300h-03FFh -ABANK4=0400h-04FFh -ABANK5=0500h-05FFh \
+  -ABANK6=0600h-06FFh -ABANK7=0700h-07FFh -ABANK8=0800h-08FFh \
+  -ABANK9=0900h-09FFh -ABANK10=0A00h-0AFFh -ABANK11=0B00h-0BFFh \
+  -ABANK12=0C00h-0CFFh -ABANK13=0D00h-0DFFh -ABANK14=0E00h-0EFFh \
+  -ABANK15=0F00h-0F37h -ASFR=0F38h-0F5Fh,0F60h-0FFFh -ABIGSFR=0F38h-0FFFh \
   -ACONFIG=0300000h-030000Dh -AIDLOC=0200000h-0200007h \
   -AEEDATA=0F00000h-0F003FFh -peeprom_data=EEDATA \
-  -preset_vec=00h,intcode=8h,intcodelo,powerup,init -pramtop=01000h \
+  -preset_vec=00h,intcode=08h,intcodelo,powerup,init -pramtop=01000h \
   -psmallconst=SMALLCONST -pmediumconst=MEDIUMCONST -pconst=CONST \
   -AFARRAM=00h-00h \
   -prdata=COMRAM,nvrram=COMRAM,nvbit=COMRAM,rbss=COMRAM,rbit=COMRAM \
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\ulise\AppData\Local\Temp\xcAsjf8.\driver_tmp_9.o \
-  dist/default/production\PRACTICA_08.X.production.o 
+  /tmp/xcXgjpppp/driver_tmp_9.o \
+  dist/default/production/PRACTICA_08.X.production.o 
 
 Object code version is 3.11
 
@@ -39,33 +37,31 @@ Machine type is 18F46K22
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\ulise\AppData\Local\Temp\xcAsjf8.\driver_tmp_9.o
+/tmp/xcXgjpppp/driver_tmp_9.o
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 init                                 C8       C8        4        4       0
                 reset_vec                             0        0        4        0       0
-dist/default/production\PRACTICA_08.X.production.o
+dist/default/production/PRACTICA_08.X.production.o
                 intcode                               8        8       C0        4       0
                 idloc                            200000   200000        8        0       5
                 config                           300000   300000        E        0       4
                 temp                                  4        4        1        1       1
-                smallconst                         1000     1000        2      800       0
-                text0                              1002     1002       52      801       0
+                text0                                CC       CC       52        4       0
                 cstackCOMRAM                          1        1        3        1       1
-                cinit                              1054     1054        E      801       0
+                cinit                               11E      11E        E        4       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   CODE           
                 intcode                               8        8       C0         0
                 init                                 C8       C8        4         0
                 reset_vec                             0        0        4         0
-                text0                              1002     1002       52         0
-                cinit                              1054     1054        E         0
+                text0                                CC       CC       52         0
+                cinit                               11E      11E        E         0
 
         CLASS   CONST          
 
         CLASS   SMALLCONST     
-                smallconst                         1000     1000        2         0
 
         CLASS   MEDIUMCONST    
 
@@ -135,9 +131,7 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
                 cstackCOMRAM                   000001  000004  000005         1       1  COMRAM  
-                intcode                        000008  0000C4  0000CC         4       0  CODE    
-                smallconst                     001000  000002  001002       800       0  SMALLCON
-                text0                          001002  000060  001062       801       0  CODE    
+                intcode                        000008  000124  00012C         4       0  CODE    
 
 
 UNUSED ADDRESS RANGES
@@ -162,17 +156,15 @@ UNUSED ADDRESS RANGES
         BIGRAM           000005-000F37              F33
         BIGSFR           000F38-000FFF               C8
         CODE             000004-000007                4
-                         0000CC-000FFF              F34
-                         001062-00FFFF             EF9E
+                         00012C-00FFFF             FED4
         COMRAM           000005-00005F               5B
         CONST            000004-000007                4
-                         0000CC-000FFF              F34
-                         001062-00FFFF             EF9E
+                         00012C-00FFFF             FED4
         EEDATA           F00000-F003FF              400
-        MEDIUMCONST      001062-00FFFF             EF9E
+        MEDIUMCONST      001000-00FFFF             F000
         RAM              000060-000F37              100
         SFR              000F38-000FFF               28
-        SMALLCONST       001062-00FFFF              100
+        SMALLCONST       001000-00FFFF              100
 
                                   Symbol Table
 
@@ -253,10 +245,8 @@ __Hrdata                 rdata        000000
 __Hreset_vec             reset_vec    000004
 __Hrparam                rparam       000000
 __Hsfr                   sfr          000000
-__Hsivt_hi               sivt_hi      000000
-__Hsivt_lo               sivt_lo      000000
-__Hsmallconst            smallconst   001002
-__Hspace_0               (abs)        001062
+__Hsmallconst            smallconst   000000
+__Hspace_0               (abs)        001000
 __Hspace_1               (abs)        000005
 __Hspace_2               (abs)        000000
 __Hspace_4               (abs)        60000E
@@ -326,9 +316,7 @@ __Lrdata                 rdata        000000
 __Lreset_vec             reset_vec    000000
 __Lrparam                rparam       000000
 __Lsfr                   sfr          000000
-__Lsivt_hi               sivt_hi      000000
-__Lsivt_lo               sivt_lo      000000
-__Lsmallconst            smallconst   001000
+__Lsmallconst            smallconst   000000
 __Lspace_0               (abs)        000000
 __Lspace_1               (abs)        000000
 __Lspace_2               (abs)        000000
@@ -338,41 +326,34 @@ __Lstruct                struct       000000
 __Ltemp                  temp         000004
 __Ltext                  text         000000
 __Ltext0                 text0        000000
-__S0                     (abs)        001062
+__S0                     (abs)        00012C
 __S1                     (abs)        000005
 __S4                     (abs)        000000
 __S5                     (abs)        000000
 ___heap_hi               (abs)        000000
 ___heap_lo               (abs)        000000
 ___inthi_sp              stack        000000
-___inthi_stack_hi        stack        000000
-___inthi_stack_lo        stack        000000
 ___intlo_sp              stack        000000
-___intlo_stack_hi        stack        000000
-___intlo_stack_lo        stack        000000
 ___param_bank            (abs)        000000
 ___rparam_used           (abs)        000001
 ___sp                    stack        000000
-___stack_hi              stack        000000
-___stack_lo              stack        000000
 __accesstop              (abs)        000060
 __activetblptr           (abs)        000002
-__end_of__initialization cinit        001054
+__end_of__initialization cinit        00011E
 __end_of_isr_general     intcode      0000C8
-__end_of_main            text0        001054
-__initialization         cinit        001054
+__end_of_main            text0        00011E
+__initialization         cinit        00011E
 __mediumconst            mediumconst  000000
-__pcinit                 cinit        001054
+__pcinit                 cinit        00011E
 __pcstackCOMRAM          cstackCOMRAM 000001
 __pintcode               intcode      000008
-__psmallconst            smallconst   001000
-__ptext0                 text0        001002
+__ptext0                 text0        0000CC
 __ramtop                 ramtop       001000
-__smallconst             smallconst   001000
+__smallconst             smallconst   000000
 _isr_general             intcode      000008
-_main                    text0        001002
+_main                    text0        0000CC
 btemp                    temp         000004
-end_of_initialization    cinit        001054
+end_of_initialization    cinit        00011E
 int$flags                temp         000004
 intlevel0                text         000000
 intlevel1                text         000000
@@ -384,7 +365,7 @@ isr_general@actual       cstackCOMRAM 000003
 stackhi                  (abs)        000000
 stacklo                  (abs)        000000
 start                    init         0000C8
-start_initialization     cinit        001054
+start_initialization     cinit        00011E
 ttemp5                   temp         000005
 ttemp6                   temp         000008
 ttemp7                   temp         00000C
@@ -395,13 +376,13 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 pwm.c
-		_main          		CODE           	1002	0000	82
+		_main          		CODE           	00CC	0000	82
 		_isr_general   		CODE           	0008	0000	192
 
 pwm.c estimated size: 274
 
 shared
-		__initialization		CODE           	1054	0000	1
+		__initialization		CODE           	011E	0000	1
 
 shared estimated size: 1
 

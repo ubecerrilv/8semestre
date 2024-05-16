@@ -3,35 +3,35 @@
 [d edition pro ]
 [d chip 18F46K22 ]
 [d frameptr 4065 ]
-"4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\fleq.c
+"4 /opt/microchip/xc8/v2.41/pic/sources/c90/common/fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
-"62 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\float.c
+"62 /opt/microchip/xc8/v2.41/pic/sources/c90/common/float.c
 [v ___ftpack __ftpack `(f  1 e 4 0 ]
-"86 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\ftadd.c
+"86 /opt/microchip/xc8/v2.41/pic/sources/c90/common/ftadd.c
 [v ___ftadd __ftadd `(f  1 e 4 0 ]
-"54 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\ftdiv.c
+"54 /opt/microchip/xc8/v2.41/pic/sources/c90/common/ftdiv.c
 [v ___ftdiv __ftdiv `(f  1 e 4 0 ]
-"62 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\ftmul.c
+"62 /opt/microchip/xc8/v2.41/pic/sources/c90/common/ftmul.c
 [v ___ftmul __ftmul `(f  1 e 4 0 ]
-"19 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\ftsub.c
+"19 /opt/microchip/xc8/v2.41/pic/sources/c90/common/ftsub.c
 [v ___ftsub __ftsub `(f  1 e 4 0 ]
-"10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\sprcadd.c
+"10 /opt/microchip/xc8/v2.41/pic/sources/c90/common/sprcadd.c
 [v ___fladd __fladd `(d  1 e 4 0 ]
 "245
 [v ___flsub __flsub `(d  1 e 4 0 ]
-"11 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\sprcdiv.c
+"11 /opt/microchip/xc8/v2.41/pic/sources/c90/common/sprcdiv.c
 [v ___fldiv __fldiv `(d  1 e 4 0 ]
-"8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\sprcmul.c
+"8 /opt/microchip/xc8/v2.41/pic/sources/c90/common/sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
-"15 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\Umul32.c
+"15 /opt/microchip/xc8/v2.41/pic/sources/c90/common/Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"91 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\Umul64.c
+"91 /opt/microchip/xc8/v2.41/pic/sources/c90/common/Umul64.c
 [v ___omul __omul `(ul  1 e 4 0 ]
-"18 C:\Users\ulise\OneDrive\Documentos\Ingenieria\8semestre\Embebidos\MPLab\PRACTICA_08.X\pwm.c
+"21 /home/ubecerril/Documentos/Ingenieria/8semestre/Embebidos/MPLab/PRACTICA_08.X/pwm.c
 [v _main main `(v  1 e 1 0 ]
-"61
+"64
 [v _isr_general isr_general `IIH(v  1 e 1 0 ]
-"52 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k22.h
+"52 /opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/proc/pic18f46k22.h
 [v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
 "97
 [v _ANSELB ANSELB `VEuc  1 e 1 @3897 ]
@@ -153,15 +153,15 @@
 ]
 [u S206 . 1 `S184 1 . 1 0 `S193 1 . 1 0 `S202 1 . 1 0 ]
 [v _INTCONbits INTCONbits `VES206  1 e 1 @4082 ]
-"18 C:\Users\ulise\OneDrive\Documentos\Ingenieria\8semestre\Embebidos\MPLab\PRACTICA_08.X\pwm.c
+"21 /home/ubecerril/Documentos/Ingenieria/8semestre/Embebidos/MPLab/PRACTICA_08.X/pwm.c
 [v _main main `(v  1 e 1 0 ]
 {
-"59
+"62
 } 0
-"61
+"64
 [v _isr_general isr_general `IIH(v  1 e 1 0 ]
 {
-"65
+"68
 [v isr_general@actual actual `uc  1 a 1 2 ]
-"105
+"108
 } 0

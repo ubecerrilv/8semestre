@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\PRACTICA_08.X.production.hex">
+  <executable name="dist/default/production/PRACTICA_08.X.production.hex">
     <memory name="program">
       <units>bytes</units>
       <length>65536</length>
-      <used>298</used>
-      <free>65238</free>
+      <used>296</used>
+      <free>65240</free>
     </memory>
     <memory name="data">
       <units>bytes</units>

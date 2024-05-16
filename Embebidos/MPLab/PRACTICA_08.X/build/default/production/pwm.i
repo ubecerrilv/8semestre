@@ -2,22 +2,26 @@
 # 1 "pwm.c"
 
 
-# 9
+# 8
+#pragma config FOSC = INTIO67
+#pragma config PLLCFG = OFF
+#pragma config PRICLKEN = OFF
+
 #pragma config PWRTEN = ON
 #pragma config WDTEN = OFF
 #pragma config MCLRE = INTMCLR
 
-# 18 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\xc.h"
+# 18 "/opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/xc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "C:\Program Files\Microchip\xc8\v2.46\pic\include\c90\xc8debug.h"
+# 13 "/opt/microchip/xc8/v2.41/pic/include/c90/xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 13 "C:\Program Files\Microchip\xc8\v2.46\pic\include\c90\stdint.h"
+# 13 "/opt/microchip/xc8/v2.41/pic/include/c90/stdint.h"
 typedef signed char int8_t;
 
 # 20
@@ -104,7 +108,7 @@ typedef int16_t intptr_t;
 typedef uint16_t uintptr_t;
 
 
-# 7 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\builtins.h"
+# 7 "/opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/builtins.h"
 #pragma intrinsic(__nop)
 extern void __nop(void);
 
@@ -117,7 +121,7 @@ extern __nonreentrant void _delaywdt(uint32_t);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(uint8_t);
 
-# 52 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k22.h"
+# 52 "/opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/proc/pic18f46k22.h"
 extern volatile unsigned char ANSELA __at(0xF38);
 
 asm("ANSELA equ 0F38h");
@@ -9682,7 +9686,7 @@ extern volatile __bit nW2 __at(0x7B6A);
 
 extern volatile __bit nWRITE2 __at(0x7B6A);
 
-# 19 "C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\pic18.h"
+# 19 "/opt/microchip/mplabx/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8/pic/include/pic18.h"
 __attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
 __attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
 
@@ -9695,7 +9699,7 @@ __attribute__((__unsupported__("The " "Write_b_eep" " routine is no longer suppo
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 
-# 18 "pwm.c"
+# 21 "pwm.c"
 void main(void)
 {
 OSCCONbits.IRCF = 0b010;
@@ -9714,7 +9718,7 @@ IOCB=0xF0;
 
 PR4=0x9C ;
 
-# 39
+# 42
 CCPR4L=0b00001111;
 CCP4CONbits.DC4B=0b10;
 
@@ -9726,7 +9730,7 @@ T2CONbits.T2CKPS = 0b10;
 T2CONbits.TMR2ON = 1;
 CCP4CONbits.CCP4M=0b1100;
 
-# 54
+# 57
 while(1)
 {
 }
@@ -9742,7 +9746,7 @@ unsigned char actual = PORTB;
 switch (actual){
 case 0x80:
 
-# 70
+# 73
 CCPR4L=0b00000111;
 CCP4CONbits.DC4B=0b11;
 
@@ -9751,7 +9755,7 @@ break;
 
 case 0x40:
 
-# 79
+# 82
 CCPR4L=0b00001010;
 CCP4CONbits.DC4B=0b01;
 LATA=0b00000100;
@@ -9759,7 +9763,7 @@ break;
 
 case 0x20:
 
-# 87
+# 90
 CCPR4L=0b00001101;
 CCP4CONbits.DC4B=0b00;
 LATA=0b00000010;
@@ -9767,7 +9771,7 @@ break;
 
 case 0x10:
 
-# 95
+# 98
 CCPR4L=0b00001111;
 CCP4CONbits.DC4B=0b10;
 LATA=0b00000001;

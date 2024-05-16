@@ -5,7 +5,10 @@
  * Created on May 15, 2024, 12:58 PM
  */
 
-//#pragma config FOSC = HSHP       // Oscillator Selection bits (XT oscillator)
+#pragma config FOSC = INTIO67    // Oscilador interno
+#pragma config PLLCFG = OFF     // Oscilador PLL deshabilitado
+#pragma config PRICLKEN = OFF   // Reiniciar el reloj primario
+
 #pragma config PWRTEN = ON      // Power-up Timer Enable bit (Power up timer enabled)
 #pragma config WDTEN = OFF      // Watchdog Timer Enable bits (Watch dog timer is always disabled. SWDTEN has no effect.)
 #pragma config MCLRE = INTMCLR  // MCLR Pin Enable bit (RE3 input pin enabled; MCLR disabled)
