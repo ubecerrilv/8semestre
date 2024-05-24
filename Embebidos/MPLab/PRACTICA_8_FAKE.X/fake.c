@@ -19,20 +19,23 @@
 #include <xc.h>
 #define _XTAL_FREQ 8000000
 
-
 void main(void) {
+     //CONFIGURACI?N DE PUERTOS
+    TRISA=0xF0;     //Control de interrupciones (Entrada B4:B7)
+    ANSELA=0x00;    //Puerto B como entrada digital (B4:B7)
     
     TRISD=0x00;
     ANSELD=0X00;
-    
+ 
     while(1){
         
+        
         //0 grados
-        for(int i =0; i<250; i++){
+        /*for(int i =0; i<250; i++){
             LATD=0x02;
             __delay_us(1000);
             LATD=0x00;
-            __delay_us(190000);
+            __delay_us(19000);
             
         }
         
@@ -61,10 +64,10 @@ void main(void) {
             LATD=0x00;
             __delay_us(18000);
             
-        }
+        }*/
         
       //0 grados
-        /*for(int i =0; i<150; i++){
+        for(int i =0; i<150; i++){
             LATD=0x02;
             __delay_us(700);
             LATD=0x00;
@@ -97,8 +100,7 @@ void main(void) {
             LATD=0x00;
             __delay_us(17420);
             
-        }*/
+        }
     } 
     return;
 }
-
