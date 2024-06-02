@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.46 build 20240104201356 
-                                                                                               Mon May 27 13:07:40 2024
+                                                                                               Sat Jun  1 12:27:43 2024
 
 Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1 
      1                           	processor	18F46K22
@@ -273,15 +273,15 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    249   001158  6F3B               	movwf	59,b	;volatile
    250   00115A                     
    251                           ; BSR set to: 15
-   252                           ;teclado.c: 124:     INTCONbits.INT0E = 1;
+   252                           ;teclado.c: 124:         INTCONbits.INT0E = 1;
    253   00115A  88F2               	bsf	242,4,c	;volatile
    254   00115C                     
    255                           ; BSR set to: 15
-   256                           ;teclado.c: 125:     INTCONbits.INT0F = 0;
+   256                           ;teclado.c: 125:         INTCONbits.INT0F = 0;
    257   00115C  92F2               	bcf	242,1,c	;volatile
    258   00115E                     
    259                           ; BSR set to: 15
-   260                           ;teclado.c: 126:     INTCONbits.GIE = 1;
+   260                           ;teclado.c: 126:         INTCONbits.GIE = 1;
    261   00115E  8EF2               	bsf	242,7,c	;volatile
    262   001160                     
    263                           ; BSR set to: 15
@@ -735,13 +735,13 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    696                           ;	Chosen strategy is simple_byte
    697   0000AA  0A00               	xorlw	0	; case 0
    698   0000AC  B4D8               	btfsc	status,2,c
-   699   0000AE  EF2F  F000         	goto	i2l871
+   699   0000AE  EF11  F000         	goto	i2l859
    700   0000B2  0A01               	xorlw	1	; case 1
    701   0000B4  B4D8               	btfsc	status,2,c
-   702   0000B6  EF34  F000         	goto	i2l873
+   702   0000B6  EF16  F000         	goto	i2l861
    703   0000BA  0A03               	xorlw	3	; case 2
    704   0000BC  B4D8               	btfsc	status,2,c
-   705   0000BE  EF39  F000         	goto	i2l875
+   705   0000BE  EF1B  F000         	goto	i2l863
    706   0000C2  0A06               	xorlw	6	; case 4
    707   0000C4  B4D8               	btfsc	status,2,c
    708   0000C6  EF20  F000         	goto	i2l865
@@ -753,13 +753,13 @@ Microchip MPLAB XC8 C Compiler v2.46 (Free license) build 20240104201356 Og1
    714   0000D6  EF2A  F000         	goto	i2l869
    715   0000DA  0A0E               	xorlw	14	; case 8
    716   0000DC  B4D8               	btfsc	status,2,c
-   717   0000DE  EF11  F000         	goto	i2l859
+   717   0000DE  EF2F  F000         	goto	i2l871
    718   0000E2  0A01               	xorlw	1	; case 9
    719   0000E4  B4D8               	btfsc	status,2,c
-   720   0000E6  EF16  F000         	goto	i2l861
+   720   0000E6  EF34  F000         	goto	i2l873
    721   0000EA  0A03               	xorlw	3	; case 10
    722   0000EC  B4D8               	btfsc	status,2,c
-   723   0000EE  EF1B  F000         	goto	i2l863
+   723   0000EE  EF39  F000         	goto	i2l875
    724   0000F2  0A07               	xorlw	7	; case 13
    725   0000F4  B4D8               	btfsc	status,2,c
    726   0000F6  EF0C  F000         	goto	i2l857
@@ -1495,7 +1495,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.46 build 20240104201356 
-Symbol Table                                                                                   Mon May 27 13:07:40 2024
+Symbol Table                                                                                   Sat Jun  1 12:27:43 2024
 
      i2enviarNibble@dato 0003                       l30 11FE                       l61 11E4  
                      l29 11FE                       l55 11B0                       l58 10A4  

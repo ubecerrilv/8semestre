@@ -59,15 +59,15 @@ void __interrupt() isr_general(){
             enviarByte(0x30);
             break;
         
-        case 0b1000://1
+        case 0b0000://1
             enviarByte(0x31);
             break;
             
-        case 0b1001://2
+        case 0b0001://2
             enviarByte(0x32);
             break;
             
-        case 0b1010://3
+        case 0b0010://3
             enviarByte(0x33);
             break;
             
@@ -83,15 +83,15 @@ void __interrupt() isr_general(){
              enviarByte(0x36);
             break;
             
-        case 0b0000://7
+        case 0b1000://7
             enviarByte(0x37);
             break;
             
-        case 0b0001://8
+        case 0b1001://8
             enviarByte(0x38);
             break;
             
-        case 0b0010://9
+        case 0b1010://9
             enviarByte(0x39);
             break;
             
@@ -121,9 +121,9 @@ void setup (void){
     TRISD = 0x00;   //PUERTO D SALIDA
     ANSELD = 0X00;  //PUERTO D SALIDA DIGITAL
         //CONFIGURACION DE INTERRUPCIONES
-    INTCONbits.INT0E = 1;   //INT 0 HABILITADA
-    INTCONbits.INT0F = 0;   //BORRAR INT 0
-    INTCONbits.GIE = 1;     //INT GLOBALES HABILITADAS
+        INTCONbits.INT0E = 1;   //INT 0 HABILITADA
+        INTCONbits.INT0F = 0;   //BORRAR INT 0
+        INTCONbits.GIE = 1;     //INT GLOBALES HABILITADAS
     
     //COMANDOS PARA ENCENDER PANTALLA
     RS = 0;

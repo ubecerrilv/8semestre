@@ -245,8 +245,8 @@ smallconst 1000 1001 SMALLCONST 1000 0
 cstackCOMRAM 1 C COMRAM 1 1
 text3 1002 1206 CODE 1002 0
 %locals
-dist/default/production\PRACTICA_09.X.production.o
-C:\Users\ulise\AppData\Local\Temp\xcAslv8.\driver_tmp_1.s
+dist/default/production/PRACTICA_09.X.production.o
+/tmp/xcXNDgaEH/driver_tmp_1.s
 662 11B2 0 CODE 0
 664 11B2 0 CODE 0
 667 11B2 0 CODE 0
@@ -310,7 +310,7 @@ teclado.c
 158 108A 0 CODE 0
 159 108C 0 CODE 0
 160 10A4 0 CODE 0
-C:\Users\ulise\AppData\Local\Temp\xcAslv8.\driver_tmp_1.s
+/tmp/xcXNDgaEH/driver_tmp_1.s
 1553 8 0 CODE 0
 teclado.c
 52 8 0 CODE 0
