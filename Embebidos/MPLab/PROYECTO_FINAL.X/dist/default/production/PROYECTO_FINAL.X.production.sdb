@@ -1,0 +1,167 @@
+[p GLOBOPT AUTOSTATIC IEEE_FLT IEEE_DBL LFSROK EMI_WORD ]
+[d version 1.1 ]
+[d edition pro ]
+[d chip 18F46K22 ]
+[d frameptr 4065 ]
+"4 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\fleq.c
+[v ___fleq __fleq `(b  1 e 0 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\float.c
+[v ___ftpack __ftpack `(f  1 e 4 0 ]
+"86 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\ftadd.c
+[v ___ftadd __ftadd `(f  1 e 4 0 ]
+"54 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 4 0 ]
+"62 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\ftmul.c
+[v ___ftmul __ftmul `(f  1 e 4 0 ]
+"19 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\ftsub.c
+[v ___ftsub __ftsub `(f  1 e 4 0 ]
+"10 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\sprcadd.c
+[v ___fladd __fladd `(d  1 e 4 0 ]
+"245
+[v ___flsub __flsub `(d  1 e 4 0 ]
+"11 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\sprcdiv.c
+[v ___fldiv __fldiv `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\sprcmul.c
+[v ___flmul __flmul `(d  1 e 4 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\Umul32.c
+[v ___lmul __lmul `(ul  1 e 4 0 ]
+"91 C:\Program Files\Microchip\xc8\v2.46\pic\sources\c90\common\Umul64.c
+[v ___omul __omul `(ul  1 e 4 0 ]
+"63 C:\Users\ulise\OneDrive\Documentos\Ingenieria\8semestre\Embebidos\MPLab\PROYECTO_FINAL.X\proyecto.c
+[v _main main `(v  1 e 1 0 ]
+"148
+[v _start_LCD4b start_LCD4b `(v  1 e 1 0 ]
+"176
+[v _clrs_LCD4b clrs_LCD4b `(v  1 e 1 0 ]
+"186
+[v _wchar_LCD4b wchar_LCD4b `(v  1 e 1 0 ]
+"195
+[v _wstring_LCD4b wstring_LCD4b `(v  1 e 1 0 ]
+"205
+[v _gotoxy_LCD4b gotoxy_LCD4b `(v  1 e 1 0 ]
+"219
+[v _shift_L_LCD4b shift_L_LCD4b `(v  1 e 1 0 ]
+"232
+[v _shift_R_LCD4b shift_R_LCD4b `(v  1 e 1 0 ]
+"247
+[v _blinkc_LCD4b blinkc_LCD4b `(v  1 e 1 0 ]
+"263
+[v _showc_LCD4b showc_LCD4b `(v  1 e 1 0 ]
+"282
+[v _enviarNibble enviarNibble `(v  1 e 1 0 ]
+"298
+[v _enviarByte enviarByte `(v  1 e 1 0 ]
+"198 C:/Program Files/Microchip/MPLABX/v6.05/packs/Microchip/PIC18F-K_DFP/1.7.134/xc8\pic\include\proc\pic18f46k22.h
+[v _ANSELD ANSELD `VEuc  1 e 1 @3899 ]
+[s S76 . 1 `uc 1 LATD0 1 0 :1:0 
+`uc 1 LATD1 1 0 :1:1 
+`uc 1 LATD2 1 0 :1:2 
+`uc 1 LATD3 1 0 :1:3 
+`uc 1 LATD4 1 0 :1:4 
+`uc 1 LATD5 1 0 :1:5 
+`uc 1 LATD6 1 0 :1:6 
+`uc 1 LATD7 1 0 :1:7 
+]
+"7923
+[s S85 . 1 `uc 1 LD0 1 0 :1:0 
+`uc 1 LD1 1 0 :1:1 
+`uc 1 LD2 1 0 :1:2 
+`uc 1 LD3 1 0 :1:3 
+`uc 1 LD4 1 0 :1:4 
+`uc 1 LD5 1 0 :1:5 
+`uc 1 LD6 1 0 :1:6 
+`uc 1 LD7 1 0 :1:7 
+]
+[u S94 . 1 `S76 1 . 1 0 `S85 1 . 1 0 ]
+[v _LATDbits LATDbits `VES94  1 e 1 @3980 ]
+"8726
+[v _TRISD TRISD `VEuc  1 e 1 @3989 ]
+"63 C:\Users\ulise\OneDrive\Documentos\Ingenieria\8semestre\Embebidos\MPLab\PROYECTO_FINAL.X\proyecto.c
+[v _main main `(v  1 e 1 0 ]
+{
+"137
+} 0
+"195
+[v _wstring_LCD4b wstring_LCD4b `(v  1 e 1 0 ]
+{
+"196
+[v wstring_LCD4b@i i `i  1 a 2 6 ]
+"195
+[v wstring_LCD4b@cadena cadena `*.31uc  1 p 1 4 ]
+"199
+} 0
+"186
+[v _wchar_LCD4b wchar_LCD4b `(v  1 e 1 0 ]
+{
+[v wchar_LCD4b@c c `uc  1 a 1 wreg ]
+[v wchar_LCD4b@c c `uc  1 a 1 wreg ]
+[v wchar_LCD4b@c c `uc  1 a 1 3 ]
+"190
+} 0
+"148
+[v _start_LCD4b start_LCD4b `(v  1 e 1 0 ]
+{
+"171
+} 0
+"263
+[v _showc_LCD4b showc_LCD4b `(v  1 e 1 0 ]
+{
+[v showc_LCD4b@b b `uc  1 a 1 wreg ]
+[v showc_LCD4b@b b `uc  1 a 1 wreg ]
+[v showc_LCD4b@b b `uc  1 a 1 3 ]
+"271
+} 0
+"232
+[v _shift_R_LCD4b shift_R_LCD4b `(v  1 e 1 0 ]
+{
+"236
+[v shift_R_LCD4b@i i `i  1 a 2 7 ]
+"232
+[v shift_R_LCD4b@r r `i  1 p 2 3 ]
+"240
+} 0
+"219
+[v _shift_L_LCD4b shift_L_LCD4b `(v  1 e 1 0 ]
+{
+"223
+[v shift_L_LCD4b@i i `i  1 a 2 7 ]
+"219
+[v shift_L_LCD4b@l l `i  1 p 2 3 ]
+"227
+} 0
+"205
+[v _gotoxy_LCD4b gotoxy_LCD4b `(v  1 e 1 0 ]
+{
+[v gotoxy_LCD4b@x x `i  1 p 2 3 ]
+[v gotoxy_LCD4b@y y `i  1 p 2 5 ]
+"214
+} 0
+"176
+[v _clrs_LCD4b clrs_LCD4b `(v  1 e 1 0 ]
+{
+"180
+} 0
+"247
+[v _blinkc_LCD4b blinkc_LCD4b `(v  1 e 1 0 ]
+{
+[v blinkc_LCD4b@b b `uc  1 a 1 wreg ]
+[v blinkc_LCD4b@b b `uc  1 a 1 wreg ]
+[v blinkc_LCD4b@b b `uc  1 a 1 3 ]
+"256
+} 0
+"298
+[v _enviarByte enviarByte `(v  1 e 1 0 ]
+{
+[v enviarByte@dato dato `uc  1 a 1 wreg ]
+[v enviarByte@dato dato `uc  1 a 1 wreg ]
+[v enviarByte@dato dato `uc  1 a 1 2 ]
+"301
+} 0
+"282
+[v _enviarNibble enviarNibble `(v  1 e 1 0 ]
+{
+[v enviarNibble@dato dato `uc  1 a 1 wreg ]
+[v enviarNibble@dato dato `uc  1 a 1 wreg ]
+[v enviarNibble@dato dato `uc  1 a 1 1 ]
+"292
+} 0
