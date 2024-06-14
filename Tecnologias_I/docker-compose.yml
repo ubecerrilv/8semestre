@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: Redalyc
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: uli2002bece
+    ports:
+      - "5432:5432"
+
+  servicio0:
+    image: servicio0/articulos
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/Redalyc
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: uli2002bece
+    ports:
+      - "8080:8080"
+
+  servicio1:
+    image: servicio1/articulos
+    ports:
+      - "6000:6000"
+
+  servicio2:
+    image: servicio2/articulos
+    depends_on:
+      - db
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/Redalyc
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: uli2002bece
+    ports:
+        - "6001:6001"
+
+volumes:
+  postgres_data:
